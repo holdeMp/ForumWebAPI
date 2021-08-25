@@ -1,0 +1,58 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Forum</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <div class="d-flex flex-column ml-auto" id="navbarSearchEnter">
+        <form class="d-flex ml-auto">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" id="search-button" type="submit">Search</button>
+        </form>
+        <div class="d-flex flex-row ml-auto mt-2">
+          <button class="btn btn-outline-dark "data-bs-toggle="modal" data-bs-target="#registerModal" id="registerButton">Register</button>
+          <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Register New Account</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form ngNativeValidate>
+                    <div class="form-group">
+                        <label>Enter username</label>
+                        <input class="form-control" required name="username" [(ngModel)]="RegisterUserModel.username" minlength="2" />
+                    </div>
+                    <div class="form-group">
+                        <label>Enter email</label>
+                        <input type="email" required class="form-control" name="email" [(ngModel)]="RegisterUserModel.email" />
+                    </div>
+                    <div class="form-group">
+                        <label>Enter password</label>
+                        <input class="form-control" required name="password" [(ngModel)]="RegisterUserModel.password" type="password"/>
+                    </div>
+                    <div class="form-group">
+                      <label>Confirm password</label>
+                      <input class="form-control" required name="passwordConfirm" [(ngModel)]="RegisterUserModel.passwordConfirm" type="password"/>
+                    </div>
+                  
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary ml-auto" (click)="registerUser(RegisterUserModel)">Register</button>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-dark">Login</button>
+        </div>
+      </div>
+  </div>
+
+</nav>
+
+<router-outlet></router-outlet>

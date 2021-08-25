@@ -1,0 +1,9 @@
+#navbar {
+    background-color: darkgray !important;
+}
+#search-button {
+    color: black !important;
+}
+#registerButton {
+    margin-right: 15px;
+}

@@ -1,3 +1,12 @@
+using AutoMapper;
+using Business;
+using Business.Interfaces;
+using Business.Models;
+using Business.Services;
+using DAL;
+using DAL.Interfaces;
+using Data;
+using Data.Entities;
 using ForumAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,10 +41,21 @@ namespace ForumAPI
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ForumDbContext>(options =>
+            options.UseSqlServer(
+                Configuration.GetConnectionString("ForumDB")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+
+            services.AddControllers().AddNewtonsoftJson();
+            services.AddIdentity<User, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllers();
+            services.Configure<IdentityOptions>(options =>
+            {
+
+                options.Password.RequireNonAlphanumeric = false;
+
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ForumApi", Version = "v1" });
@@ -45,6 +65,9 @@ namespace ForumAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(options=>options.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
