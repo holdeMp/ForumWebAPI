@@ -47,7 +47,7 @@ namespace ForumAPI
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddControllers().AddNewtonsoftJson();
-            services.AddIdentity<User, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<User, IdentityRole>(options=>options.User.RequireUniqueEmail=true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllers();
             services.Configure<IdentityOptions>(options =>

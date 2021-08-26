@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms'
 import { passwordValidator,match } from './passvalidator.directive';
+import { HttpErrorResponse } from '@angular/common/http';
+import $ from "jquery";
+import 'bootstrap';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -43,10 +46,17 @@ export class AppComponent {
         let usertemp3 = new RegisterUserModel(user.value.username,user.value.email,user.value.password,user.value.passwordConfirm);
         this.httpService.postRegisterUser(usertemp3)
                 .subscribe(
-                    (data: any) => {this.receivedUser=data; this.done=true;this.route.navigate(['ConfirmEmail']);},
+                    (data: any) => {this.receivedUser=data; this.done=true;this.route.navigate(['ConfirmEmail']);
+                    document.getElementById("registerButton").click();},
                     error => {
-                      alert(error);
-                      console.log(error);}
+                     
+                      document.getElementById("registerButton").click();
+                      alert(error.error[0].description);
+                      console.log(error.error[0].description);
+                      this.route.navigate(['']);
+                      
+                      
+                    }
                 );
     }
 }

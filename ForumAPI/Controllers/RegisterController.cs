@@ -9,10 +9,12 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 namespace ForumAPI.Controllers
@@ -24,10 +26,11 @@ namespace ForumAPI.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ApplicationDbContext dbContext;
-
-        public RegisterController(UserManager<User> userManager, SignInManager<User> signInManager,ApplicationDbContext applicationDbContext)
+        private readonly ILogger<RegisterController > _logger;
+        public RegisterController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<RegisterController> logger, ApplicationDbContext applicationDbContext)
         {
             _userManager = userManager;
+            _logger = logger;
             _signInManager = signInManager;
             dbContext = applicationDbContext;
         }
@@ -41,33 +44,15 @@ namespace ForumAPI.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
-                        pageHandler: null,
-                        values: new { area = "Identity", userId = newUser.Id, code = code },
-                        protocol: Request.Scheme);
-
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
-                    {
-                        return RedirectToPage("RegisterConfirmation",
-                                              new { email = Input.Email });
-                    }
-                    else
-                    {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
-                    }
+                    await _signInManager.SignInAsync(newUser, isPersistent: false);
+                    return Ok(result);
                 }
+                _logger.LogInformation(result.Errors.FirstOrDefault().Description);
                 return BadRequest(result.Errors);
             }
-            catch
+            catch(Exception ex)
             {
+                _logger.LogError(ex, ex.Message);
                 return BadRequest();
             }
         }

@@ -1,0 +1,206 @@
+2021-08-26 21:23:19.9435|0|DEBUG|ForumAPI.Program|Application start 
+2021-08-26 21:23:19.9435|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-08-26 21:23:21.4325|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-08-26 21:23:21.4325|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:23:21.4643|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-08-26 21:23:21.4643|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:23:21.4743|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-08-26 21:23:21.4743|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:24:30.7615|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 21:24:30.7615|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:24:36.0167|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:24:36.0167|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:25:39.7612|0|DEBUG|ForumAPI.Program|Application start 
+2021-08-26 21:25:39.7612|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-08-26 21:25:41.1516|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-08-26 21:25:41.1516|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:25:41.1645|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-08-26 21:25:41.1645|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:25:41.1723|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-08-26 21:25:41.1723|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:27:22.6032|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 21:27:22.6032|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:27:24.8748|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:27:24.8748|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:32:46.1889|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 21:32:46.1889|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:32:46.1889|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:32:46.1889|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:35:43.1784|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 21:35:43.1784|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:35:43.1784|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:35:43.1784|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:37:59.8958|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 21:37:59.8958|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:37:59.8958|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:37:59.8958|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:38:47.5096|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 21:38:47.5096|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:38:47.5096|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:38:47.5096|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:40:28.2077|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 21:40:28.2077|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:40:28.2334|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:40:28.2334|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:41:54.1478|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 21:41:54.1478|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:41:54.1478|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:41:54.1478|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:43:20.0673|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 21:43:20.0673|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:43:20.0673|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:43:20.0673|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:43:45.1411|0|INFO|ForumAPI.Controllers.RegisterController|User created a new account with password. 
+2021-08-26 21:43:45.1411|0|INFO|ForumAPI.Controllers.RegisterController|User created a new account with password. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:45:44.7490|0|DEBUG|ForumAPI.Program|Application start 
+2021-08-26 21:45:44.7490|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-08-26 21:45:46.0183|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-08-26 21:45:46.0183|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:45:46.0529|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-08-26 21:45:46.0529|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:45:46.0680|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-08-26 21:45:46.0680|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:47:35.5996|0|ERROR|ForumAPI.Controllers.RegisterController|Sequence contains more than one element. System.InvalidOperationException: Sequence contains more than one element.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at Microsoft.AspNetCore.Identity.UserValidator`1.ValidateEmail(UserManager`1 manager, TUser user, List`1 errors)
+   at Microsoft.AspNetCore.Identity.UserValidator`1.ValidateAsync(UserManager`1 manager, TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.ValidateUserAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CreateAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CreateAsync(TUser user, String password)
+   at ForumAPI.Controllers.RegisterController.Create(UserModel user) in C:\Users\molot\source\repos\ForumAPI\ForumAPI\Controllers\RegisterController.cs:line 43
+2021-08-26 21:47:35.5996|0|ERROR|ForumAPI.Controllers.RegisterController|Sequence contains more than one element. System.InvalidOperationException: Sequence contains more than one element.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at Microsoft.AspNetCore.Identity.UserValidator`1.ValidateEmail(UserManager`1 manager, TUser user, List`1 errors)
+   at Microsoft.AspNetCore.Identity.UserValidator`1.ValidateAsync(UserManager`1 manager, TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.ValidateUserAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CreateAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CreateAsync(TUser user, String password)
+   at ForumAPI.Controllers.RegisterController.Create(UserModel user) in C:\Users\molot\source\repos\ForumAPI\ForumAPI\Controllers\RegisterController.cs:line 43|url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:48:31.9040|0|ERROR|ForumAPI.Controllers.RegisterController|Sequence contains more than one element. System.InvalidOperationException: Sequence contains more than one element.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at Microsoft.AspNetCore.Identity.UserValidator`1.ValidateEmail(UserManager`1 manager, TUser user, List`1 errors)
+   at Microsoft.AspNetCore.Identity.UserValidator`1.ValidateAsync(UserManager`1 manager, TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.ValidateUserAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CreateAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CreateAsync(TUser user, String password)
+   at ForumAPI.Controllers.RegisterController.Create(UserModel user) in C:\Users\molot\source\repos\ForumAPI\ForumAPI\Controllers\RegisterController.cs:line 43
+2021-08-26 21:48:31.9040|0|ERROR|ForumAPI.Controllers.RegisterController|Sequence contains more than one element. System.InvalidOperationException: Sequence contains more than one element.
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at Microsoft.AspNetCore.Identity.UserValidator`1.ValidateEmail(UserManager`1 manager, TUser user, List`1 errors)
+   at Microsoft.AspNetCore.Identity.UserValidator`1.ValidateAsync(UserManager`1 manager, TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.ValidateUserAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CreateAsync(TUser user)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CreateAsync(TUser user, String password)
+   at ForumAPI.Controllers.RegisterController.Create(UserModel user) in C:\Users\molot\source\repos\ForumAPI\ForumAPI\Controllers\RegisterController.cs:line 43|url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:48:58.5818|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 21:48:58.5818|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:49:08.5740|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 21:49:08.5740|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:49:22.9946|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateEmail. 
+2021-08-26 21:49:22.9946|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 21:49:25.8946|0|INFO|ForumAPI.Controllers.RegisterController|Email 'jaane.smith1983@gmail.com' is already taken. 
+2021-08-26 21:49:25.8946|0|INFO|ForumAPI.Controllers.RegisterController|Email 'jaane.smith1983@gmail.com' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:50:02.6329|0|INFO|ForumAPI.Controllers.RegisterController|User created a new account with password. 
+2021-08-26 21:50:02.6329|0|INFO|ForumAPI.Controllers.RegisterController|User created a new account with password. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 21:59:38.7696|0|DEBUG|ForumAPI.Program|Application start 
+2021-08-26 21:59:38.7696|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-08-26 21:59:40.2946|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-08-26 21:59:40.2946|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:59:40.3113|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-08-26 21:59:40.3113|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 21:59:40.3113|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-08-26 21:59:40.3113|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-26 22:05:49.2232|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:05:49.2232|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:05:49.2376|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:05:49.2376|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:09:01.1795|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:09:01.1795|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:09:01.1795|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:09:01.1795|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:11:16.6990|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:11:16.6990|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:11:16.7008|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:11:16.7008|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:11:46.5647|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:11:46.5647|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:11:46.5647|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:11:46.5647|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:14:09.5229|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:14:09.5229|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:14:09.5229|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:14:09.5229|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:19:03.3666|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:19:03.3666|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:19:03.3666|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:19:03.3666|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:19:10.9915|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:19:10.9915|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:19:10.9915|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:19:10.9915|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:21:32.6853|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:21:32.6853|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:21:32.6853|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:21:32.6853|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:21:38.8736|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:21:38.8736|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:21:38.8736|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:21:38.8736|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:24:31.7562|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:24:31.7562|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:24:31.7562|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:24:31.7562|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:25:48.3685|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. 
+2021-08-26 22:25:48.3685|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:25:48.3685|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:25:48.3685|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:26:18.9044|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:26:18.9044|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:26:18.9044|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:26:18.9044|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:27:27.9479|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:27:27.9479|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:27:27.9479|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:27:27.9479|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:31:23.5859|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:31:23.5859|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:31:23.5859|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:31:23.5859|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:31:26.8483|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:31:26.8483|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:31:26.8483|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:31:26.8483|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:32:13.2979|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:32:13.2979|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:32:13.2979|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:32:13.2979|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:33:50.0637|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:33:50.0637|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:33:50.0637|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:33:50.0637|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:34:31.0647|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:34:31.0647|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:34:31.0647|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:34:31.0647|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:35:02.6858|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:35:02.6858|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:35:02.6858|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:35:02.6858|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:35:29.5331|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:35:29.5331|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:35:29.5331|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:35:29.5331|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:36:15.9680|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-26 22:36:15.9680|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-26 22:36:15.9924|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-26 22:36:15.9924|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-26 22:36:30.0010|0|INFO|ForumAPI.Controllers.RegisterController|User created a new account with password. 
+2021-08-26 22:36:30.0010|0|INFO|ForumAPI.Controllers.RegisterController|User created a new account with password. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
