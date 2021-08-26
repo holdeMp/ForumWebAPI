@@ -4,7 +4,7 @@ import {Routes, RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  }   from '@angular/forms';
 import { EmailconfirmationComponent }   from './emailconfirmation/emailconfirmation.component';
 import { NotFoundComponent }   from './not-found/not-found.component';
 import { HttpClientModule }   from '@angular/common/http';
@@ -12,7 +12,7 @@ import { HttpClientModule }   from '@angular/common/http';
 
 // определение маршрутов
 const appRoutes: Routes =[
-  { path: 'email_confirm', component: EmailconfirmationComponent},
+  { path: 'ConfirmEmail', component: EmailconfirmationComponent},
   { path: '*', component: NotFoundComponent }
 ];
 
@@ -26,6 +26,7 @@ const appRoutes: Routes =[
     NgbModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

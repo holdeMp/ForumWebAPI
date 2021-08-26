@@ -21,27 +21,37 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form ngNativeValidate>
+                  <form ngNativeValidate [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
                     <div class="form-group">
-                        <label>Enter username</label>
-                        <input class="form-control" required name="username" [(ngModel)]="RegisterUserModel.username" minlength="2" />
+                        <label>Enter username </label><span class="required"> *</span>
+                        <input class="form-control" required name="username" formControlName="username" minlength="2" />
                     </div>
                     <div class="form-group">
-                        <label>Enter email</label>
-                        <input type="email" required class="form-control" name="email" [(ngModel)]="RegisterUserModel.email" />
+                        <label>Enter email</label><span class="required"> *</span>
+                        <input type="email" required class="form-control" formControlName="email" name="email"  />
                     </div>
                     <div class="form-group">
-                        <label>Enter password</label>
-                        <input class="form-control" required name="password" [(ngModel)]="RegisterUserModel.password" type="password"/>
+                        <label>Enter password</label><span class="required"> *</span>
+                        <input class="form-control" id="passVal" required name="password" formControlName="password" type="password"/>
+                        <div class="alert-danger" *ngIf="password && password.invalid && (password.dirty || password.touched)">
+                          <div class="Invalid" *ngIf="password.errors.minlength " >Password length must be more than 5</div>
+                          <div class="Invalid" *ngIf="password.errors.notnumber " >Password must contain number</div>
+                          <div class="Invalid" *ngIf="password.errors.notupper " >Password must contain upper character</div>
+                          <div class="Invalid" *ngIf="password.errors.notlower " >Password must contain lower character</div>
+                          
+                        </div>
                     </div>
                     <div class="form-group">
-                      <label>Confirm password</label>
-                      <input class="form-control" required name="passwordConfirm" [(ngModel)]="RegisterUserModel.passwordConfirm" type="password"/>
+                      <label>Confirm password</label><span class="required"> *</span>
+                      <input class="form-control" required name="passwordConfirm" formControlName="passwordConfirm"  type="password"/>
+                      <div class="alert-danger" *ngIf="passwordConfirm && passwordConfirm.errors && (passwordConfirm.dirty || passwordConfirm.touched)">
+                        <div class="Invalid" *ngIf="passwordConfirm.errors.notmatch " >Passwords don't match</div>
+                      </div>
                     </div>
                   
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary ml-auto" (click)="registerUser(RegisterUserModel)">Register</button>
+                    <button type="submit" class="btn btn-primary ml-auto" [disabled]="registerForm.invalid">Register</button>
                   </div>
                 </form>
                 </div>

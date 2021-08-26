@@ -7,3 +7,13 @@
 #registerButton {
     margin-right: 15px;
 }
+.required {
+    color: red;
+}
+input+div {
+    display: none;
+    color: red;
+}
+input.ng-invalid+div{
+    display: inline;
+}
