@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { LoginUserModel } from '../loginUser';
 import { HttpService} from '../http.service';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 import { passwordValidator } from '../passvalidator.directive';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-loginform',
   templateUrl: './loginform.component.html',
@@ -14,7 +15,7 @@ import { passwordValidator } from '../passvalidator.directive';
 export class LoginformComponent implements OnInit {
   done: boolean = false;
   receivedUser: LoginUserModel | undefined;
-  constructor(private httpService: HttpService, private route: Router) { }
+  constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -40,11 +41,10 @@ export class LoginformComponent implements OnInit {
                       this.route.navigate(['']);
                      },
       error => {
-       
-        alert(error.error[0].description);
-        console.log(error.error[0].description);
-        this.route.navigate(['']);
-                 
+        if(error!==undefined){
+          this.toastr.error(error.error[0].description);
+          console.log(error.error[0].description);
+        }                
       }
   );
 }

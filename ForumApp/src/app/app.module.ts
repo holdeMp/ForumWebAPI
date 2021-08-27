@@ -9,7 +9,9 @@ import { EmailconfirmationComponent }   from './emailconfirmation/emailconfirmat
 import { NotFoundComponent }   from './not-found/not-found.component';
 import { HttpClientModule }   from '@angular/common/http';
 import { LoginformComponent } from './loginform/loginform.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 
 // определение маршрутов
 const appRoutes: Routes =[
@@ -30,7 +32,9 @@ const appRoutes: Routes =[
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

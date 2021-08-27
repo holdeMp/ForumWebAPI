@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import {RegisterUserModel} from './user';
 import { HttpService} from './http.service';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms'
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { passwordValidator,match } from './passvalidator.directive';
-import { HttpErrorResponse } from '@angular/common/http';
-import $ from "jquery";
+import { delay } from "rxjs/operators";
+import { ToastrService } from 'ngx-toastr';
 import 'bootstrap';
 import { LoginUserModel } from './loginUser';
 @Component({
@@ -54,20 +53,24 @@ export class AppComponent {
   get passwordConfirm(){
     return this.registerForm.get('passwordConfirm')
   }
-  constructor(private httpService: HttpService, private route: Router){
+  constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService){
       
     }
     registerUser(user: any){
         let usertemp3 = new RegisterUserModel(user.value.username,user.value.email,user.value.password,user.value.passwordConfirm);
         this.httpService.postRegisterUser(usertemp3)
                 .subscribe(
-                    (data: any) => {this.receivedUser=data; this.done=true;
-                      alert("Succesful registration")
+                    async (data: any) => {
+                      this.receivedUser=data; 
+                      this.done=true;
+                      this.toastr.success("navigating to login page ...","Succesful registration",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
+                      await new Promise(f => setTimeout(f, 1200));
+                      
                       this.route.navigate(['login']);
                     document.getElementById("registerButton").click();},
                     error => {
                      
-                      alert(error.error[0].description);
+                      this.toastr.error(error.error[0].description);
                       console.log(error.error[0].description);
                       this.route.navigate(['']);
                       
@@ -78,14 +81,17 @@ export class AppComponent {
     login(user:any){
       let userLoginModel = new LoginUserModel(user.value.loginUsername,user.value.loginPassword,user.value.rememberMe);
       this.httpService.postLogin(userLoginModel) .subscribe(
-        (data: any) => {this.receivedUser=data; 
-                        this.done=true;
-                       
-        document.getElementById("loginButton").click();},
+        (data: any) => {
+                        this.toastr.success(null,"Succesful login",{tapToDismiss:true,timeOut:1000,progressAnimation:'increasing',progressBar:true})
+                        this.receivedUser=data; 
+                        this.done=true;                     
+                        document.getElementById("loginButton").click();
+                        },
         error => {
-         
-          alert(error.error[0].description);
-          console.log(error.error[0].description);
+          if(error!==undefined){
+            this.toastr.error("Incorrect username or password","Incorrect login attempt",{tapToDismiss:true,timeOut:2000});
+            console.log(error.error[0].description);
+          }
           this.route.navigate(['']);
                    
         }
