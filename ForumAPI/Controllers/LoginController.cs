@@ -36,7 +36,7 @@ namespace ForumAPI.Controllers
                 var userByEmail = _userManager.FindByEmailAsync(user.UserNameOrEmail);
                 if (userByName != null)
                 {
-                    var result = await _signInManager.PasswordSignInAsync(userByName.Result, user.Password, true, false);
+                    var result = await _signInManager.PasswordSignInAsync(userByName.Result, user.Password, user.RememberMe, false);
                     if (result.Succeeded)
                     {
                         _logger.LogInformation("User login.");

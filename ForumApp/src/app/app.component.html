@@ -75,9 +75,18 @@
                     <div class="form-group">
                         <label>Enter password</label><span class="required"> *</span>
                         <input type="password" required class="form-control" formControlName="loginPassword" name="loginPassword"  />
-                    </div>                    
-                  
-                  
+                        <div class="alert-danger" *ngIf="loginPassword && loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)">
+                          <div class="Invalid" *ngIf="loginPassword.errors.minlength " >Password length must be more than 5</div>
+                          <div class="Invalid" *ngIf="loginPassword.errors.notnumber " >Password must contain number</div>
+                          <div class="Invalid" *ngIf="loginPassword.errors.notupper " >Password must contain upper character</div>
+                          <div class="Invalid" *ngIf="loginPassword.errors.notlower " >Password must contain lower character</div>
+                          
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">             
+                      <input type="checkbox" class="form-check-input" id="rememberCheck" formControlName="rememberMe">
+                      <label class="form-check-label" for="rememberCheck">Remember me</label>
+                    </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary ml-auto" [disabled]="loginForm.invalid">Log In</button>

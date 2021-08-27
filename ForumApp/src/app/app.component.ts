@@ -30,8 +30,12 @@ export class AppComponent {
   });
   loginForm = new FormGroup({
     loginUsername:new FormControl('',[Validators.required,Validators.minLength(3)]),
-    loginPassword:new FormControl('',[Validators.required,Validators.minLength(6)])
+    loginPassword:new FormControl('',[Validators.required,Validators.minLength(6),passwordValidator()]),
+    rememberMe:new FormControl(false)
   })
+  get rememberMe(){
+    return this.loginForm.get('rememberMe')
+  }
   get loginUsername(){
     return this.loginForm.get('loginUsername')
   }
@@ -57,7 +61,9 @@ export class AppComponent {
         let usertemp3 = new RegisterUserModel(user.value.username,user.value.email,user.value.password,user.value.passwordConfirm);
         this.httpService.postRegisterUser(usertemp3)
                 .subscribe(
-                    (data: any) => {this.receivedUser=data; this.done=true;this.route.navigate(['ConfirmEmail']);
+                    (data: any) => {this.receivedUser=data; this.done=true;
+                      alert("Succesful registration")
+                      this.route.navigate(['login']);
                     document.getElementById("registerButton").click();},
                     error => {
                      
@@ -70,9 +76,11 @@ export class AppComponent {
                 );
     }
     login(user:any){
-      let userLoginModel = new LoginUserModel(user.value.loginUsername,user.value.loginPassword);
+      let userLoginModel = new LoginUserModel(user.value.loginUsername,user.value.loginPassword,user.value.rememberMe);
       this.httpService.postLogin(userLoginModel) .subscribe(
-        (data: any) => {this.receivedUser=data; this.done=true;this.route.navigate(['']);
+        (data: any) => {this.receivedUser=data; 
+                        this.done=true;
+                       
         document.getElementById("loginButton").click();},
         error => {
          

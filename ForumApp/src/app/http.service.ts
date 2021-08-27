@@ -14,7 +14,7 @@ export class HttpService{
         return this.http.post('https://localhost:44381/api/register', body); 
     }
     postLogin(loginUser :LoginUserModel){
-        const body = {usernameOrEmail: loginUser.usernameOrEmail, password: loginUser.password};
+        const body = {usernameOrEmail: loginUser.usernameOrEmail, password: loginUser.password,rememberMe:loginUser.rememberMe};
         return this.http.post('https://localhost:44381/api/login', body);
     }
 }
