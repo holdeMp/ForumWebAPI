@@ -12,7 +12,7 @@
           <button class="btn btn-outline-success" id="search-button" type="submit">Search</button>
         </form>
         <div class="d-flex flex-row ml-auto mt-2">
-          <button class="btn btn-outline-dark "data-bs-toggle="modal" data-bs-target="#registerModal" id="registerButton">Register</button>
+          <button class="btn btn-outline-dark "data-bs-toggle="modal" data-bs-target="#registerModal" id="registerButton">Sign Up</button>
           <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -58,7 +58,35 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-outline-dark">Login</button>
+          <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#loginModal" id="loginButton">Log In</button>
+          <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Login </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form ngNativeValidate [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+                    <div class="form-group">
+                        <label>Enter username or email </label><span class="required"> *</span>
+                        <input class="form-control" required name="username" formControlName="loginUsername" minlength="3" />
+                    </div>
+                    <div class="form-group">
+                        <label>Enter password</label><span class="required"> *</span>
+                        <input type="password" required class="form-control" formControlName="loginPassword" name="loginPassword"  />
+                    </div>                    
+                  
+                  
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary ml-auto" [disabled]="loginForm.invalid">Log In</button>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
   </div>

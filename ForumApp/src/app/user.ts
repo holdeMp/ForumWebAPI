@@ -5,4 +5,5 @@ export class RegisterUserModel{
                 public passwordConfirm:string)
     { 
     }
-  }
+}
+

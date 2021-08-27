@@ -8,6 +8,7 @@ import { passwordValidator,match } from './passvalidator.directive';
 import { HttpErrorResponse } from '@angular/common/http';
 import $ from "jquery";
 import 'bootstrap';
+import { LoginUserModel } from './loginUser';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,13 +21,23 @@ export class AppComponent {
   receivedUser: RegisterUserModel | undefined; // полученный пользователь
   done: boolean = false;
   registerForm = new FormGroup({
-    username:new FormControl('',[Validators.required,Validators.minLength(2)]),
+    username:new FormControl('',[Validators.required,Validators.minLength(3)]),
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required,Validators.minLength(6),passwordValidator()]),
     passwordConfirm:new FormControl('',[Validators.required,Validators.minLength(6)])
   },{
     validators:[match('password', 'passwordConfirm')]
   });
+  loginForm = new FormGroup({
+    loginUsername:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    loginPassword:new FormControl('',[Validators.required,Validators.minLength(6)])
+  })
+  get loginUsername(){
+    return this.loginForm.get('loginUsername')
+  }
+  get loginPassword(){
+    return this.loginForm.get('loginPassword')
+  }
   get username(){
     return this.registerForm.get('username')
   }
@@ -50,7 +61,6 @@ export class AppComponent {
                     document.getElementById("registerButton").click();},
                     error => {
                      
-                      document.getElementById("registerButton").click();
                       alert(error.error[0].description);
                       console.log(error.error[0].description);
                       this.route.navigate(['']);
@@ -58,5 +68,19 @@ export class AppComponent {
                       
                     }
                 );
+    }
+    login(user:any){
+      let userLoginModel = new LoginUserModel(user.value.loginUsername,user.value.loginPassword);
+      this.httpService.postLogin(userLoginModel) .subscribe(
+        (data: any) => {this.receivedUser=data; this.done=true;this.route.navigate(['']);
+        document.getElementById("loginButton").click();},
+        error => {
+         
+          alert(error.error[0].description);
+          console.log(error.error[0].description);
+          this.route.navigate(['']);
+                   
+        }
+    );
     }
 }

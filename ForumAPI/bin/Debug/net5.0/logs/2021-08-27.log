@@ -1,0 +1,50 @@
+2021-08-27 15:04:09.5957|0|DEBUG|ForumAPI.Program|Application start 
+2021-08-27 15:04:09.5957|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-08-27 15:04:11.0727|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-08-27 15:04:11.0727|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:04:11.1150|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-08-27 15:04:11.1150|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:04:11.1225|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-08-27 15:04:11.1225|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:14:34.0668|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. 
+2021-08-27 15:14:34.0668|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: DuplicateUserName;DuplicateEmail. |url: https://localhost/api/register|action: Create|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2021-08-27 15:14:34.0847|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. 
+2021-08-27 15:14:34.0847|0|INFO|ForumAPI.Controllers.RegisterController|Username 'aimbodya' is already taken. |url: https://localhost/api/register|action: Create|ForumAPI.Controllers.RegisterController+<Create>d__5.MoveNext| body: 
+2021-08-27 15:15:49.5535|0|DEBUG|ForumAPI.Program|Application start 
+2021-08-27 15:15:49.5535|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-08-27 15:15:50.7434|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-08-27 15:15:50.7434|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:15:50.7569|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-08-27 15:15:50.7569|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:15:50.7679|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-08-27 15:15:50.7679|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:24:06.7908|0|DEBUG|ForumAPI.Program|Application start 
+2021-08-27 15:24:06.7908|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-08-27 15:24:07.9808|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-08-27 15:24:07.9808|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:24:07.9912|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-08-27 15:24:07.9912|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:24:07.9996|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-08-27 15:24:07.9996|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:30:03.1822|0|DEBUG|ForumAPI.Program|Application start 
+2021-08-27 15:30:03.1822|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-08-27 15:30:04.7018|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-08-27 15:30:04.7018|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:30:04.7018|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-08-27 15:30:04.7018|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:30:04.7330|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-08-27 15:30:04.7330|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-08-27 15:30:30.7631|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ForumAPI.Data.ApplicationDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync() System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2021-08-27 15:30:30.7631|10100|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'ForumAPI.Data.ApplicationDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync() System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()|url: https://localhost/api/login|action: Login|Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`3.Log| body: 
+2021-08-27 15:30:40.7392|0|INFO|ForumAPI.Controllers.LoginController|User login. 
+2021-08-27 15:30:40.7392|0|INFO|ForumAPI.Controllers.LoginController|User login. |url: https://localhost/api/login|action: Login|ForumAPI.Controllers.LoginController+<Login>d__5.MoveNext| body: 
