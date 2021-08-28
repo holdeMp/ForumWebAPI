@@ -2,19 +2,22 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Forum</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
 
       <div class="d-flex flex-column ml-auto" id="navbarSearchEnter">
         <form class="d-flex ml-auto">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" id="search-button" type="submit">Search</button>
         </form>
-        <div *ngIf="getUser() && getUser().userName.length>0 && getUser().id.length>0"> 
-          <div class="text-end mt-2">Welcome , {{user.userName}}</div>
+        <div *ngIf="getLoginService().user && getLoginService().user.userName.length>0 && getLoginService().user.id.length>0"> 
+          <div class="text-end mt-2">Welcome , {{getLoginService().user.userName}}</div>
         </div>
-        <div *ngIf="this.logged===false" class="d-flex flex-row ml-auto mt-2">
+        <div class="text-end" *ngIf="getLoginService().user">
+          <button class="btn btn-outline-dark" (click)="logout()">Log out</button>
+        </div>
+        <div class="d-flex flex-row ml-auto mt-2" *ngIf="!(getLoginService().user)">
           <button class="btn btn-outline-dark "data-bs-toggle="modal" data-bs-target="#registerModal" id="registerButton">Sign Up</button>
           <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

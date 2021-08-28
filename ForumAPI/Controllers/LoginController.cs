@@ -39,6 +39,7 @@ namespace ForumAPI.Controllers
                     var result = await _signInManager.PasswordSignInAsync(userByName.Result, user.Password, user.RememberMe, false);
                     if (result.Succeeded)
                     {
+                        
                         _logger.LogInformation("User login.");
                         return Ok(new ResponsedUserModel { UserName = userByName.Result.UserName,Email= userByName.Result.Email,
                         AvatarPath= userByName.Result.AvatarPath,BirthDate= userByName.Result.BirthDate,RegistrationDate= userByName.Result.RegistrationDate,

@@ -4,12 +4,11 @@ import { HttpService} from './http.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { passwordValidator,match } from './passvalidator.directive';
-import { delay } from "rxjs/operators";
 import { ToastrService } from 'ngx-toastr';
 import 'bootstrap';
 import { LoginUserModel } from './loginUser';
 import { User } from './user';
-import { HttpResponse } from '@angular/common/http';
+import { LoginService } from './login.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,7 +19,7 @@ export class AppComponent {
   title = 'ForumApp';
   RegisterUserModel = new RegisterUserModel("","","","");
   receivedUser :RegisterUserModel|undefined;
-  user = new User('','','','','','',''); // полученный пользователь
+  user : User|any; // полученный пользователь
   logged: boolean = false;
   registred :boolean = false;
   registerForm = new FormGroup({
@@ -58,16 +57,26 @@ export class AppComponent {
     return this.registerForm.get('passwordConfirm')
   }
   setUser(user:User){
-    // this.user.avatarPath=user.avatarPath;
-    // this.user.userName=user.userName;
-    // this.user.birthDate=user.birthDate;
-    // this.user.id = user.id;
-    // this.user.email = user.email;
+
+  }
+  logout(){
+    this.httpService.resetcredentials();
+    //this.loginService.logout();
+  }
+  getLoginService():LoginService{
+    return this.loginService;
+  }
+  getCurrentUser():any{
+      return this.loginService.currentUser;
+  }
+  getLoggedStatus():any{
+    return this.loginService.islogged;
   }
   getUser():User{
-    return this.user;
+    return this.loginService.user;
   }
-  constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService){
+  constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService,
+    private loginService :LoginService){
       
     }
     registerUser(user: any){
@@ -96,9 +105,10 @@ export class AppComponent {
       let userLoginModel = new LoginUserModel(user.value.loginUsername,user.value.loginPassword,user.value.rememberMe);
       this.httpService.postLogin(userLoginModel) .subscribe(
         (data: User) => {
-                          this.user=(data);
+                           console.log("Succesful loggining...")
+                          this.loginService.login(data);
                           this.toastr.success(null,"Succesful login",{tapToDismiss:true,timeOut:1000,progressAnimation:'increasing',progressBar:true})
-                         
+                          this.loginService.islogged=true;
                           this.logged=true;                     
                           document.getElementById("loginButton").click();
                         },
