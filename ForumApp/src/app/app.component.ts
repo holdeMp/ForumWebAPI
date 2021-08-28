@@ -69,9 +69,7 @@ export class AppComponent {
   getCurrentUser():any{
       return this.loginService.currentUser;
   }
-  getLoggedStatus():any{
-    return this.loginService.islogged;
-  }
+  
   getUser():User{
     return this.loginService.user;
   }
@@ -108,7 +106,7 @@ export class AppComponent {
                            console.log("Succesful loggining...")
                           this.loginService.login(data);
                           this.toastr.success(null,"Succesful login",{tapToDismiss:true,timeOut:1000,progressAnimation:'increasing',progressBar:true})
-                          this.loginService.islogged=true;
+                          
                           this.logged=true;                     
                           document.getElementById("loginButton").click();
                         },
