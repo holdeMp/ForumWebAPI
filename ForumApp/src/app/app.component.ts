@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RegisterUserModel} from './user';
+import {RegisterUserModel} from './RegisterUserModel';
 import { HttpService} from './http.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
@@ -8,6 +8,8 @@ import { delay } from "rxjs/operators";
 import { ToastrService } from 'ngx-toastr';
 import 'bootstrap';
 import { LoginUserModel } from './loginUser';
+import { User } from './user';
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,8 +19,10 @@ import { LoginUserModel } from './loginUser';
 export class AppComponent {
   title = 'ForumApp';
   RegisterUserModel = new RegisterUserModel("","","","");
-  receivedUser: RegisterUserModel | undefined; // полученный пользователь
-  done: boolean = false;
+  receivedUser :RegisterUserModel|undefined;
+  user = new User('','','','','','',''); // полученный пользователь
+  logged: boolean = false;
+  registred :boolean = false;
   registerForm = new FormGroup({
     username:new FormControl('',[Validators.required,Validators.minLength(3)]),
     email:new FormControl('',[Validators.required,Validators.email]),
@@ -53,6 +57,16 @@ export class AppComponent {
   get passwordConfirm(){
     return this.registerForm.get('passwordConfirm')
   }
+  setUser(user:User){
+    // this.user.avatarPath=user.avatarPath;
+    // this.user.userName=user.userName;
+    // this.user.birthDate=user.birthDate;
+    // this.user.id = user.id;
+    // this.user.email = user.email;
+  }
+  getUser():User{
+    return this.user;
+  }
   constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService){
       
     }
@@ -62,7 +76,7 @@ export class AppComponent {
                 .subscribe(
                     async (data: any) => {
                       this.receivedUser=data; 
-                      this.done=true;
+                      this.registred=true;
                       this.toastr.success("navigating to login page ...","Succesful registration",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
                       await new Promise(f => setTimeout(f, 1200));
                       
@@ -81,11 +95,12 @@ export class AppComponent {
     login(user:any){
       let userLoginModel = new LoginUserModel(user.value.loginUsername,user.value.loginPassword,user.value.rememberMe);
       this.httpService.postLogin(userLoginModel) .subscribe(
-        (data: any) => {
-                        this.toastr.success(null,"Succesful login",{tapToDismiss:true,timeOut:1000,progressAnimation:'increasing',progressBar:true})
-                        this.receivedUser=data; 
-                        this.done=true;                     
-                        document.getElementById("loginButton").click();
+        (data: User) => {
+                          this.user=(data);
+                          this.toastr.success(null,"Succesful login",{tapToDismiss:true,timeOut:1000,progressAnimation:'increasing',progressBar:true})
+                         
+                          this.logged=true;                     
+                          document.getElementById("loginButton").click();
                         },
         error => {
           if(error!==undefined){

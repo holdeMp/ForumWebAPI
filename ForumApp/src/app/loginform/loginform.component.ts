@@ -36,7 +36,8 @@ export class LoginformComponent implements OnInit {
   login(user:any){
     let userLoginModel = new LoginUserModel(user.value.loginUsername,user.value.loginPassword,user.value.rememberMe);
     this.httpService.postLogin(userLoginModel) .subscribe(
-      (data: any) => {this.receivedUser=data; 
+      (data: any) => {
+                      this.receivedUser=data; 
                       this.done=true;
                       this.route.navigate(['']);
                      },

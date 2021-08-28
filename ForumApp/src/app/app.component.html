@@ -11,7 +11,10 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" id="search-button" type="submit">Search</button>
         </form>
-        <div class="d-flex flex-row ml-auto mt-2">
+        <div *ngIf="getUser() && getUser().userName.length>0 && getUser().id.length>0"> 
+          <div class="text-end mt-2">Welcome , {{user.userName}}</div>
+        </div>
+        <div *ngIf="this.logged===false" class="d-flex flex-row ml-auto mt-2">
           <button class="btn btn-outline-dark "data-bs-toggle="modal" data-bs-target="#registerModal" id="registerButton">Sign Up</button>
           <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

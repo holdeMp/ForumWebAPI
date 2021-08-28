@@ -17,3 +17,8 @@ input+div {
 input.ng-invalid+div{
     display: inline;
 }
+.text-end{
+    font-size:20px;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}

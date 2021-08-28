@@ -40,7 +40,11 @@ namespace ForumAPI.Controllers
                     if (result.Succeeded)
                     {
                         _logger.LogInformation("User login.");
-                        return Ok(result);
+                        return Ok(new ResponsedUserModel { UserName = userByName.Result.UserName,Email= userByName.Result.Email,
+                        AvatarPath= userByName.Result.AvatarPath,BirthDate= userByName.Result.BirthDate,RegistrationDate= userByName.Result.RegistrationDate,
+                        FirstName= userByName.Result.FirstName,LastName= userByName.Result.LastName,Id= userByName.Result.Id,PhoneNumber= userByName.Result.PhoneNumber,PhoneNumberConfirmed=userByName.Result.PhoneNumberConfirmed,
+                        ConfirmedEmail = userByName.Result.PhoneNumberConfirmed
+                        });
                     }
                     _logger.LogInformation("Incorrect login attempt");
                     return BadRequest("Incorrect login attempt");
