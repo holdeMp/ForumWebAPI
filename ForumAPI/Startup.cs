@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -56,6 +57,10 @@ namespace ForumAPI
                 options.Password.RequireNonAlphanumeric = false;
 
             });
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ForumApp/dist";
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ForumApi", Version = "v1" });
@@ -68,10 +73,12 @@ namespace ForumAPI
             app.UseCors(options=>options.WithOrigins("http://localhost:4200")
             .AllowAnyHeader()
             .AllowAnyMethod());
+            app.UseStaticFiles();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
+                app.UseSpaStaticFiles();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ForumApi v1"));
             }
             else
@@ -91,6 +98,15 @@ namespace ForumAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ForumApp";
+
+                if (env.IsDevelopment())
+                {
+                    spa.UseAngularCliServer(npmScript: "ng serve --o");
+                }
             });
         }
     }

@@ -32,22 +32,56 @@ namespace ForumAPI.Controllers
         {
             try
             {
-                var userByName = _userManager.FindByNameAsync(user.UserNameOrEmail);
-                var userByEmail = _userManager.FindByEmailAsync(user.UserNameOrEmail);
+                var userByName = await _userManager.FindByNameAsync(user.UserNameOrEmail);
+                var userByEmail = await _userManager.FindByEmailAsync(user.UserNameOrEmail);
                 if (userByName != null)
                 {
-                    var result = await _signInManager.PasswordSignInAsync(userByName.Result, user.Password, user.RememberMe, false);
+                    var result = await _signInManager.PasswordSignInAsync(userByName, user.Password, user.RememberMe, false);
                     if (result.Succeeded)
                     {
-                        
-                        _logger.LogInformation("User login.");
-                        return Ok(new ResponsedUserModel { UserName = userByName.Result.UserName,Email= userByName.Result.Email,
-                        AvatarPath= userByName.Result.AvatarPath,BirthDate= userByName.Result.BirthDate,RegistrationDate= userByName.Result.RegistrationDate,
-                        FirstName= userByName.Result.FirstName,LastName= userByName.Result.LastName,Id= userByName.Result.Id,PhoneNumber= userByName.Result.PhoneNumber,PhoneNumberConfirmed=userByName.Result.PhoneNumberConfirmed,
-                        ConfirmedEmail = userByName.Result.PhoneNumberConfirmed
+
+                        _logger.LogInformation("User login " + userByName.UserName);
+                        return Ok(new ResponsedUserModel
+                        {
+                            UserName = userByName.UserName,
+                            Email = userByName.Email,
+                            AvatarPath = userByName.AvatarPath,
+                            BirthDate = userByName.BirthDate,
+                            RegistrationDate = userByName.RegistrationDate,
+                            FirstName = userByName.FirstName,
+                            LastName = userByName.LastName,
+                            Id = userByName.Id,
+                            PhoneNumber = userByName.PhoneNumber,
+                            PhoneNumberConfirmed = userByName.PhoneNumberConfirmed,
+                            ConfirmedEmail = userByName.PhoneNumberConfirmed
                         });
                     }
-                    _logger.LogInformation("Incorrect login attempt");
+                    _logger.LogInformation("Incorrect login attempt " + userByName.UserName);
+                    return BadRequest("Incorrect login attempt");
+                }
+                if (userByEmail != null)
+                {
+                    var result = await _signInManager.PasswordSignInAsync(userByEmail, user.Password, user.RememberMe, false);
+                    if (result.Succeeded)
+                    {
+
+                        _logger.LogInformation("User login " + userByEmail.UserName);
+                        return Ok(new ResponsedUserModel
+                        {
+                            UserName = userByEmail.UserName,
+                            Email = userByEmail.Email,
+                            AvatarPath = userByEmail.AvatarPath,
+                            BirthDate = userByEmail.BirthDate,
+                            RegistrationDate = userByEmail.RegistrationDate,
+                            FirstName = userByEmail.FirstName,
+                            LastName = userByEmail.LastName,
+                            Id = userByEmail.Id,
+                            PhoneNumber = userByEmail.PhoneNumber,
+                            PhoneNumberConfirmed = userByEmail.PhoneNumberConfirmed,
+                            ConfirmedEmail = userByEmail.PhoneNumberConfirmed
+                        });
+                    }
+                    _logger.LogInformation("Incorrect login attempt " + userByEmail.UserName);
                     return BadRequest("Incorrect login attempt");
                 }
                 return BadRequest();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { LoginUserModel } from '../loginUser';
 import { HttpService} from '../http.service';
+import { LoginService} from '../login.service';
 import { Router } from '@angular/router';
 import { passwordValidator } from '../passvalidator.directive';
 import { ToastrService } from 'ngx-toastr';
@@ -15,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginformComponent implements OnInit {
   done: boolean = false;
   receivedUser: LoginUserModel | undefined;
-  constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService) { }
+  constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService,private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
@@ -33,12 +34,17 @@ export class LoginformComponent implements OnInit {
   get loginPassword(){
     return this.loginForm.get('loginPassword')
   }
+  getLoginService(){
+    return this.loginService;
+  }
   login(user:any){
     let userLoginModel = new LoginUserModel(user.value.loginUsername,user.value.loginPassword,user.value.rememberMe);
     this.httpService.postLogin(userLoginModel) .subscribe(
-      (data: any) => {
+     async (data: any) => {
                       this.receivedUser=data; 
                       this.done=true;
+                      this.toastr.success("navigating to login page ...","Succesful registration",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
+                      await new Promise(f => setTimeout(f, 1200));
                       this.route.navigate(['']);
                      },
       error => {
