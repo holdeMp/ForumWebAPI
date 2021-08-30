@@ -39,6 +39,8 @@ namespace ForumAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var myProfile = new AutomapperProfile();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -46,7 +48,9 @@ namespace ForumAPI
             options.UseSqlServer(
                 Configuration.GetConnectionString("ForumDB")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IMapper>(s => new Mapper(configuration));
+            services.AddTransient<ISectionService, SectionService>();
             services.AddControllers().AddNewtonsoftJson();
             services.AddIdentity<User, IdentityRole>(options=>options.User.RequireUniqueEmail=true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -77,8 +81,9 @@ namespace ForumAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
+                
                 app.UseSpaStaticFiles();
+                app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ForumApi v1"));
             }
             else
@@ -90,7 +95,6 @@ namespace ForumAPI
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
 
             app.UseAuthentication();

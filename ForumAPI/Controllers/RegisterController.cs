@@ -43,8 +43,9 @@ namespace ForumAPI.Controllers
                 var result = await _userManager.CreateAsync(newUser,user.Password);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
-                    await _signInManager.SignInAsync(newUser, isPersistent: false);
+                    _logger.LogInformation("User created a new account: "+ newUser.UserName+" with password");
+                    var registeredUser = await _userManager.FindByNameAsync(newUser.UserName);
+                    await _userManager.AddToRoleAsync(registeredUser,"user");
                     return Ok(result);
                 }
                 _logger.LogInformation(result.Errors.FirstOrDefault().Description);

@@ -17,5 +17,7 @@ namespace Business.Models
         public DateTime? BirthDate { get; set; }
         public bool PhoneNumberConfirmed { get; set; }
         public bool ConfirmedEmail { get; set; }
+        public IList<string> Roles { get; set; }
+        public string Token { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Business.Interfaces
 {
-    public interface IUserService:ICrud<Section>
+    public interface ISectionService:ICrud<SectionModel>
     {
 
     }

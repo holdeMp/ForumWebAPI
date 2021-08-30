@@ -4,6 +4,7 @@ using Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,11 @@ namespace DAL.Repositories
         public async Task AddAsync(Section entity)
         {
             await db.Sections.AddAsync(entity);
+        }
+
+        public IQueryable<Section> FindAll()
+        {
+            return db.Sections.Select(i => i);
         }
     }
 }

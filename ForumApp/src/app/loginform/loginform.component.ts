@@ -43,7 +43,7 @@ export class LoginformComponent implements OnInit {
      async (data: any) => {
                       this.receivedUser=data; 
                       this.done=true;
-                      this.toastr.success("navigating to login page ...","Succesful registration",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
+                      this.toastr.success("","Succesful login",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
                       await new Promise(f => setTimeout(f, 1200));
                       this.route.navigate(['']);
                      },

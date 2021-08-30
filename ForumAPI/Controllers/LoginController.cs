@@ -4,10 +4,16 @@ using ForumAPI.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ForumAPI.Controllers
@@ -20,12 +26,15 @@ namespace ForumAPI.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly ApplicationDbContext dbContext;
         private readonly ILogger<LoginController> _logger;
-        public LoginController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<LoginController> logger, ApplicationDbContext applicationDbContext)
+        private readonly IConfiguration _configuration;
+
+        public LoginController(UserManager<User> userManager, IConfiguration iConfig, SignInManager<User> signInManager, ILogger<LoginController> logger, ApplicationDbContext applicationDbContext)
         {
             _userManager = userManager;
             _logger = logger;
             _signInManager = signInManager;
             dbContext = applicationDbContext;
+            _configuration = iConfig;
         }
         [HttpPost]
         public async Task<ActionResult> Login([FromBody] LoginUserModel user)
@@ -41,6 +50,25 @@ namespace ForumAPI.Controllers
                     {
 
                         _logger.LogInformation("User login " + userByName.UserName);
+                        var roles = await _userManager.GetRolesAsync(userByName);
+                        IdentityOptions _options = new IdentityOptions();
+                        var token = "";
+                        if (roles.Any())
+                        {
+                            var tokenDescriptor = new SecurityTokenDescriptor
+                            {
+                                Subject = new ClaimsIdentity(new Claim[]
+                                {
+                                new Claim("UserID",userByName.Id.ToString()),
+                                new Claim(_options.ClaimsIdentity.RoleClaimType,roles.FirstOrDefault())
+                                }),
+                                Expires = DateTime.UtcNow.AddDays(1),
+                                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("ApplicationSettings").GetSection("JWT_Secret").Value)), SecurityAlgorithms.HmacSha256Signature)
+                            };
+                            var tokenHandler = new JwtSecurityTokenHandler();
+                            var securityToken = tokenHandler.CreateToken(tokenDescriptor);
+                            token = tokenHandler.WriteToken(securityToken);
+                        }
                         return Ok(new ResponsedUserModel
                         {
                             UserName = userByName.UserName,
@@ -53,7 +81,9 @@ namespace ForumAPI.Controllers
                             Id = userByName.Id,
                             PhoneNumber = userByName.PhoneNumber,
                             PhoneNumberConfirmed = userByName.PhoneNumberConfirmed,
-                            ConfirmedEmail = userByName.PhoneNumberConfirmed
+                            ConfirmedEmail = userByName.PhoneNumberConfirmed,
+                            Roles = roles,
+                            Token = token
                         });
                     }
                     _logger.LogInformation("Incorrect login attempt " + userByName.UserName);

@@ -7,30 +7,30 @@ using DAL.Interfaces;
 using Data.Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Business.Services
 {
-    public class SectionServices : IUserService
+    public class SectionService : ISectionService
     {
-        private readonly ISectionRepository userRep;
+        private readonly ISectionRepository sectionRep;
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        public SectionServices(IUnitOfWork unitOfWork, IMapper mapper)
+        public SectionService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
-            this.userRep = unitOfWork.SectionRepository;
+            this.sectionRep = unitOfWork.SectionRepository;
             this.mapper = mapper;
         }
-        public async Task AddAsync(Section model)
+        public async Task AddAsync(SectionModel sectionModel)
         {
-            if (model.Name=="")
+            if (sectionModel.Name=="" || GetAll().Any(i=>i.Name==sectionModel.Name))
             {
-                throw new ForumException();
+                throw new ForumException("Incorrect name");
             }
-            
-            await userRep.AddAsync(model);
+            var section = mapper.Map<SectionModel, Section>(sectionModel);
+            await sectionRep.AddAsync(section);
             await unitOfWork.SaveAsync();
         }
 
@@ -39,17 +39,24 @@ namespace Business.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Section> GetAll()
+        public IEnumerable<SectionModel> GetAll()
+        {
+            var sections = sectionRep.FindAll();
+            var sectionsModels = new List<SectionModel>();
+            foreach (var section in sections)
+            {
+                sectionsModels.Add(mapper.Map<Section, SectionModel>(section));
+            }
+
+            return sectionsModels;
+        }
+
+        public Task<SectionModel> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Section> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(Section model)
+        public Task UpdateAsync(SectionModel model)
         {
             throw new NotImplementedException();
         }

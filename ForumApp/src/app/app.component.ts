@@ -9,6 +9,7 @@ import 'bootstrap';
 import { LoginUserModel } from './loginUser';
 import { User } from './user';
 import { LoginService } from './login.service';
+import { SectionModel } from './section';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,6 +23,9 @@ export class AppComponent {
   user : User|any; // полученный пользователь
   logged: boolean = false;
   registred :boolean = false;
+  sectionForm = new FormGroup({
+    name:new FormControl('',[Validators.required,Validators.minLength(3)])
+  })
   registerForm = new FormGroup({
     username:new FormControl('',[Validators.required,Validators.minLength(3)]),
     email:new FormControl('',[Validators.required,Validators.email]),
@@ -56,8 +60,9 @@ export class AppComponent {
   get passwordConfirm(){
     return this.registerForm.get('passwordConfirm')
   }
-  setUser(user:User){
-
+  addSection(sectionName:any){
+    let newsection = new SectionModel(0,sectionName.value.name,[0]);
+    this.httpService.postAddSection(newsection);
   }
   logout(){
     this.httpService.resetcredentials();

@@ -1,14 +1,23 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {RegisterUserModel} from './RegisterUserModel';
 import { LoginUserModel } from './loginUser';
 import { tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
+import { SectionModel } from './section';
 @Injectable()
 export class HttpService{
     isLoggedIn: boolean = false;
     constructor(private http: HttpClient,private loginService:LoginService){ }
- 
+    postAddSection(section: SectionModel)
+    { 
+      let header = new HttpHeaders().set(
+        "Authorization",
+        +"Bearer\n"+this.loginService.getToken()
+      );         
+      const body = {id:section.id,name:section.name,subSectionsIds:section.subSectionsIds};
+      return this.http.post('https://localhost:44381/section', body); 
+    }
     postRegisterUser(user: RegisterUserModel){
           
         const body = {username: user.username, email: user.email,password:user.password,passwordConfirm:user.passwordConfirm};

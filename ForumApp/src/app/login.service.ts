@@ -29,7 +29,9 @@ export class LoginService{
         this.user = value;       
       });
     }
-  
+    public getToken(){
+      return this.user.token;
+    }
     login(user:User){
       this.userChange.next(user);
       

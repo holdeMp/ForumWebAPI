@@ -7,5 +7,6 @@ namespace DAL.Interfaces
 {
     public interface ISectionRepository : IRepository<Section>
     {
+
     }
 }

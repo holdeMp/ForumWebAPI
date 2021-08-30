@@ -10,7 +10,9 @@ export class User{
         public registrationDate?:Date ,
         public birthDate? : Date,
         public phoneNumberConfirmed? :boolean,
-        public confirmedEmail?:boolean
+        public confirmedEmail?:boolean,
+        public roles?:string[],
+        public token?:string
     ){        
     }
 
