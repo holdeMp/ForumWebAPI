@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,17 +14,17 @@ using System.Threading.Tasks;
 
 namespace ForumAPI.Controllers
 {
-    [Route("[controller]")]
+    [Route("/[controller]")]
     [ApiController]
-    public class SectionController : ControllerBase
+    public class SectionTitleController : ControllerBase
     {
-        private readonly ISectionService _sectionService;
+        private readonly ISectionTitleService _sectionTitleService;
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
-        private readonly ILogger<RolesController> _logger;
-        public SectionController(ISectionService sectionService, UserManager<User> userManager, ILogger<RolesController> logger, IMapper mapper)
+        private readonly ILogger<SectionTitleController> _logger;
+        public SectionTitleController(ISectionTitleService sectionService, UserManager<User> userManager, ILogger<SectionTitleController> logger, IMapper mapper)
         {
-            _sectionService = sectionService;
+            _sectionTitleService = sectionService;
             _userManager = userManager;
             _mapper = mapper;
             _logger = logger;
@@ -34,31 +33,24 @@ namespace ForumAPI.Controllers
         //POST: /section/
         [HttpPost]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Add([FromBody] SectionModel sectionModel)
+        public async Task<ActionResult> Add([FromBody] SectionTitleModel sectionTitleModel)
         {
 
-            if (sectionModel.Name == "" || sectionModel.Name.Length < 3)
+            if (sectionTitleModel.Name == "" || sectionTitleModel.Name.Length < 3)
             {
                 _logger.LogError("Incorrect section name");
                 return BadRequest("Incorrect section name");
             }
-            try { await _sectionService.AddAsync(sectionModel); }
-            catch(Exception ex)
+            try { await _sectionTitleService.AddAsync(sectionTitleModel); }
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
 
-            var section = _sectionService.GetAll().Last();
+            var sectionTitle = _sectionTitleService.GetAll().Last();
 
-            return Ok(section);
-        }
-        [HttpGet]
-        [AllowAnonymous]
-        public ActionResult<IEnumerable<SectionModel>> GetSection()
-        {
-            var sections = _sectionService.GetAll();
-            return Ok(sections);
+            return Ok(sectionTitle);
         }
     }
 }

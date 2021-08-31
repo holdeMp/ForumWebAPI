@@ -1,6 +1,8 @@
 ﻿using DAL.Interfaces;
 using DAL.Repositories;
 using Data;
+using Data.Interfaces;
+using Data.Repositories;
 using ForumAPI.Data;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -14,9 +16,19 @@ namespace DAL
     {
         private readonly ForumDbContext db;
         private SectionRepository sectionsRepository;
+        private SectionTitleRepository sectionsTitleRepository;
         public UnitOfWork(ForumDbContext forumDbContext)
         {
             db = forumDbContext;
+        }
+        public SectionTitleRepository SectionTitle
+        {
+            get
+            {
+                if (sectionsTitleRepository == null)
+                    sectionsTitleRepository = new SectionTitleRepository(db);
+                return sectionsTitleRepository;
+            }
         }
         public SectionRepository Sections
         {
@@ -28,6 +40,8 @@ namespace DAL
             }
         }
         public ISectionRepository SectionRepository => Sections;
+
+        public ISectionTitleRepository SectionTitleRepository => SectionTitle;
 
         public void Dispose()
         {

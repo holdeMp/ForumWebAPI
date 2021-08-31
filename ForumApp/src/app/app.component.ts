@@ -10,6 +10,7 @@ import { LoginUserModel } from './loginUser';
 import { User } from './user';
 import { LoginService } from './login.service';
 import { SectionModel } from './section';
+import { SectionTitleModel } from './models/SectionTitleModel';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,6 +24,9 @@ export class AppComponent {
   user : User|any; // полученный пользователь
   logged: boolean = false;
   registred :boolean = false;
+  sectionTitleForm = new FormGroup({
+    name:new FormControl('',[Validators.required,Validators.minLength(3)])
+  })
   sectionForm = new FormGroup({
     name:new FormControl('',[Validators.required,Validators.minLength(3)])
   })
@@ -63,12 +67,9 @@ export class AppComponent {
   addSection(sectionName:any){
     let newsection = new SectionModel(0,sectionName.value.name,[0]);
     this.httpService.postAddSection(newsection).subscribe(
-      async (data: any) => {
-        this.receivedUser=data; 
-        this.registred=true;
+      async () => {
         this.toastr.success("","Succesful adding new section",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
-        await new Promise(f => setTimeout(f, 1200));
-        
+        await new Promise(f => setTimeout(f, 1200));      
         this.route.navigate(['']);
       document.getElementById("sectionButton").click();},
       error => {     
@@ -76,6 +77,21 @@ export class AppComponent {
       }
     );
   }
+
+  addSectionTitle(sectionTitleName:any){
+    let newSectionTitle = new SectionTitleModel(0,sectionTitleName.value.name,[0]);
+    this.httpService.postAddSectionTitle(newSectionTitle).subscribe(
+      async () => {
+        this.toastr.success("","Succesful adding new section title",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
+        await new Promise(f => setTimeout(f, 1200));      
+        this.route.navigate(['']);
+      document.getElementById("sectionTitleButton").click();},
+      error => {     
+        this.toastr.error("Error while adding section title");       
+      }
+    );
+  }
+
   logout(){
     this.httpService.resetcredentials();
     this.loginService.logout();

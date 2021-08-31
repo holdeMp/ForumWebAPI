@@ -2,6 +2,7 @@
 using Data;
 using Data.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace DAL.Repositories
         public IQueryable<Section> FindAll()
         {
             return db.Sections.Select(i => i);
+        }
+
+        public void Update(Section entity)
+        {
+            db.Entry(entity).State = EntityState.Modified; 
         }
     }
 }

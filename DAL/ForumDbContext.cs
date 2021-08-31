@@ -19,6 +19,7 @@ namespace Data
                 optionsBuilder.UseSqlServer(connectionString);
             }
         }
+        public DbSet<SectionTitle> SectionTitles { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<SubSection> SubSections { get; set; }

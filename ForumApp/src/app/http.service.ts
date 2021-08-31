@@ -5,6 +5,7 @@ import { LoginUserModel } from './loginUser';
 import { tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
 import { SectionModel } from './section';
+import { SectionTitleModel } from './models/SectionTitleModel';
 @Injectable()
 export class HttpService{
     isLoggedIn: boolean = false;
@@ -16,6 +17,17 @@ export class HttpService{
     constructor(private http: HttpClient,private loginService:LoginService){ }
     postLogout(){
       return this.http.post('https://localhost:44381/logout',null,{headers:this.headerDict,withCredentials:true} );
+    }
+    postAddSectionTitle(section: SectionTitleModel)
+    {
+      const headerDict = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      }
+                                                                                                                                                                                       
+      const body = {id:section.id,name:section.name,sectionsIds:section.sectionsIds};
+      return this.http.post('https://localhost:44381/sectiontitle', body,{headers:headerDict,withCredentials:true} ); 
     }
     postAddSection(section: SectionModel)
     {

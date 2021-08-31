@@ -12,7 +12,7 @@ namespace Business
     {
         public AutomapperProfile() {
             CreateMap<Section, SectionModel>().ReverseMap();
-
+            CreateMap<SectionTitle, SectionTitleModel>().ReverseMap();
         }
     }
 }

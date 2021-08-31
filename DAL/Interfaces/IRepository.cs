@@ -10,5 +10,6 @@ namespace DAL.Interfaces
     {
         Task AddAsync(TEntity entity);
         IQueryable<TEntity> FindAll();
+        void Update(TEntity entity);
     }
 }

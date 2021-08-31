@@ -16,7 +16,7 @@
                 <a class="btn" data-bs-toggle="modal" data-bs-target="#addSectionModal" id="sectionButton">Add Section</a>
 
               </li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="btn" data-bs-toggle="modal" data-bs-target="#addSectionsTitleModal" id="sectionTitleButton">Add Sections Title</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
@@ -121,6 +121,30 @@
           </div>
         </div>
       </div>
+  </div>
+  <!--Sections Title Modal code -->
+  <div class="modal fade" id="addSectionsTitleModal" tabindex="-1" aria-labelledby="sectionTitleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sectionModalLabel">Add New Section Title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form ngNativeValidate [formGroup]="sectionTitleForm" (ngSubmit)="addSectionTitle(sectionTitleForm)">
+              <div class="form-group">
+                  <label>Enter sections title name </label><span class="required"> *</span>
+                  <input class="form-control" required name="name" formControlName="name" minlength="3" />
+              </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary ml-auto" [disabled]="sectionTitleForm.invalid">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   <!--Section Modal code -->
   <div class="modal fade" id="addSectionModal" tabindex="-1" aria-labelledby="sectionModalLabel" aria-hidden="true">

@@ -52,6 +52,7 @@ namespace ForumAPI
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IMapper>(s => new Mapper(configuration));
             services.AddTransient<ISectionService, SectionService>();
+            services.AddTransient<ISectionTitleService, SectionTitleService>();
             services.AddControllers().AddNewtonsoftJson();
             services.AddIdentity<User, IdentityRole>(options=>options.User.RequireUniqueEmail=true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -124,15 +125,7 @@ namespace ForumAPI
             {
                 endpoints.MapControllers();
             });
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "ForumApp";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "ng serve --o");
-                }
-            });
         }
     }
 }

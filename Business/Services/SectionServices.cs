@@ -56,9 +56,14 @@ namespace Business.Services
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(SectionModel model)
+        public async Task UpdateAsync(SectionModel model)
         {
-            throw new NotImplementedException();
+            if (model.Name == null)
+            {
+                throw new ForumException("Incorrect name");
+            }
+            sectionRep.Update(mapper.Map<SectionModel, Section>(model));
+            await unitOfWork.SaveAsync(); 
         }
     }
 }
