@@ -8,6 +8,7 @@ using DAL.Interfaces;
 using Data;
 using Data.Entities;
 using ForumAPI.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,7 +36,6 @@ namespace ForumAPI
         }
 
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -54,6 +54,10 @@ namespace ForumAPI
             services.AddControllers().AddNewtonsoftJson();
             services.AddIdentity<User, IdentityRole>(options=>options.User.RequireUniqueEmail=true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.SameSite = SameSiteMode.None;
+            });
             services.AddControllers();
             services.Configure<IdentityOptions>(options =>
             {
@@ -76,7 +80,9 @@ namespace ForumAPI
         {
             app.UseCors(options=>options.WithOrigins("http://localhost:4200")
             .AllowAnyHeader()
-            .AllowAnyMethod());
+            .AllowAnyMethod()
+            .AllowCredentials());
+
             app.UseStaticFiles();
             if (env.IsDevelopment())
             {
@@ -97,6 +103,7 @@ namespace ForumAPI
             app.UseStaticFiles();
             app.UseRouting();
 
+            app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

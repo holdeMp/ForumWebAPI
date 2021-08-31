@@ -62,7 +62,19 @@ export class AppComponent {
   }
   addSection(sectionName:any){
     let newsection = new SectionModel(0,sectionName.value.name,[0]);
-    this.httpService.postAddSection(newsection);
+    this.httpService.postAddSection(newsection).subscribe(
+      async (data: any) => {
+        this.receivedUser=data; 
+        this.registred=true;
+        this.toastr.success("","Succesful adding new section",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
+        await new Promise(f => setTimeout(f, 1200));
+        
+        this.route.navigate(['']);
+      document.getElementById("sectionButton").click();},
+      error => {     
+        this.toastr.error("Error while adding section");       
+      }
+    );
   }
   logout(){
     this.httpService.resetcredentials();

@@ -7,11 +7,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule  }   from '@angular/forms';
 import { EmailconfirmationComponent }   from './emailconfirmation/emailconfirmation.component';
 import { NotFoundComponent }   from './not-found/not-found.component';
-import { HttpClientModule }   from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }   from '@angular/common/http';
 import { LoginformComponent } from './loginform/loginform.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptor } from './auth.interceptor';
 
 // определение маршрутов
 const appRoutes: Routes =[
@@ -36,7 +37,12 @@ const appRoutes: Routes =[
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [            
+    // Http Interceptor(s) -  adds with Client Credentials
+    [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    ],
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
