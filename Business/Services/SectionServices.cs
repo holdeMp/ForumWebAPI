@@ -20,7 +20,7 @@ namespace Business.Services
         public SectionService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
-            this.sectionRep = unitOfWork.SectionRepository;
+            
             this.mapper = mapper;
         }
         public async Task AddAsync(SectionModel sectionModel)
@@ -30,7 +30,7 @@ namespace Business.Services
                 throw new ForumException("Incorrect name");
             }
             var section = mapper.Map<SectionModel, Section>(sectionModel);
-            await sectionRep.AddAsync(section);
+            await unitOfWork.SectionRepository.AddAsync(section);
             await unitOfWork.SaveAsync();
         }
 
@@ -41,7 +41,7 @@ namespace Business.Services
 
         public IEnumerable<SectionModel> GetAll()
         {
-            var sections = sectionRep.FindAll();
+            var sections = unitOfWork.SectionRepository.FindAll();
             var sectionsModels = new List<SectionModel>();
             foreach (var section in sections)
             {

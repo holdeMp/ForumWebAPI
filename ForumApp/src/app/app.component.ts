@@ -78,7 +78,18 @@ export class AppComponent {
   }
   logout(){
     this.httpService.resetcredentials();
-    //this.loginService.logout();
+    this.loginService.logout();
+    this.httpService.postLogout().subscribe(
+      async (data: any) => {
+        this.receivedUser=data; 
+        this.registred=true;
+        this.toastr.success("","Succesful logout",{timeOut:2000,progressBar:true,progressAnimation:'increasing'});},
+      error => {      
+        this.toastr.error(error.error[0].description);
+        console.log(error.error[0].description);
+        this.route.navigate(['']);        
+      }
+    );
   }
   getLoginService():LoginService{
     return this.loginService;
@@ -93,8 +104,9 @@ export class AppComponent {
   constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService,
     private loginService :LoginService){
       
-    }
-    registerUser(user: any){
+  }
+
+  registerUser(user: any){
         let usertemp3 = new RegisterUserModel(user.value.username,user.value.email,user.value.password,user.value.passwordConfirm);
         this.httpService.postRegisterUser(usertemp3)
                 .subscribe(

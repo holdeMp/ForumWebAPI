@@ -27,7 +27,7 @@ namespace DAL
                 return sectionsRepository;
             }
         }
-        public ISectionRepository SectionRepository { get => sectionsRepository; }
+        public ISectionRepository SectionRepository => Sections;
 
         public void Dispose()
         {

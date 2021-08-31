@@ -30,6 +30,24 @@ export class AuthInterceptor implements HttpInterceptor {
                 )
             )
         }
+        else if(sessionStorage.getItem('token') != null){
+            const clonedReq = req.clone({
+                headers: req.headers.set('Authorization', 'Bearer ' + sessionStorage.getItem('token'))
+            });
+            return next.handle(clonedReq).pipe(
+                tap(
+                    succ => { },
+                    err => {
+                        if (err.status == 401){
+                            sessionStorage.removeItem('token');
+                            this.router.navigateByUrl('/api/login');
+                        }
+                        else if(err.status == 403)
+                        this.router.navigateByUrl('/forbidden');
+                    }
+                )
+            )
+        }
         else
             return next.handle(req.clone());
     }

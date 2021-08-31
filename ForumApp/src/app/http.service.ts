@@ -8,8 +8,15 @@ import { SectionModel } from './section';
 @Injectable()
 export class HttpService{
     isLoggedIn: boolean = false;
-    
+    headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
     constructor(private http: HttpClient,private loginService:LoginService){ }
+    postLogout(){
+      return this.http.post('https://localhost:44381/logout',null,{headers:this.headerDict,withCredentials:true} );
+    }
     postAddSection(section: SectionModel)
     {
       const headerDict = {
@@ -18,8 +25,6 @@ export class HttpService{
         'Access-Control-Allow-Headers': 'Content-Type',
       }
                                                                                                                                                                                        
-        headers: new Headers(headerDict)
-
       const body = {id:section.id,name:section.name,subSectionsIds:section.subSectionsIds};
       return this.http.post('https://localhost:44381/section', body,{headers:headerDict,withCredentials:true} ); 
     }
@@ -50,7 +55,7 @@ export class HttpService{
                 localStorage.setItem('rememberCurrentUser', 'true');
               } else {
                 //your logged  out when page/ browser is closed
-                localStorage.setItem('token', user.token);
+                sessionStorage.setItem('token', user.token);
                 sessionStorage.setItem('currentUser', JSON.stringify(user));
               }
               // login successful if there's a jwt token in the response
@@ -67,6 +72,8 @@ export class HttpService{
         //clear all localstorages
         localStorage.removeItem('rememberCurrentUser');
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
         sessionStorage.removeItem('currentUser');
         this.loginService.userChange.next(null);
       }

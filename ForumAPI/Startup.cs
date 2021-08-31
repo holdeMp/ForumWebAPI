@@ -5,6 +5,7 @@ using Business.Models;
 using Business.Services;
 using DAL;
 using DAL.Interfaces;
+using DAL.Repositories;
 using Data;
 using Data.Entities;
 using ForumAPI.Data;
@@ -57,12 +58,25 @@ namespace ForumAPI
             services.ConfigureApplicationCookie(options =>
             {
                 options.Cookie.SameSite = SameSiteMode.None;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+                options.LoginPath = "/api/login";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                options.SlidingExpiration = true;
             });
             services.AddControllers();
             services.Configure<IdentityOptions>(options =>
             {
 
                 options.Password.RequireNonAlphanumeric = false;
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+                // User settings.
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = true;
 
             });
             services.AddSpaStaticFiles(configuration =>
@@ -87,7 +101,7 @@ namespace ForumAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                
+                app.UseMigrationsEndPoint();
                 app.UseSpaStaticFiles();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ForumApi v1"));
