@@ -52,5 +52,12 @@ namespace ForumAPI.Controllers
 
             return Ok(sectionTitle);
         }
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult<IEnumerable<SectionModel>> GetSection()
+        {
+            var sectionsTitles = _sectionTitleService.GetAll();
+            return Ok(sectionsTitles);
+        }
     }
 }

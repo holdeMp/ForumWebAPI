@@ -10,10 +10,12 @@ import { NotFoundComponent }   from './not-found/not-found.component';
 import { HttpClientModule, HTTP_INTERCEPTORS }   from '@angular/common/http';
 import { LoginformComponent } from './loginform/loginform.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToastrModule } from 'ngx-toastr';
-import { AuthInterceptor } from './auth.interceptor';
-
+import { AuthInterceptor } from './auth.interceptor';;
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {  MatOptionModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import {  MatSelectModule } from '@angular/material/select';
 // определение маршрутов
 const appRoutes: Routes =[
   { path: 'ConfirmEmail', component: EmailconfirmationComponent},
@@ -24,7 +26,8 @@ const appRoutes: Routes =[
 @NgModule({
   declarations: [
     AppComponent,
-    LoginformComponent
+    LoginformComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -32,8 +35,12 @@ const appRoutes: Routes =[
     NgbModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    MatFormFieldModule,
+    MatOptionModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSelectModule,
+    MatInputModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],

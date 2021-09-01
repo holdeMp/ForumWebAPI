@@ -1,0 +1,20 @@
+2021-09-01 11:10:20.7455|0|DEBUG|ForumAPI.Program|Application start 
+2021-09-01 11:10:20.7455|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-09-01 11:10:22.8953|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-09-01 11:10:22.8953|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-09-01 11:10:22.9165|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-09-01 11:10:22.9165|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-09-01 11:10:22.9242|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-09-01 11:10:22.9242|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-09-01 12:05:55.2362|0|INFO|ForumAPI.Controllers.LoginController|User login testaccount 
+2021-09-01 12:05:55.2362|0|INFO|ForumAPI.Controllers.LoginController|User login testaccount |url: https://localhost/api/login|action: Login|ForumAPI.Controllers.LoginController+<Login>d__6.MoveNext| body: 
+2021-09-01 14:00:24.7127|0|INFO|ForumAPI.Controllers.LoginController|User login testaccount 
+2021-09-01 14:00:24.7127|0|INFO|ForumAPI.Controllers.LoginController|User login testaccount |url: https://localhost/api/login|action: Login|ForumAPI.Controllers.LoginController+<Login>d__6.MoveNext| body: 
+2021-09-01 14:58:12.7049|0|DEBUG|ForumAPI.Program|Application start 
+2021-09-01 14:58:12.7049|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2021-09-01 14:58:14.7098|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2021-09-01 14:58:14.7098|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-09-01 14:58:14.7195|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2021-09-01 14:58:14.7195|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2021-09-01 14:58:14.7327|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI 
+2021-09-01 14:58:14.7327|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\source\repos\ForumAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 

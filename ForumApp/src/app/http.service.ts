@@ -2,10 +2,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {RegisterUserModel} from './RegisterUserModel';
 import { LoginUserModel } from './loginUser';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
 import { SectionModel } from './section';
 import { SectionTitleModel } from './models/SectionTitleModel';
+import { Observable } from 'rxjs';
 @Injectable()
 export class HttpService{
     isLoggedIn: boolean = false;
@@ -15,6 +16,9 @@ export class HttpService{
       'Access-Control-Allow-Headers': 'Content-Type',
     }
     constructor(private http: HttpClient,private loginService:LoginService){ }
+    getSections(){
+      return this.http.get('https://localhost:44381/section',{headers:this.headerDict,withCredentials:true});
+    }
     postLogout(){
       return this.http.post('https://localhost:44381/logout',null,{headers:this.headerDict,withCredentials:true} );
     }

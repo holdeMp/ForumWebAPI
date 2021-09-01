@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {RegisterUserModel} from './RegisterUserModel';
 import { HttpService} from './http.service';
 import { Router } from '@angular/router';
@@ -6,24 +6,50 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { passwordValidator,match } from './passvalidator.directive';
 import { ToastrService } from 'ngx-toastr';
 import 'bootstrap';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 import { LoginUserModel } from './loginUser';
 import { User } from './user';
 import { LoginService } from './login.service';
 import { SectionModel } from './section';
 import { SectionTitleModel } from './models/SectionTitleModel';
+import { Observable } from 'rxjs';
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
+import { SectionTitleService } from './Services/sectionTitles.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [HttpService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  selectedSection:any;
   title = 'ForumApp';
   RegisterUserModel = new RegisterUserModel("","","","");
   receivedUser :RegisterUserModel|undefined;
   user : User|any; // полученный пользователь
   logged: boolean = false;
   registred :boolean = false;
+  sectionsTitles:any;
+  sections : any;
+  ngOnInit() {
+    if(this.getLoginService().user && this.getLoginService().user.roles && this.getLoginService().user.roles.includes('admin')){
+      this.httpService.getSections().subscribe((sections:any)=>{
+            console.log(sections);
+            this.sections = sections;
+        }
+      ); 
+    }
+    this.sectionTitleService.getSectionsTitles().subscribe((sectionsTitles:any)=>{
+      console.log(sectionsTitles);
+      this.sectionsTitles = sectionsTitles;
+    })
+  }
+  updateSectionForm = new FormGroup({
+    sectionName:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    sectionTitle:new FormControl('',[Validators.required,Validators.minLength(3)])
+  })
   sectionTitleForm = new FormGroup({
     name:new FormControl('',[Validators.required,Validators.minLength(3)])
   })
@@ -118,7 +144,7 @@ export class AppComponent {
     return this.loginService.user;
   }
   constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService,
-    private loginService :LoginService){
+    private loginService :LoginService,private sectionTitleService:SectionTitleService){
       
   }
 
