@@ -12,7 +12,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { LoginUserModel } from './loginUser';
 import { User } from './user';
 import { LoginService } from './login.service';
-import { SectionModel } from './sectionModel';
+import { SectionModel } from './models/sectionModel';
 import { SectionTitleModel } from './models/SectionTitleModel';
 import { Observable } from 'rxjs';
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
@@ -30,7 +30,7 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   selectedSection:any;
-  
+  selectedSectionTitle:any;
   title = 'ForumApp';
   RegisterUserModel = new RegisterUserModel("","","","");
   receivedUser :RegisterUserModel|undefined;
@@ -40,18 +40,22 @@ export class AppComponent implements OnInit {
   sectionsTitles:any;
   sections : any;
   ngOnInit() {
-    if(this.getLoginService().user && this.getLoginService().user.roles && this.getLoginService().user.roles.includes('admin')){
-      this.httpService.getSections().subscribe((sections:any)=>{
+
+    this.httpService.getSections().subscribe((sections:any)=>{
             console.log(sections);
             this.sections = sections;
         }
       ); 
-    }
+    
     this.sectionTitleService.getSectionsTitles().subscribe((sectionsTitles:any)=>{
       console.log(sectionsTitles);
       this.sectionsTitles = sectionsTitles;
     })
   }
+  updateSectionTitleForm = new FormGroup({
+    sectionTitleName:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    sections:new FormControl('',[Validators.required])
+  })
   updateSectionForm = new FormGroup({
     sectionName:new FormControl('',[Validators.required,Validators.minLength(3)]),
     sectionTitle:new FormControl('',[Validators.required,Validators.minLength(3)])
@@ -96,8 +100,24 @@ export class AppComponent implements OnInit {
   get passwordConfirm(){
     return this.registerForm.get('passwordConfirm')
   }
+  updateSectionTitle(SectionTitle:any){
+    const sectionTitleId = this.sectionTitleService.findSectionIdByName(this.selectedSectionTitle,this.sectionsTitles);
+    let updateSectionTitle = new SectionTitleModel(sectionTitleId,SectionTitle.value.sectionTitleName,SectionTitle.value.sections);
+    this.sectionTitleService.updateSectionTitle(updateSectionTitle,this.sections).subscribe(
+      async () => {
+        this.toastr.success("","Succesful updating section Title",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
+        await new Promise(f => setTimeout(f, 1200));      
+        this.route.navigate(['']);
+      document.getElementById("updateSectionTitleButton").click();},
+      error => {
+        
+        this.toastr.error("Error while updating section");       
+      }
+    );;
+
+  }
   updateSection(updateSectionModel:any){
-    const sectionId =this.sectionService.findSectionIdByName(this.selectedSection,this.sections);
+    const sectionId = this.sectionService.findSectionIdByName(this.selectedSection,this.sections);
     let updateSection = new SectionModel(sectionId,updateSectionModel.value.sectionName,null);
     this.sectionService.updateSection(new UpdateSectionModel(updateSection,updateSectionModel.value.sectionTitle)).subscribe(
       async () => {
@@ -109,7 +129,7 @@ export class AppComponent implements OnInit {
         
         this.toastr.error("Error while updating section");       
       }
-    );;
+    );
 
   }
   addSection(sectionName:any){

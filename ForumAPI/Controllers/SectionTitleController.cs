@@ -59,5 +59,29 @@ namespace ForumAPI.Controllers
             var sectionsTitles = _sectionTitleService.GetAll();
             return Ok(sectionsTitles);
         }
+        [HttpPut]
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult> UpdateSection([FromBody] SectionTitleModel sectionTitleModel)
+        {
+
+            if (sectionTitleModel.Name == "" || sectionTitleModel.Name.Length < 3)
+            {
+                _logger.LogError("Incorrect section name");
+                return BadRequest("Incorrect section name");
+            }
+            try
+            {
+                await _sectionTitleService.UpdateAsync(sectionTitleModel);
+              
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
+
+           
+            return Ok(await _sectionTitleService.GetByIdAsync(sectionTitleModel.Id));
+        }
     }
 }

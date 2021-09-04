@@ -1,4 +1,4 @@
-import { SectionModel } from "../sectionModel";
+import { SectionModel } from "./sectionModel";
 
 export class UpdateSectionModel{
     constructor(public sectionModel: SectionModel, 

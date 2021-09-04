@@ -22,3 +22,13 @@ input.ng-invalid+div{
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
 }
+.row {
+    background-color: blue;
+}
+.sectionTitle{
+    color: azure;
+    font-weight: 600;
+    font-size: x-large;
+    text-decoration: none;
+    
+}

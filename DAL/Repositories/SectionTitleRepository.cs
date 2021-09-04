@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Data.Repositories
 {
     public class SectionTitleRepository : ISectionTitleRepository
@@ -29,7 +28,10 @@ namespace Data.Repositories
 
         public void Update(SectionTitle entity)
         {
-            db.Entry(entity).State = EntityState.Modified; 
+            entity.Sections = entity.Sections.ToList();
+            db.Entry(entity).State = EntityState.Modified;
+            db.Entry(entity).Collection(i=>i.Sections).IsModified = true;
+            db.SaveChanges();
         }
         public Task<SectionTitle> GetByIdAsync(int id)
         {
