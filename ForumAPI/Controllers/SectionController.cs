@@ -23,12 +23,14 @@ namespace ForumAPI.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly ILogger<RolesController> _logger;
-        public SectionController(ISectionService sectionService, UserManager<User> userManager, ILogger<RolesController> logger, IMapper mapper)
+        private readonly ISectionTitleService _sectionTitleService;
+        public SectionController(ISectionService sectionService,ISectionTitleService sectionTitleService, UserManager<User> userManager, ILogger<RolesController> logger, IMapper mapper)
         {
             _sectionService = sectionService;
             _userManager = userManager;
             _mapper = mapper;
             _logger = logger;
+            _sectionTitleService = sectionTitleService;
 
         }
         //POST: /section/
@@ -59,6 +61,32 @@ namespace ForumAPI.Controllers
         {
             var sections = _sectionService.GetAll();
             return Ok(sections);
+        }
+        [HttpPut]
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult> UpdateSection([FromBody] UpdateSectionModel updateSectionModel)
+        {
+
+            if (updateSectionModel.SectionModel.Name == "" || updateSectionModel.SectionModel.Name.Length < 3)
+            {
+                _logger.LogError("Incorrect section name");
+                return BadRequest("Incorrect section name");
+            }
+            try { 
+                await _sectionService.UpdateAsync(updateSectionModel.SectionModel);
+                var sectionTitle = _sectionTitleService.GetAll().FirstOrDefault(i => i.Name == updateSectionModel.SectionTitle);
+                sectionTitle.Sections.Add(_mapper.Map<SectionModel, Section>(updateSectionModel.SectionModel));
+                await _sectionTitleService.UpdateAsync(sectionTitle);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
+
+            var section = _sectionService.GetAll().Last();
+
+            return Ok(section);
         }
     }
 }
