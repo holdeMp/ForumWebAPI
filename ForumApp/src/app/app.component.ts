@@ -12,11 +12,16 @@ import {MatSelectModule} from '@angular/material/select';
 import { LoginUserModel } from './loginUser';
 import { User } from './user';
 import { LoginService } from './login.service';
-import { SectionModel } from './section';
+import { SectionModel } from './sectionModel';
 import { SectionTitleModel } from './models/SectionTitleModel';
 import { Observable } from 'rxjs';
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { SectionTitleService } from './Services/sectionTitles.service';
+import { SectionService } from './Services/section.service';
+import { UpdateSectionModel } from './models/UpdateSectionModel';
+import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/template';
+import { data } from 'jquery';
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,6 +30,7 @@ import { SectionTitleService } from './Services/sectionTitles.service';
 })
 export class AppComponent implements OnInit {
   selectedSection:any;
+  
   title = 'ForumApp';
   RegisterUserModel = new RegisterUserModel("","","","");
   receivedUser :RegisterUserModel|undefined;
@@ -90,6 +96,22 @@ export class AppComponent implements OnInit {
   get passwordConfirm(){
     return this.registerForm.get('passwordConfirm')
   }
+  updateSection(updateSectionModel:any){
+    const sectionId =this.sectionService.findSectionIdByName(this.selectedSection,this.sections);
+    let updateSection = new SectionModel(sectionId,updateSectionModel.value.sectionName,null);
+    this.sectionService.updateSection(new UpdateSectionModel(updateSection,updateSectionModel.value.sectionTitle)).subscribe(
+      async () => {
+        this.toastr.success("","Succesful updating section",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
+        await new Promise(f => setTimeout(f, 1200));      
+        this.route.navigate(['']);
+      document.getElementById("updateSectionButton").click();},
+      error => {
+        
+        this.toastr.error("Error while updating section");       
+      }
+    );;
+
+  }
   addSection(sectionName:any){
     let newsection = new SectionModel(0,sectionName.value.name,[0]);
     this.httpService.postAddSection(newsection).subscribe(
@@ -144,7 +166,7 @@ export class AppComponent implements OnInit {
     return this.loginService.user;
   }
   constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService,
-    private loginService :LoginService,private sectionTitleService:SectionTitleService){
+    private loginService :LoginService,private sectionTitleService:SectionTitleService,private sectionService:SectionService){
       
   }
 
@@ -180,6 +202,8 @@ export class AppComponent implements OnInit {
                           
                           this.logged=true;                     
                           document.getElementById("loginButton").click();
+                          this.route.navigate(['']);
+                          
                         },
         error => {
           if(error!==undefined){

@@ -19,8 +19,8 @@ namespace Business.Services
         private readonly IMapper mapper;
         public SectionService(IUnitOfWork unitOfWork, IMapper mapper)
         {
+            this.sectionRep = unitOfWork.SectionRepository;
             this.unitOfWork = unitOfWork;
-            
             this.mapper = mapper;
         }
         public async Task AddAsync(SectionModel sectionModel)

@@ -63,9 +63,11 @@ namespace Business.Services
             await unitOfWork.SaveAsync();
         }
 
-        Task<SectionTitleModel> ICrud<SectionTitleModel>.GetByIdAsync(int id)
+        async Task<SectionTitleModel> ICrud<SectionTitleModel>.GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+           var sectionTitle = await sectionTitleRep.GetByIdAsync(id);
+           return mapper.Map<SectionTitle, SectionTitleModel>(sectionTitle);
         }
+        
     }
 }

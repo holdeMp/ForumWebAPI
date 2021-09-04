@@ -4,7 +4,7 @@ import {RegisterUserModel} from './RegisterUserModel';
 import { LoginUserModel } from './loginUser';
 import { map, tap } from 'rxjs/operators';
 import { LoginService } from './login.service';
-import { SectionModel } from './section';
+import { SectionModel } from './sectionModel';
 import { SectionTitleModel } from './models/SectionTitleModel';
 import { Observable } from 'rxjs';
 @Injectable()

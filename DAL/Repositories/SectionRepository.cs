@@ -28,6 +28,11 @@ namespace DAL.Repositories
             return db.Sections.Select(i => i);
         }
 
+        public Task<Section> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Section entity)
         {
             db.Entry(entity).State = EntityState.Modified; 

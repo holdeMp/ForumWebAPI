@@ -132,7 +132,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form ngNativeValidate [formGroup]="updateSectionForm" (ngSubmit)="addSectionTitle(sectionTitleForm)">
+            <form ngNativeValidate [formGroup]="updateSectionForm" (ngSubmit)="updateSection(updateSectionForm)">
                 <div class="form-group">                    
                       <label for="sectionName">Select Section to Update</label>                 
                       <select class="form-select" [(ngModel)]="selectedSection" formControlName="sectionName" id="sectionName">                        
@@ -140,7 +140,7 @@
                       </select>              
                 </div>
                 <div *ngIf="selectedSection" class="form-group">
-                  <label>Enter section name or stay unchanged </label><span class="required"> *</span>
+                  <label>Enter new section name or stay unchanged </label><span class="required"> *</span>
                   <input class="form-control" [(value)]="selectedSection.name" required name="name" formControlName="sectionName" minlength="3" />
               </div>
                 <div *ngIf="selectedSection" class="form-group">                    

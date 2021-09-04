@@ -31,5 +31,9 @@ namespace Data.Repositories
         {
             db.Entry(entity).State = EntityState.Modified; 
         }
+        public Task<SectionTitle> GetByIdAsync(int id)
+        {
+            return Task.Run(() => { return db.SectionTitles.Find(id); });
+        }
     }
 }
