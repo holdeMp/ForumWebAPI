@@ -32,3 +32,13 @@ input.ng-invalid+div{
     text-decoration: none;
     
 }
+.section{
+    margin-left: 20px;
+    background-color: rgb(240, 92, 92);
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 20px;
+}
+.section:hover{
+    color: green;
+}

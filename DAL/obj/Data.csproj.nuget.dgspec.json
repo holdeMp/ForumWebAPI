@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\molot\\source\\repos\\ForumAPI\\DAL\\Data.csproj": {}
+    "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\DAL\\Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\molot\\source\\repos\\ForumAPI\\DAL\\Data.csproj": {
+    "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\DAL\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\molot\\source\\repos\\ForumAPI\\DAL\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\DAL\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\molot\\source\\repos\\ForumAPI\\DAL\\Data.csproj",
+        "projectPath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\DAL\\Data.csproj",
         "packagesPath": "C:\\Users\\molot\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\molot\\source\\repos\\ForumAPI\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\DAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\molot\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -87,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

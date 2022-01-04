@@ -15,7 +15,7 @@ namespace Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionString = (@"Data Source=DESKTOP-H6KQPGE\\SQLEXPRESS;Initial Catalog=ForumDB;Integrated Security=SSPI");
+                var connectionString = (@"Data Source=DESKTOP-6SI6P58\\MSSQLSERVER01;Initial Catalog=ForumDB;Integrated Security=SSPI");
                 optionsBuilder.UseSqlServer(connectionString);
             }
         }

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Business.Interfaces;
 using Business.Models;
+using DAL.Interfaces;
+using Data;
 using Data.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -20,31 +22,50 @@ namespace ForumAPI.Controllers
     public class SectionController : ControllerBase
     {
         private readonly ISectionService _sectionService;
-        private readonly UserManager<User> _userManager;
+        private readonly ForumDbContext _forumDbContext;
         private readonly IMapper _mapper;
-        private readonly ILogger<RolesController> _logger;
-        private readonly ISectionTitleService _sectionTitleService;
-        public SectionController(ISectionService sectionService,ISectionTitleService sectionTitleService, UserManager<User> userManager, ILogger<RolesController> logger, IMapper mapper)
+        private readonly IUnitOfWork _unitOfWork;
+         private readonly ILogger<RolesController> _logger;
+        private readonly ISectionTitleService _SectionTitleService;
+        public SectionController(ISectionService sectionService, ForumDbContext forumDbContext, IUnitOfWork unitOfWork,ISectionTitleService SectionTitleService, UserManager<User> userManager, ILogger<RolesController> logger, IMapper mapper)
         {
             _sectionService = sectionService;
-            _userManager = userManager;
+            _forumDbContext = forumDbContext;
             _mapper = mapper;
             _logger = logger;
-            _sectionTitleService = sectionTitleService;
-
+            _SectionTitleService = SectionTitleService;
+            _unitOfWork = unitOfWork;
         }
         //POST: /section/
         [HttpPost]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Add([FromBody] SectionModel sectionModel)
+        public async Task<ActionResult> Add([FromBody] AddSectionModel addSectionModel)
         {
+            var SectionTitle = _SectionTitleService.FindByName(addSectionModel.SectionTitle).Result;
 
-            if (sectionModel.Name == "" || sectionModel.Name.Length < 3)
+            if (addSectionModel.Name == "" || _sectionService.GetAll().Select(i=>i.Name).Contains(addSectionModel.Name) || addSectionModel.Name.Length < 3)
             {
                 _logger.LogError("Incorrect section name");
                 return BadRequest("Incorrect section name");
             }
-            try { await _sectionService.AddAsync(sectionModel); }
+            if (addSectionModel.SectionTitle == "" || SectionTitle==null || addSectionModel.SectionTitle.Length < 3)
+            {
+                _logger.LogError("Incorrect section title name");
+                return BadRequest("Incorrect section title name");
+            }
+            
+            try {
+                
+                SectionModel sectionModel = new SectionModel {
+                    
+                    Name = addSectionModel.Name,SectionTitleId=SectionTitle.Id,
+                   
+                };
+
+                Section sectionn = _mapper.Map<SectionModel, Section>(sectionModel);
+                _forumDbContext.ChangeTracker.Clear();
+                await _sectionService.AddAsync(sectionModel);
+            }
             catch(Exception ex)
             {
                 _logger.LogError(ex.Message);
@@ -74,9 +95,9 @@ namespace ForumAPI.Controllers
             }
             try { 
                 await _sectionService.UpdateAsync(updateSectionModel.SectionModel);
-                var sectionTitle = _sectionTitleService.GetAll().FirstOrDefault(i => i.Name == updateSectionModel.SectionTitle);
-                sectionTitle.Sections.Add(_mapper.Map<SectionModel, Section>(updateSectionModel.SectionModel));
-                await _sectionTitleService.UpdateAsync(sectionTitle);
+                var SectionTitle = _SectionTitleService.GetAll().FirstOrDefault(i => i.Name == updateSectionModel.SectionTitle);
+                SectionTitle.Sections.Add(updateSectionModel.SectionModel);
+                await _SectionTitleService.UpdateAsync(SectionTitle);
             }
             catch (Exception ex)
             {

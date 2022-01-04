@@ -41,7 +41,7 @@ export class HttpService{
         'Access-Control-Allow-Headers': 'Content-Type',
       }
                                                                                                                                                                                        
-      const body = {id:section.id,name:section.name,subSectionsIds:section.subSectionsIds};
+      const body = {name:section.name,sectionTitle:section.sectionTitle};
       return this.http.post('https://localhost:44381/section', body,{headers:headerDict,withCredentials:true} ); 
     }
     postRegisterUser(user: RegisterUserModel){

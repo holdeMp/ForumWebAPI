@@ -52,6 +52,16 @@ export class AppComponent implements OnInit {
       this.sectionsTitles = sectionsTitles;
     })
   }
+  //get sections with specific section title
+  public getSections(sections:any,sectionTitleId:number){
+    let sectionsWithSectionTitleId=[];
+    for(let section of sections){
+      if(section.sectionTitleId == sectionTitleId){
+        sectionsWithSectionTitleId.push(section);
+      }
+    }
+    return sectionsWithSectionTitleId;
+  }
   updateSectionTitleForm = new FormGroup({
     sectionTitleName:new FormControl('',[Validators.required,Validators.minLength(3)]),
     sections:new FormControl('',[Validators.required])
@@ -64,7 +74,8 @@ export class AppComponent implements OnInit {
     name:new FormControl('',[Validators.required,Validators.minLength(3)])
   })
   sectionForm = new FormGroup({
-    name:new FormControl('',[Validators.required,Validators.minLength(3)])
+    name:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    sectionTitle:new FormControl('',[Validators.required])
   })
   registerForm = new FormGroup({
     username:new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -132,8 +143,8 @@ export class AppComponent implements OnInit {
     );
 
   }
-  addSection(sectionName:any){
-    let newsection = new SectionModel(0,sectionName.value.name,[0]);
+  addSection(section:any){
+    let newsection = new SectionModel(2,section.value.name,section.value.sectionTitle);
     this.httpService.postAddSection(newsection).subscribe(
       async () => {
         this.toastr.success("","Succesful adding new section",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
@@ -203,7 +214,9 @@ export class AppComponent implements OnInit {
                       this.route.navigate(['login']);
                     document.getElementById("registerButton").click();},
                     error => {
-                     
+                      if(error.status==0){
+                        this.toastr.error("Connection refused");
+                      }
                       this.toastr.error(error.error[0].description);
                       console.log(error.error[0].description);
                       this.route.navigate(['']);

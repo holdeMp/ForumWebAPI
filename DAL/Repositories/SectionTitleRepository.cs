@@ -25,7 +25,6 @@ namespace Data.Repositories
         {
             return db.SectionTitles.Select(i => i); 
         }
-
         public void Update(SectionTitle entity)
         {
             entity.Sections = entity.Sections.ToList();
@@ -36,6 +35,11 @@ namespace Data.Repositories
         public Task<SectionTitle> GetByIdAsync(int id)
         {
             return Task.Run(() => { return db.SectionTitles.Find(id); });
+        }
+
+        public Task<SectionTitle> FindByNameAsync(string SectionTitleName)
+        {
+            return Task.Run(() => { return db.SectionTitles.FirstOrDefault(i=>i.Name== SectionTitleName); }); ;
         }
     }
 }

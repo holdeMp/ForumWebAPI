@@ -15,13 +15,13 @@ namespace Business.Services
 {
     public class SectionTitleService : ISectionTitleService
     {
-        private readonly ISectionTitleRepository sectionTitleRep;
+        private readonly ISectionTitleRepository SectionTitleRep;
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
         public SectionTitleService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
-            this.sectionTitleRep = unitOfWork.SectionTitleRepository;
+            this.SectionTitleRep = unitOfWork.SectionTitleRepository;
             this.mapper = mapper;
         }
         public async Task AddAsync(SectionTitleModel model)
@@ -44,29 +44,33 @@ namespace Business.Services
         {
             var sectionsTitle = unitOfWork.SectionTitleRepository.FindAll();
             var sectionsTitleModels = new List<SectionTitleModel>();
-            foreach (var sectionTitle in sectionsTitle)
+            foreach (var SectionTitle in sectionsTitle)
             {
-                sectionsTitleModels.Add(mapper.Map<SectionTitle, SectionTitleModel>(sectionTitle));
+                sectionsTitleModels.Add(mapper.Map<SectionTitle, SectionTitleModel>(SectionTitle));
             }
 
             return sectionsTitleModels;
         }
 
-
+        public async Task<SectionTitleModel> FindByName(string SectionTitleName)
+        {
+            var model = await SectionTitleRep.FindByNameAsync(SectionTitleName);
+            return mapper.Map<SectionTitle, SectionTitleModel>(model);
+        }
         public async Task UpdateAsync(SectionTitleModel model)
         {
             if (model.Name == null )
             {
                 throw new ForumException("Incorrect name");
             }
-            sectionTitleRep.Update(mapper.Map<SectionTitleModel, SectionTitle>(model));
+            SectionTitleRep.Update(mapper.Map<SectionTitleModel, SectionTitle>(model));
             await unitOfWork.SaveAsync();
         }
 
         async Task<SectionTitleModel> ICrud<SectionTitleModel>.GetByIdAsync(int id)
         {
-           var sectionTitle = await sectionTitleRep.GetByIdAsync(id);
-           return mapper.Map<SectionTitle, SectionTitleModel>(sectionTitle);
+           var SectionTitle = await SectionTitleRep.GetByIdAsync(id);
+           return mapper.Map<SectionTitle, SectionTitleModel>(SectionTitle);
         }
         
     }
