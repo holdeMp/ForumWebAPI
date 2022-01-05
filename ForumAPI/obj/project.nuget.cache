@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "naXxlaQGBvzXSToIXf6S7U4+KmGv0NdpxetgJ5iNt1HVHzP5ikYztPRslmyGvpBos6nOmkkxV4ldb0dxTc/4UQ==",
+  "dgSpecHash": "1HLPooE2dWN65//Jpk4xRzNkl5QsZL29fxzEjeMHV15Wd7EaDlanRQ1Jgm7ldbkZao39XnC24rJKt5toRsf4ow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\ForumAPI\\ForumAPI.csproj",
+  "projectFilePath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\ForumAPI\\ForumAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\molot\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\molot\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

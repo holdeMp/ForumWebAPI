@@ -6,7 +6,8 @@ namespace Business.Models
 {
     public class UpdateSectionModel
     {
-        public SectionModel SectionModel;
+        public int SectionId { get; set; }
+        public string Name { get; set; }
         public string SectionTitle;
     }
 }

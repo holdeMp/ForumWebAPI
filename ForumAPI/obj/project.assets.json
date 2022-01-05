@@ -7333,11 +7333,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\ForumAPI\\ForumAPI.csproj",
+      "projectUniqueName": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\ForumAPI\\ForumAPI.csproj",
       "projectName": "ForumAPI",
-      "projectPath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\ForumAPI\\ForumAPI.csproj",
+      "projectPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\ForumAPI\\ForumAPI.csproj",
       "packagesPath": "C:\\Users\\molot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\ForumAPI\\obj\\",
+      "outputPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\ForumAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\molot\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7354,11 +7354,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\Business\\Business.csproj": {
-              "projectPath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\Business\\Business.csproj"
+            "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\Business\\Business.csproj"
             },
-            "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\DAL\\Data.csproj": {
-              "projectPath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\DAL\\Data.csproj"
+            "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\Data.csproj": {
+              "projectPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\Data.csproj"
             }
           }
         }

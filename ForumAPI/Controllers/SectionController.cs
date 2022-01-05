@@ -88,16 +88,19 @@ namespace ForumAPI.Controllers
         public async Task<ActionResult> UpdateSection([FromBody] UpdateSectionModel updateSectionModel)
         {
 
-            if (updateSectionModel.SectionModel.Name == "" || updateSectionModel.SectionModel.Name.Length < 3)
+            if (updateSectionModel.Name == "" || updateSectionModel.Name.Length < 3)
             {
                 _logger.LogError("Incorrect section name");
                 return BadRequest("Incorrect section name");
             }
-            try { 
-                await _sectionService.UpdateAsync(updateSectionModel.SectionModel);
-                var SectionTitle = _SectionTitleService.GetAll().FirstOrDefault(i => i.Name == updateSectionModel.SectionTitle);
-                SectionTitle.Sections.Add(updateSectionModel.SectionModel);
-                await _SectionTitleService.UpdateAsync(SectionTitle);
+            try {
+                var section = _sectionService.GetByIdAsync(updateSectionModel.SectionId).Result;
+                section.Name = updateSectionModel.Name;
+                var sectionTitle = _SectionTitleService.FindByName(updateSectionModel.SectionTitle);
+                section.SectionTitleId = sectionTitle.Result.Id;
+                _forumDbContext.ChangeTracker.Clear();
+                await _sectionService.UpdateAsync(section);
+                
             }
             catch (Exception ex)
             {
@@ -105,9 +108,9 @@ namespace ForumAPI.Controllers
                 return BadRequest(ex.Message);
             }
 
-            var section = _sectionService.GetAll().Last();
+            
 
-            return Ok(section);
+            return Ok(_sectionService.GetByIdAsync(updateSectionModel.SectionId).Result);
         }
     }
 }

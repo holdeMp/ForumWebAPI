@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vKoL/SFthbAE+khU/95eClkO7T9coUkSFR9Rh/7fyS6ki8Kw8nU7lvgHZkjmSbgXJcJc8EVJqJ3Vs5RDYT2SjQ==",
+  "dgSpecHash": "rg09vNAJXOnfrx04m6bUd/pAnKQTTxcv/2bM4D6yRrm0AO7RAEhP1W2brGknet0Z5gd3MokYVXr8usEG98kkPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\Business\\Business.csproj",
+  "projectFilePath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\Business\\Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\molot\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\molot\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

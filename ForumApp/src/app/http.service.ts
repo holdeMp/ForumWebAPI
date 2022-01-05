@@ -30,7 +30,7 @@ export class HttpService{
         'Access-Control-Allow-Headers': 'Content-Type',
       }
                                                                                                                                                                                        
-      const body = {id:section.id,name:section.name,sectionsIds:section.sectionsIds};
+      const body = {id:section.id,name:section.name,sectionsIds:section.sections};
       return this.http.post('https://localhost:44381/sectiontitle', body,{headers:headerDict,withCredentials:true} ); 
     }
     postAddSection(section: SectionModel)

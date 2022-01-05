@@ -6548,11 +6548,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\Business\\Business.csproj",
+      "projectUniqueName": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\Business\\Business.csproj",
+      "projectPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\molot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\Business\\obj\\",
+      "outputPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\molot\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6569,8 +6569,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\DAL\\Data.csproj": {
-              "projectPath": "C:\\Users\\molot\\Source\\Repos\\ForumWebAPI\\DAL\\Data.csproj"
+            "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\Data.csproj": {
+              "projectPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\Data.csproj"
             }
           }
         }

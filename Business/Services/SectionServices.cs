@@ -50,10 +50,15 @@ namespace Business.Services
 
             return sectionsModels;
         }
-
-        public Task<SectionModel> GetByIdAsync(int id)
+        public async Task<SectionModel> FindByName(string SectionName)
         {
-            throw new NotImplementedException();
+            var model = await sectionRep.FindByNameAsync(SectionName);
+            return mapper.Map<Section, SectionModel>(model);
+        }
+        async Task<SectionModel> ICrud<SectionModel>.GetByIdAsync(int id)
+        {
+            var sectionTitle = await sectionRep.GetByIdAsync(id);
+            return mapper.Map<Section, SectionModel>(sectionTitle);
         }
 
         public async Task UpdateAsync(SectionModel model)

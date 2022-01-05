@@ -13,12 +13,9 @@ export class SectionTitleService{
     getSectionsTitles(){
         return this.http.get('https://localhost:44381/sectiontitle',{headers:this.headerDict,withCredentials:true});
     }
-    updateSectionTitle(updateSectionTitle:any,sections:SectionModel[]){
-        let sectionsModels = [];
-        sections.forEach(section => {
-            sectionsModels.push({id:section.id,name:section.name,subSections:null})
-        });
-        let body = {id:updateSectionTitle.id,name:updateSectionTitle.name,sections:sectionsModels};
+    updateSectionTitle(updateSectionTitle:any){
+
+        let body = {id:updateSectionTitle.id,name:updateSectionTitle.name,sections:updateSectionTitle.sections};
         return this.http.put('https://localhost:44381/sectiontitle',body,{headers:this.headerDict,withCredentials:true});
     }
     findSectionIdByName(sectionTitleName:string,sectionsTitles:any){

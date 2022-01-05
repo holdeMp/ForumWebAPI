@@ -30,12 +30,16 @@ namespace DAL.Repositories
 
         public Task<Section> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return Task.Run(() => { return db.Sections.Find(id); });
         }
 
         public void Update(Section entity)
         {
             db.Entry(entity).State = EntityState.Modified; 
+        }
+        public Task<Section> FindByNameAsync(string sectionName)
+        {
+            return Task.Run(() => { return db.Sections.FirstOrDefault(i => i.Name == sectionName); }); ;
         }
     }
 }

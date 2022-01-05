@@ -113,24 +113,32 @@ export class AppComponent implements OnInit {
   }
   updateSectionTitle(SectionTitle:any){
     const sectionTitleId = this.sectionTitleService.findSectionIdByName(this.selectedSectionTitle,this.sectionsTitles);
-    let updateSectionTitle = new SectionTitleModel(sectionTitleId,SectionTitle.value.sectionTitleName,SectionTitle.value.sections);
-    this.sectionTitleService.updateSectionTitle(updateSectionTitle,this.sections).subscribe(
+    let sections = [];
+    for(let sectionName of SectionTitle.value.sections){
+      
+      sections.push(this.sectionService.findSectionByName(sectionName,this.sections));
+    }
+    let updateSectionTitle = new SectionTitleModel(sectionTitleId,SectionTitle.value.sectionTitleName,sections);
+    this.sectionTitleService.updateSectionTitle(updateSectionTitle).subscribe(
       async () => {
         this.toastr.success("","Succesful updating section Title",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
         await new Promise(f => setTimeout(f, 1200));      
         this.route.navigate(['']);
-      document.getElementById("updateSectionTitleButton").click();},
+        document.getElementById("updateSectionTitleButton").click();
+        window.location.reload();
+      },
       error => {
         
-        this.toastr.error("Error while updating section");       
+        this.toastr.error("Error while updating section title");       
       }
-    );;
-
+    );
+    
+    
   }
   updateSection(updateSectionModel:any){
     const sectionId = this.sectionService.findSectionIdByName(this.selectedSection,this.sections);
-    let updateSection = new SectionModel(sectionId,updateSectionModel.value.sectionName,null);
-    this.sectionService.updateSection(new UpdateSectionModel(updateSection,updateSectionModel.value.sectionTitle)).subscribe(
+    
+    this.sectionService.updateSection(new UpdateSectionModel(sectionId,updateSectionModel.value.sectionName,updateSectionModel.value.sectionTitle)).subscribe(
       async () => {
         this.toastr.success("","Succesful updating section",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
         await new Promise(f => setTimeout(f, 1200));      

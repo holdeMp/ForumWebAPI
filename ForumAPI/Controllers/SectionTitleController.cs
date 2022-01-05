@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using Business.Interfaces;
 using Business.Models;
+using Data;
 using Data.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +20,24 @@ namespace ForumAPI.Controllers
     [ApiController]
     public class SectionTitleController : ControllerBase
     {
-        private readonly ISectionTitleService _SectionTitleService;
+        private readonly ISectionTitleService _sectionTitleService;
         private readonly UserManager<User> _userManager;
+        private readonly ForumDbContext _forumDbContext;
         private readonly IMapper _mapper;
+        private readonly ISectionService _sectionService;
         private readonly ILogger<SectionTitleController> _logger;
-        public SectionTitleController(ISectionTitleService sectionService, UserManager<User> userManager, ILogger<SectionTitleController> logger, IMapper mapper)
+        public SectionTitleController(ISectionTitleService sectionTitleService, 
+            ISectionService sectionService, 
+            UserManager<User> userManager, 
+            ILogger<SectionTitleController> logger, IMapper mapper,
+            ForumDbContext forumDbContext)
         {
-            _SectionTitleService = sectionService;
+            _sectionService = sectionService;
+            _sectionTitleService = sectionTitleService;
             _userManager = userManager;
             _mapper = mapper;
             _logger = logger;
-
+            _forumDbContext = forumDbContext;
         }
         //POST: /section/
         [HttpPost]
@@ -41,14 +50,14 @@ namespace ForumAPI.Controllers
                 _logger.LogError("Incorrect section name");
                 return BadRequest("Incorrect section name");
             }
-            try { await _SectionTitleService.AddAsync(SectionTitleModel); }
+            try { await _sectionTitleService.AddAsync(SectionTitleModel); }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
 
-            var SectionTitle = _SectionTitleService.GetAll().Last();
+            var SectionTitle = _sectionTitleService.GetAll().Last();
 
             return Ok(SectionTitle);
         }
@@ -56,7 +65,7 @@ namespace ForumAPI.Controllers
         [AllowAnonymous]
         public ActionResult<IEnumerable<SectionModel>> GetSection()
         {
-            var sectionsTitles = _SectionTitleService.GetAll();
+            var sectionsTitles = _sectionTitleService.GetAll();
             return Ok(sectionsTitles);
         }
         [HttpPut]
@@ -71,8 +80,17 @@ namespace ForumAPI.Controllers
             }
             try
             {
-                await _SectionTitleService.UpdateAsync(SectionTitleModel);
-              
+                
+                foreach (var section in SectionTitleModel.Sections)
+                {
+                    var sectionn = _sectionService.FindByName(section.Name).Result;
+                    sectionn.SectionTitleId = SectionTitleModel.Id;
+                    _forumDbContext.ChangeTracker.Clear();
+                    await _sectionService.UpdateAsync(sectionn);
+                }
+                SectionTitleModel.Sections = null;
+                await _sectionTitleService.UpdateAsync(SectionTitleModel);
+
             }
             catch (Exception ex)
             {
@@ -80,8 +98,9 @@ namespace ForumAPI.Controllers
                 return BadRequest(ex.Message);
             }
 
-           
-            return Ok(await _SectionTitleService.GetByIdAsync(SectionTitleModel.Id));
+            var updatedSectionTitle = await _sectionTitleService.GetByIdAsync(SectionTitleModel.Id);
+            updatedSectionTitle.Sections = null;
+            return Ok(updatedSectionTitle);
         }
     }
 }
