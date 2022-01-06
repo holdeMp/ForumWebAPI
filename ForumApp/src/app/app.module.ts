@@ -16,10 +16,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {  MatOptionModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import {  MatSelectModule } from '@angular/material/select';
+import { SectionTitleComponent } from './section-title/section-title.component';
+import { MainComponentComponent } from './main-component/main-component.component';
 // определение маршрутов
 const appRoutes: Routes =[
+  {path:'',component:MainComponentComponent},
   { path: 'ConfirmEmail', component: EmailconfirmationComponent},
   { path:'login',component:LoginformComponent},
+  { path:'sectiontitle/:id',component:SectionTitleComponent},
   { path: '*', component: NotFoundComponent }
 ];
 
@@ -27,6 +31,8 @@ const appRoutes: Routes =[
   declarations: [
     AppComponent,
     LoginformComponent,
+    SectionTitleComponent,
+    MainComponentComponent,
     
   ],
   imports: [

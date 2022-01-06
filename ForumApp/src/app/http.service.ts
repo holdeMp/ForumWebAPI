@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {RegisterUserModel} from './RegisterUserModel';
 import { LoginUserModel } from './loginUser';
 import { map, tap } from 'rxjs/operators';
@@ -16,6 +16,10 @@ export class HttpService{
       'Access-Control-Allow-Headers': 'Content-Type',
     }
     constructor(private http: HttpClient,private loginService:LoginService){ }
+    getSectionsByTitleId(id:number){
+      
+      return this.http.get('https://localhost:44381/section/'+id,{headers:this.headerDict,withCredentials:true});
+    }
     getSections(){
       return this.http.get('https://localhost:44381/section',{headers:this.headerDict,withCredentials:true});
     }

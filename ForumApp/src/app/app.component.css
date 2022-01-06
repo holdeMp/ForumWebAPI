@@ -22,23 +22,4 @@ input.ng-invalid+div{
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
 }
-.row {
-    background-color: blue;
-}
-.sectionTitle{
-    color: azure;
-    font-weight: 600;
-    font-size: x-large;
-    text-decoration: none;
-    
-}
-.section{
-    margin-left: 20px;
-    background-color: rgb(240, 92, 92);
-    color: aliceblue;
-    text-decoration: none;
-    font-size: 20px;
-}
-.section:hover{
-    color: green;
-}
+

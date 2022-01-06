@@ -83,6 +83,13 @@ namespace ForumAPI.Controllers
             var sections = _sectionService.GetAll();
             return Ok(sections);
         }
+        [HttpGet("{id:int}")]
+        [AllowAnonymous]
+        public ActionResult<IEnumerable<SectionModel>> GetSectionBySectionTitleId(int id)
+        {
+            var sections = _sectionService.GetAll().Where(i => i.SectionTitleId == id);
+            return Ok(sections);
+        }
         [HttpPut]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult> UpdateSection([FromBody] UpdateSectionModel updateSectionModel)
