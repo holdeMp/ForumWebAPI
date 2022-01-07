@@ -17,6 +17,7 @@ namespace DAL
         private readonly ForumDbContext db;
         private SectionRepository sectionsRepository;
         private SectionTitleRepository sectionsTitleRepository;
+        private SubSectionRepository _subSectionRepository;
         public UnitOfWork(ForumDbContext forumDbContext)
         {
             db = forumDbContext;
@@ -39,7 +40,17 @@ namespace DAL
                 return sectionsRepository;
             }
         }
+        public SubSectionRepository SubSections
+        {
+            get
+            {
+                if (_subSectionRepository == null)
+                    _subSectionRepository = new SubSectionRepository(db);
+                return _subSectionRepository;
+            }
+        }
         public ISectionRepository SectionRepository => Sections;
+        public ISubSectionRepository SubSectionRepository => SubSections;
 
         public ISectionTitleRepository SectionTitleRepository => SectionTitle;
 

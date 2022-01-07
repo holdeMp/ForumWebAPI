@@ -45,11 +45,6 @@ namespace ForumAPI.Controllers
         public async Task<ActionResult> Add([FromBody] SectionTitleModel SectionTitleModel)
         {
 
-            if (SectionTitleModel.Name == "" || SectionTitleModel.Name.Length < 3)
-            {
-                _logger.LogError("Incorrect section name");
-                return BadRequest("Incorrect section name");
-            }
             try { await _sectionTitleService.AddAsync(SectionTitleModel); }
             catch (Exception ex)
             {
@@ -73,7 +68,7 @@ namespace ForumAPI.Controllers
         public async Task<ActionResult> UpdateSection([FromBody] SectionTitleModel SectionTitleModel)
         {
 
-            if (SectionTitleModel.Name == "" || SectionTitleModel.Name.Length < 3)
+            if (SectionTitleModel.Name.Length < 3)
             {
                 _logger.LogError("Incorrect section name");
                 return BadRequest("Incorrect section name");

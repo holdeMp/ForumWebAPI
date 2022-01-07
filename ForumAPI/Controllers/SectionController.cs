@@ -43,12 +43,7 @@ namespace ForumAPI.Controllers
         {
             var SectionTitle = _SectionTitleService.FindByName(addSectionModel.SectionTitle).Result;
 
-            if (addSectionModel.Name == "" || _sectionService.GetAll().Select(i=>i.Name).Contains(addSectionModel.Name) || addSectionModel.Name.Length < 3)
-            {
-                _logger.LogError("Incorrect section name");
-                return BadRequest("Incorrect section name");
-            }
-            if (addSectionModel.SectionTitle == "" || SectionTitle==null || addSectionModel.SectionTitle.Length < 3)
+            if (SectionTitle==null)
             {
                 _logger.LogError("Incorrect section title name");
                 return BadRequest("Incorrect section title name");

@@ -22,6 +22,8 @@ import { UpdateSectionModel } from './models/UpdateSectionModel';
 import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/template';
 import { data } from 'jquery';
 import { HttpResponse } from '@angular/common/http';
+import { SubSectionModel } from './models/subSectionModel';
+import { SubSectionService } from './Services/subSection.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -39,6 +41,7 @@ export class AppComponent implements OnInit {
   registred :boolean = false;
   sectionsTitles:any;
   sections : any;
+  sub = [];
   ngOnInit() {
 
     this.httpService.getSections().subscribe((sections:any)=>{
@@ -46,14 +49,13 @@ export class AppComponent implements OnInit {
             this.sections = sections;
         }
       ); 
-    
     this.sectionTitleService.getSectionsTitles().subscribe((sectionsTitles:any)=>{
       console.log(sectionsTitles);
       this.sectionsTitles = sectionsTitles;
     })
   }
   //get sections with specific section title
-  public getSections(sections:any,sectionTitleId:number){
+  public getSectionsBySectionTitleId(sections:any,sectionTitleId:number){
     let sectionsWithSectionTitleId=[];
     for(let section of sections){
       if(section.sectionTitleId == sectionTitleId){
@@ -62,6 +64,24 @@ export class AppComponent implements OnInit {
     }
     return sectionsWithSectionTitleId;
   }
+  //add Sub Section 
+  public addSubSection(subSectionModel:any){
+    const sectionId = this.sectionService.findSectionIdByName(subSectionModel.value.Section,this.sections);
+    this.sub.push(this.subSectionService.postAddSection(new SubSectionModel(0,subSectionModel.value.SubSectionName,
+      sectionId)).subscribe(
+        async () => {
+          this.toastr.success("","Succesful adding new sub section",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
+          await new Promise(f => setTimeout(f, 1200));      
+          this.route.navigate(['']);
+          document.getElementById("addSubSectionButton").click();},
+        error => {     
+          this.toastr.error("Error while adding section");       
+        }))
+  }
+  addSubSectionForm = new FormGroup({
+    SubSectionName:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    Section:new FormControl('',[Validators.required])
+  }); 
   updateSectionTitleForm = new FormGroup({
     sectionTitleName:new FormControl('',[Validators.required,Validators.minLength(3)]),
     sections:new FormControl('',[Validators.required])
@@ -204,8 +224,11 @@ export class AppComponent implements OnInit {
   getUser():User{
     return this.loginService.user;
   }
-  constructor(private httpService: HttpService, private route: Router,private toastr: ToastrService,
-    private loginService :LoginService,private sectionTitleService:SectionTitleService,private sectionService:SectionService){
+  constructor(private httpService: HttpService,private subSectionService:SubSectionService, private route: Router,private toastr: ToastrService,
+    private loginService :LoginService,
+    private sectionTitleService:SectionTitleService,
+    private sectionService:SectionService,
+    ){
       
   }
 
@@ -233,7 +256,7 @@ export class AppComponent implements OnInit {
                     }
                 );
     }
-    login(user:any){
+  login(user:any){
       let userLoginModel = new LoginUserModel(user.value.loginUsername,user.value.loginPassword,user.value.rememberMe);
       this.httpService.postLogin(userLoginModel) .subscribe(
         (data: User) => {

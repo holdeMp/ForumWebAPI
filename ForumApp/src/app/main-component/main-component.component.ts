@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 import { HttpService } from '../http.service';
 import { SectionTitleService } from '../Services/sectionTitles.service';
 
@@ -11,22 +12,24 @@ export class MainComponentComponent implements OnInit {
   sectionsTitles:any;
   sections : any;
 
-  constructor(private httpService: HttpService,private sectionTitleService:SectionTitleService) { }
+  constructor(
+    private httpService: HttpService,
+    private sectionTitleService:SectionTitleService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.httpService.getSections().subscribe((sections:any)=>{
       console.log(sections);
       this.sections = sections;
       }
     ); 
-
     this.sectionTitleService.getSectionsTitles().subscribe((sectionsTitles:any)=>{
       console.log(sectionsTitles);
       this.sectionsTitles = sectionsTitles;
     })
+    
   }
   //get sections with specific section title
-  public getSections(sections:any,sectionTitleId:number){
+  public getSectionsWithSpecificTitleId(sections:any,sectionTitleId:number){
     let sectionsWithSectionTitleId=[];
     for(let section of sections){
       if(section.sectionTitleId == sectionTitleId){

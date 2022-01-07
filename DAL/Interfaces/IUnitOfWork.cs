@@ -10,6 +10,7 @@ namespace DAL.Interfaces
     {
         ISectionRepository SectionRepository { get;}
         ISectionTitleRepository SectionTitleRepository { get; }
+        ISubSectionRepository SubSectionRepository { get; }
         Task<int> SaveAsync();
     }
 

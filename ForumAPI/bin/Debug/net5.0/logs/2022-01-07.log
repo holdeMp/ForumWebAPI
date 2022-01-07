@@ -1,0 +1,46 @@
+2022-01-07 12:40:08.3639|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-07 12:40:08.3639|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-07 12:40:09.4542|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 12:40:09.4542|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 12:40:09.4722|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 12:40:09.4722|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 12:40:09.4798|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-07 12:40:09.4798|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 13:49:57.9079|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-07 13:49:57.9079|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-07 13:49:59.6015|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 13:49:59.6015|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 13:49:59.6179|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 13:49:59.6179|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 13:49:59.6179|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-07 13:49:59.6179|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 14:19:03.7595|0|INFO|ForumAPI.Controllers.LoginController|User login aimbodya 
+2022-01-07 14:19:03.7595|0|INFO|ForumAPI.Controllers.LoginController|User login aimbodya |url: https://localhost/api/login|action: Login|ForumAPI.Controllers.LoginController+<Login>d__6.MoveNext| body: 
+2022-01-07 14:19:14.7871|0|ERROR|ForumAPI.Controllers.SectionTitleController|Incorrect name 
+2022-01-07 14:19:14.7871|0|ERROR|ForumAPI.Controllers.SectionTitleController|Incorrect name |url: https://localhost/sectiontitle|action: Add|ForumAPI.Controllers.SectionTitleController.Add| body: 
+2022-01-07 14:37:03.0960|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-07 14:37:03.0960|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-07 14:37:05.2345|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 14:37:05.2345|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 14:37:05.2753|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 14:37:05.2753|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 14:37:05.2856|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-07 14:37:05.2856|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 14:37:47.8194|0|INFO|ForumAPI.Controllers.LoginController|User login aimbodya 
+2022-01-07 14:37:47.8194|0|INFO|ForumAPI.Controllers.LoginController|User login aimbodya |url: https://localhost/api/login|action: Login|ForumAPI.Controllers.LoginController+<Login>d__6.MoveNext| body: 
+2022-01-07 14:41:42.6263|0|INFO|ForumAPI.Controllers.LoginController|User logged out. 
+2022-01-07 14:41:42.6263|0|INFO|ForumAPI.Controllers.LoginController|User logged out. |url: https://localhost/logout|action: OnPost|ForumAPI.Controllers.LogoutController.OnPost| body: 
+2022-01-07 14:41:44.4697|0|INFO|ForumAPI.Controllers.LoginController|User login aimbodya 
+2022-01-07 14:41:44.4697|0|INFO|ForumAPI.Controllers.LoginController|User login aimbodya |url: https://localhost/api/login|action: Login|ForumAPI.Controllers.LoginController+<Login>d__6.MoveNext| body: 
+2022-01-07 14:42:52.7076|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-07 14:42:52.7076|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-07 14:42:54.6503|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-07 14:42:54.6503|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 14:42:54.6640|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-07 14:42:54.6640|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 14:42:54.6781|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-07 14:42:54.6781|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-07 14:51:46.5114|0|INFO|ForumAPI.Controllers.RolesController|Added section:Business.Models.SubSectionModel 
+2022-01-07 14:51:46.5114|0|INFO|ForumAPI.Controllers.RolesController|Added section:Business.Models.SubSectionModel |url: https://localhost/subsection|action: Add|ForumAPI.Controllers.SubSectionController+<Add>d__4.MoveNext| body: 
+2022-01-07 14:52:54.4968|0|INFO|ForumAPI.Controllers.RolesController|Added section:Business.Models.SubSectionModel 
+2022-01-07 14:52:54.4968|0|INFO|ForumAPI.Controllers.RolesController|Added section:Business.Models.SubSectionModel |url: https://localhost/subsection|action: Add|ForumAPI.Controllers.SubSectionController+<Add>d__4.MoveNext| body: 

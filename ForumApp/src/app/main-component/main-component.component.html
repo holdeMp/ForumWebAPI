@@ -1,7 +1,7 @@
 <div class="container-xxl">
     <div *ngFor="let sectionTitle of sectionsTitles" class="row">
         <a class="sectionTitle" [routerLink]="['/sectiontitle', sectionTitle.id]">{{sectionTitle.name}}</a>
-        <div *ngFor="let section of getSections(sections,sectionTitle.id)">
+        <div *ngFor="let section of getSectionsWithSpecificTitleId(sections,sectionTitle.id)">
         <a class="section">{{section.name}}</a>
         </div>
     </div>

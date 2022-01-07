@@ -26,7 +26,7 @@ namespace Business.Services
         }
         public async Task AddAsync(SectionTitleModel model)
         {
-            if (model.Name == "" || GetAll().Any(i => i.Name == model.Name))
+            if (model.Name == "   " ||model.Name.Length < 3 || GetAll().Any(i => i.Name == model.Name))
             {
                 throw new ForumException("Incorrect name");
             }

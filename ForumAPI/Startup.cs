@@ -53,6 +53,7 @@ namespace ForumAPI
             services.AddTransient<IMapper>(s => new Mapper(configuration));
             services.AddTransient<ISectionService, SectionService>();
             services.AddTransient<ISectionTitleService, SectionTitleService>();
+            services.AddTransient<ISubSectionService, SubSectionService>();
             services.AddControllers().AddNewtonsoftJson();
             services.AddIdentity<User, IdentityRole>(options=>options.User.RequireUniqueEmail=true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
