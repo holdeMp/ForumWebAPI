@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpService } from '../http.service';
+import { filter, map } from 'rxjs/operators';
 import { SectionService } from '../Services/section.service';
+import { SectionTitleService } from '../Services/sectionTitles.service';
 
 @Component({
   selector: 'app-section-title',
@@ -10,14 +11,17 @@ import { SectionService } from '../Services/section.service';
 })
 export class SectionTitleComponent implements OnInit {
 
-  constructor(private httpService: HttpService ,private _sectionService : SectionService,private _activatedRoute: ActivatedRoute,) { }
+  constructor(private _sectionService : SectionService,
+    private _activatedRoute: ActivatedRoute,
+    private _sectionTitleService:SectionTitleService) { }
   sections : any;
   sectionsByTitleId = [];
+  sectionTitle :any;
   sectionTitleId : number;
   sub=[];
   ngOnInit() {
     this.sub.push(this._activatedRoute.paramMap.subscribe(params => { 
-      console.log(params);
+      
       this.sectionTitleId = Number(params.get('id')); 
     }));
     //call the service
@@ -25,14 +29,25 @@ export class SectionTitleComponent implements OnInit {
         .subscribe((data: any) => {
           //when successful, data is returned here and you can do whatever with it
           this.sections = data;
-          console.log(this.sections);
+          
           this.sectionsByTitleId = this.getSectionByTitleId(this.sectionTitleId,this.sections);
         }, (err: Error) => {
             //When unsuccessful, this will run
             console.error('Something broke!', err);
             
         }));
-    
+    this.sub.push(this._sectionTitleService.getSectionsTitles$()
+    .subscribe((data:any)=>{
+      data.forEach(element => {
+        if(element.id==this.sectionTitleId){
+          this.sectionTitle = element
+        }
+      });
+    }, (err: Error) => {
+      //When unsuccessful, this will run
+      console.error('Something broke!', err);
+      
+    }));
   }
   ngOnDestroy() {
     for(let sb of this.sub){
@@ -48,6 +63,7 @@ export class SectionTitleComponent implements OnInit {
         resSectionsByTitleId.push(section);
       }
     }
+    
     return resSectionsByTitleId;
   }
 }

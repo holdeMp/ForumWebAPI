@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entities
+namespace Business.Models
 {
-    public class Answer
+    public class AnswerModel
     {
         public int Id { get; set; }
         public int ThemeId { get; set; }

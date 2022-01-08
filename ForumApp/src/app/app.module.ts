@@ -18,13 +18,20 @@ import { MatInputModule } from '@angular/material/input';
 import {  MatSelectModule } from '@angular/material/select';
 import { SectionTitleComponent } from './section-title/section-title.component';
 import { MainComponentComponent } from './main-component/main-component.component';
-// определение маршрутов
+import { SubsectionComponentComponent } from './subsection-component/subsection-component.component';
+const sectionRoutes: Routes = [
+  { path: 'section/:id', component: SubsectionComponentComponent}
+];
+//определение маршрутов
 const appRoutes: Routes =[
   {path:'',component:MainComponentComponent},
   { path: 'ConfirmEmail', component: EmailconfirmationComponent},
   { path:'login',component:LoginformComponent},
-  { path:'sectiontitle/:id',component:SectionTitleComponent},
-  { path: '*', component: NotFoundComponent }
+  { path:'sectiontitle/:id',component:SectionTitleComponent,children:sectionRoutes},
+  {path:'sectiontitle/:id/section/:id',component:SubsectionComponentComponent},
+  { path:'section/:id',component:SubsectionComponentComponent},
+  
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
@@ -33,6 +40,7 @@ const appRoutes: Routes =[
     LoginformComponent,
     SectionTitleComponent,
     MainComponentComponent,
+    SubsectionComponentComponent,
     
   ],
   imports: [

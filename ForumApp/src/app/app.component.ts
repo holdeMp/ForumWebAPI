@@ -42,17 +42,29 @@ export class AppComponent implements OnInit {
   sectionsTitles:any;
   sections : any;
   sub = [];
-  ngOnInit() {
-
-    this.httpService.getSections().subscribe((sections:any)=>{
-            console.log(sections);
-            this.sections = sections;
-        }
-      ); 
-    this.sectionTitleService.getSectionsTitles().subscribe((sectionsTitles:any)=>{
-      console.log(sectionsTitles);
-      this.sectionsTitles = sectionsTitles;
-    })
+  ngOnInit() { 
+    this.sub.push(this.sectionService.getSections$()
+        .subscribe((data: any) => {
+          //when successful, data is returned here and you can do whatever with it
+          this.sections = data;
+          
+          
+        }, (err: Error) => {
+            //When unsuccessful, this will run
+            console.error('Something broke!', err);
+            
+        }));
+    this.sub.push(this.sectionTitleService.getSectionsTitles$()
+    .subscribe((data: any) => {
+      //when successful, data is returned here and you can do whatever with it
+      this.sectionsTitles = data;
+      
+      
+    }, (err: Error) => {
+        //When unsuccessful, this will run
+        console.error('Something broke!', err);
+        
+    }));
   }
   //get sections with specific section title
   public getSectionsBySectionTitleId(sections:any,sectionTitleId:number){
@@ -67,7 +79,7 @@ export class AppComponent implements OnInit {
   //add Sub Section 
   public addSubSection(subSectionModel:any){
     const sectionId = this.sectionService.findSectionIdByName(subSectionModel.value.Section,this.sections);
-    this.sub.push(this.subSectionService.postAddSection(new SubSectionModel(0,subSectionModel.value.SubSectionName,
+    this.sub.push(this.subSectionService.postAddSubSection(new SubSectionModel(0,subSectionModel.value.SubSectionName,
       sectionId)).subscribe(
         async () => {
           this.toastr.success("","Succesful adding new sub section",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
@@ -279,4 +291,9 @@ export class AppComponent implements OnInit {
         }
     );
     }
+  ngOnDestroy() {
+    for(let sb of this.sub){
+      sb.unsubscribe();
+    }
+  }
 }

@@ -1,17 +1,17 @@
-.sectionTitle{
+.section{
     color: azure;
     font-weight: 600;
     font-size: x-large;
     text-decoration: none;  
 }
-.section{
+.subSection{
     margin-left: 20px;
     background-color: rgb(240, 92, 92);
     color: aliceblue;
     text-decoration: none;
     font-size: 20px;
 }
-.section:hover{
+.subSection:hover{
     color: green;
 }
 .row {

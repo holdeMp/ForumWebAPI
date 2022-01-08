@@ -16,10 +16,6 @@ export class HttpService{
       'Access-Control-Allow-Headers': 'Content-Type',
     }
     constructor(private http: HttpClient,private loginService:LoginService){ }
-    // getSectionsByTitleId(id:number){
-      
-    //   return this.http.get('https://localhost:44381/section/'+id,{headers:this.headerDict,withCredentials:true});
-    // }
     getSections(){
       return this.http.get('https://localhost:44381/section',{headers:this.headerDict,withCredentials:true});
     }

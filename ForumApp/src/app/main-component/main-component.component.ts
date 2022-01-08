@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { HttpService } from '../http.service';
+import { SectionService } from '../Services/section.service';
 import { SectionTitleService } from '../Services/sectionTitles.service';
+import { SubSectionService } from '../Services/subSection.service';
 
 @Component({
   selector: 'app-main-component',
@@ -11,22 +13,45 @@ import { SectionTitleService } from '../Services/sectionTitles.service';
 export class MainComponentComponent implements OnInit {
   sectionsTitles:any;
   sections : any;
-
+  sub = [];
+  subSections$ : any;
   constructor(
-    private httpService: HttpService,
-    private sectionTitleService:SectionTitleService) { }
+    
+    private _sectionService: SectionService,
+    private _sectionTitleService:SectionTitleService,
+    private _subSectionService:SubSectionService) { }
 
   ngOnInit() {
-    this.httpService.getSections().subscribe((sections:any)=>{
-      console.log(sections);
-      this.sections = sections;
-      }
-    ); 
-    this.sectionTitleService.getSectionsTitles().subscribe((sectionsTitles:any)=>{
-      console.log(sectionsTitles);
-      this.sectionsTitles = sectionsTitles;
-    })
+        //call the service
+    this.subSections$ = this._subSectionService.getSubSections();
+    this.sub.push(this._sectionService.getSections$()
+    .subscribe((data: any) => {
+      //when successful, data is returned here and you can do whatever with it
+      this.sections = data;
+     
+      
+    }, (err: Error) => {
+        //When unsuccessful, this will run
+        console.error('Something broke!', err);
+        
+    }));
+    this.sub.push(this._sectionTitleService.getSectionsTitles$()
+    .subscribe((data: any) => {
+      //when successful, data is returned here and you can do whatever with it
+      this.sectionsTitles = data;
+      
+      
+    }, (err: Error) => {
+        //When unsuccessful, this will run
+        console.error('Something broke!', err);
+        
+    }));
     
+  }
+  ngOnDestroy() {
+    for(let sb of this.sub){
+      sb.unsubscribe();
+    }
   }
   //get sections with specific section title
   public getSectionsWithSpecificTitleId(sections:any,sectionTitleId:number){

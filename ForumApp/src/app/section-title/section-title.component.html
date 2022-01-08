@@ -1,7 +1,10 @@
-<div class="container-xxl"> 
+
+<div *ngIf="outlet.isActivated == false" class="container-xxl"> 
     <div class="row">
+        <div *ngIf="sectionTitle" class="sectionTitle">{{sectionTitle.name}}</div>
         <div *ngFor="let section of sectionsByTitleId">
-            <a class="section">{{section.name}}</a>
+            <a class="section" [routerLink]="['./section' ,section.sectionId]">{{section.name}}</a>
         </div>
     </div>  
 </div>
+<router-outlet #outlet="outlet"></router-outlet>

@@ -18,3 +18,10 @@
 .row {
     background-color: blue;
 }
+.subsection{
+    margin-left: 40px;
+    background-color: rgb(4, 130, 214);
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 18px;
+}

@@ -45,5 +45,20 @@ namespace ForumAPI.Controllers
             _logger.LogInformation("Added section:" + addedSubSection);
             return Ok(addedSubSection);
         }
+        [HttpGet("{id:int}")]
+        [AllowAnonymous]
+        public ActionResult<IEnumerable<SectionModel>> GetSectionBySectionTitleId(int id)
+        {
+            var sections = _subSectionService.GetAll().Where(i => i.SectionId == id);
+            return Ok(sections);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult<IEnumerable<SectionModel>> GetSection()
+        {
+            var subSections = _subSectionService.GetAll();
+            return Ok(subSections);
+        }
     }
 }
