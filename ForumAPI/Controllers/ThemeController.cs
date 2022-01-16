@@ -29,8 +29,8 @@ namespace ForumAPI.Controllers
         }
         //POST: /theme/
         [HttpPost]
-        [Authorize(Roles = "user")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "user,admin")]
+        
         public async Task<ActionResult> Add([FromBody] AddThemeModel ThemeModel)
         {
             var addThemeModel = _mapper.Map<AddThemeModel, ThemeModel>(ThemeModel);

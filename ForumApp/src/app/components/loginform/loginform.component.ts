@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { LoginUserModel } from '../../loginUser';
 import { HttpService} from '../../http.service';
-import { LoginService} from '../../login.service';
+import { LoginService} from '../../Services/login.service';
 import { Router } from '@angular/router';
 import { passwordValidator } from '../../passvalidator.directive';
 import { ToastrService } from 'ngx-toastr';

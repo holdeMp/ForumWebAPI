@@ -6,7 +6,8 @@
             <a class="section" [routerLink]="['/section', section.sectionId]">{{section.name}}</a>
             <div class="d-flex flex-row">
                 <div  *ngFor="let subSection of (subSections$ | async)">
-                    <a *ngIf="subSection.sectionId==section.sectionId" class="subsection">{{subSection.name}}</a>
+                    <a *ngIf="subSection.sectionId==section.sectionId" [routerLink]="['/subsection', subSection.id]" 
+                    class="subsection">{{subSection.name}}</a>
                 </div>
             </div>
         </div>

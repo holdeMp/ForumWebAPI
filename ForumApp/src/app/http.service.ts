@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {RegisterUserModel} from './RegisterUserModel';
+import {RegisterUserModel} from './models/RegisterUserModel';
 import { LoginUserModel } from './loginUser';
 import { map, tap } from 'rxjs/operators';
-import { LoginService } from './login.service';
+import { LoginService } from './Services/login.service';
 import { SectionModel } from './models/sectionModel';
 import { SectionTitleModel } from './models/SectionTitleModel';
 import { Observable } from 'rxjs';

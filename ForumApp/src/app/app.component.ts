@@ -1,27 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import {RegisterUserModel} from './RegisterUserModel';
+import {RegisterUserModel} from './models/RegisterUserModel';
 import { HttpService} from './http.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { passwordValidator,match } from './passvalidator.directive';
 import { ToastrService } from 'ngx-toastr';
 import 'bootstrap';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
 import { LoginUserModel } from './loginUser';
 import { User } from './user';
-import { LoginService } from './login.service';
+import { LoginService } from './Services/login.service';
 import { SectionModel } from './models/sectionModel';
 import { SectionTitleModel } from './models/SectionTitleModel';
-import { Observable } from 'rxjs';
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { SectionTitleService } from './Services/sectionTitles.service';
 import { SectionService } from './Services/section.service';
 import { UpdateSectionModel } from './models/UpdateSectionModel';
-import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/template';
-import { data } from 'jquery';
-import { HttpResponse } from '@angular/common/http';
 import { SubSectionModel } from './models/subSectionModel';
 import { SubSectionService } from './Services/subSection.service';
 @Component({
@@ -190,7 +182,7 @@ export class AppComponent implements OnInit {
         this.toastr.success("","Succesful adding new section",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
         await new Promise(f => setTimeout(f, 1200));      
         this.route.navigate(['']);
-      document.getElementById("sectionButton").click();},
+        document.getElementById("sectionButton").click();},
       error => {     
         this.toastr.error("Error while adding section");       
       }
@@ -236,7 +228,10 @@ export class AppComponent implements OnInit {
   getUser():User{
     return this.loginService.user;
   }
-  constructor(private httpService: HttpService,private subSectionService:SubSectionService, private route: Router,private toastr: ToastrService,
+  constructor(private httpService: HttpService,
+    private subSectionService:SubSectionService, 
+    private route: Router,
+    private toastr: ToastrService,
     private loginService :LoginService,
     private sectionTitleService:SectionTitleService,
     private sectionService:SectionService,

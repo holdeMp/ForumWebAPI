@@ -1,284 +1,283 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="">Forum</a>
-    <button *ngIf="getLoginService().user && getLoginService().user.roles && getLoginService().user.roles.includes('admin')" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li *ngIf="getLoginService().user && getLoginService().user.roles.includes('admin')" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Admin panel
-            </a>
-            <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="btn" data-bs-toggle="modal" data-bs-target="#addSectionModal" id="sectionButton">Add Section</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="">Forum</a>
+      <button *ngIf="getLoginService().user && getLoginService().user.roles && getLoginService().user.roles.includes('admin')" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li *ngIf="getLoginService().user && getLoginService().user.roles.includes('admin')" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Admin panel
+              </a>
+              <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="btn" data-bs-toggle="modal" data-bs-target="#addSectionModal" id="sectionButton">Add Section</a>
 
-              </li>
-              <li><a class="btn" data-bs-toggle="modal" data-bs-target="#addSubSectionModal" id="addSubSectionButton">Add Sub Section</a></li>
-              <li><a class="btn" data-bs-toggle="modal" data-bs-target="#addSectionsTitleModal" id="sectionTitleButton">Add Sections Title</a></li>
-              <li><a class="btn" data-bs-toggle="modal" data-bs-target="#updateSectionsModal" id="updateSectionButton">Update Section</a></li>
-              <li><a class="btn" data-bs-toggle="modal" data-bs-target="#updateSectionTitleModal" id="updateSectionTitleButton">Update Section Title</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="d-flex flex-column ml-auto" id="navbarSearchEnter">
-        <form class="d-flex ml-auto">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" id="search-button" type="submit">Search</button>
-        </form>
-        <div *ngIf="getLoginService().user && getLoginService().user.userName.length>0 && getLoginService().user.id.length>0"> 
-          <div class="text-end mt-2">Welcome , {{getLoginService().user.userName}}</div>
+                </li>
+                <li><a class="btn" data-bs-toggle="modal" data-bs-target="#addSubSectionModal" id="addSubSectionButton">Add Sub Section</a></li>
+                <li><a class="btn" data-bs-toggle="modal" data-bs-target="#addSectionsTitleModal" id="sectionTitleButton">Add Sections Title</a></li>
+                <li><a class="btn" data-bs-toggle="modal" data-bs-target="#updateSectionsModal" id="updateSectionButton">Update Section</a></li>
+                <li><a class="btn" data-bs-toggle="modal" data-bs-target="#updateSectionTitleModal" id="updateSectionTitleButton">Update Section Title</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-        <div class="text-end" *ngIf="getLoginService().user">
-          <button class="btn btn-outline-dark" (click)="logout()">Log out</button>
-        </div>
-        <div class="d-flex flex-row ml-auto mt-2" *ngIf="!(getLoginService().user)">
-          <button class="btn btn-outline-dark "data-bs-toggle="modal" data-bs-target="#registerModal" id="registerButton">Sign Up</button>
-          <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Register New Account</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form ngNativeValidate [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
-                    <div class="form-group">
-                        <label>Enter username </label><span class="required"> *</span>
-                        <input class="form-control" required name="username" formControlName="username" minlength="2" />
-                    </div>
-                    <div class="form-group">
-                        <label>Enter email</label><span class="required"> *</span>
-                        <input type="email" required class="form-control" formControlName="email" name="email"  />
-                    </div>
-                    <div class="form-group">
-                        <label>Enter password</label><span class="required"> *</span>
-                        <input class="form-control" id="passVal" required name="password" formControlName="password" type="password"/>
-                        <div class="alert-danger" *ngIf="password && password.invalid && (password.dirty || password.touched)">
-                          <div class="Invalid" *ngIf="password.errors.minlength " >Password length must be more than 5</div>
-                          <div class="Invalid" *ngIf="password.errors.notnumber " >Password must contain number</div>
-                          <div class="Invalid" *ngIf="password.errors.notupper " >Password must contain upper character</div>
-                          <div class="Invalid" *ngIf="password.errors.notlower " >Password must contain lower character</div>
-                          
-                        </div>
-                    </div>
-                    <div class="form-group">
-                      <label>Confirm password</label><span class="required"> *</span>
-                      <input class="form-control" required name="passwordConfirm" formControlName="passwordConfirm"  type="password"/>
-                      <div class="alert-danger" *ngIf="passwordConfirm && passwordConfirm.errors && (passwordConfirm.dirty || passwordConfirm.touched)">
-                        <div class="Invalid" *ngIf="passwordConfirm.errors.notmatch " >Passwords don't match</div>
+        <div class="d-flex flex-column ml-auto" id="navbarSearchEnter">
+          <form class="d-flex ml-auto">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" id="search-button" type="submit">Search</button>
+          </form>
+          <div *ngIf="getLoginService().user && getLoginService().user.userName.length>0 && getLoginService().user.id.length>0"> 
+            <div class="text-end mt-2">Welcome , {{getLoginService().user.userName}}</div>
+          </div>
+          <div class="text-end" *ngIf="getLoginService().user">
+            <button class="btn btn-outline-dark" (click)="logout()">Log out</button>
+          </div>
+          <div class="d-flex flex-row ml-auto mt-2" *ngIf="!(getLoginService().user)">
+            <button class="btn btn-outline-dark "data-bs-toggle="modal" data-bs-target="#registerModal" id="registerButton">Sign Up</button>
+            <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register New Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form ngNativeValidate [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
+                      <div class="form-group">
+                          <label>Enter username </label><span class="required"> *</span>
+                          <input class="form-control" required name="username" formControlName="username" minlength="2" />
                       </div>
-                    </div>
-                  
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary ml-auto" [disabled]="registerForm.invalid">Register</button>
-                  </div>
-                </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#loginModal" id="loginButton">Log In</button>
-          <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Login </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form ngNativeValidate [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
-                    <div class="form-group">
-                        <label>Enter username or email </label><span class="required"> *</span>
-                        <input class="form-control" required name="username" formControlName="loginUsername" minlength="3" />
-                    </div>
-                    <div class="form-group">
-                        <label>Enter password</label><span class="required"> *</span>
-                        <input type="password" required class="form-control" formControlName="loginPassword" name="loginPassword"  />
-                        <div class="alert-danger" *ngIf="loginPassword && loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)">
-                          <div class="Invalid" *ngIf="loginPassword.errors.minlength " >Password length must be more than 5</div>
-                          <div class="Invalid" *ngIf="loginPassword.errors.notnumber " >Password must contain number</div>
-                          <div class="Invalid" *ngIf="loginPassword.errors.notupper " >Password must contain upper character</div>
-                          <div class="Invalid" *ngIf="loginPassword.errors.notlower " >Password must contain lower character</div>
-                          
+                      <div class="form-group">
+                          <label>Enter email</label><span class="required"> *</span>
+                          <input type="email" required class="form-control" formControlName="email" name="email"  />
+                      </div>
+                      <div class="form-group">
+                          <label>Enter password</label><span class="required"> *</span>
+                          <input class="form-control" id="passVal" required name="password" formControlName="password" type="password"/>
+                          <div class="alert-danger" *ngIf="password && password.invalid && (password.dirty || password.touched)">
+                            <div class="Invalid" *ngIf="password.errors.minlength " >Password length must be more than 5</div>
+                            <div class="Invalid" *ngIf="password.errors.notnumber " >Password must contain number</div>
+                            <div class="Invalid" *ngIf="password.errors.notupper " >Password must contain upper character</div>
+                            <div class="Invalid" *ngIf="password.errors.notlower " >Password must contain lower character</div>
+                            
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Confirm password</label><span class="required"> *</span>
+                        <input class="form-control" required name="passwordConfirm" formControlName="passwordConfirm"  type="password"/>
+                        <div class="alert-danger" *ngIf="passwordConfirm && passwordConfirm.errors && (passwordConfirm.dirty || passwordConfirm.touched)">
+                          <div class="Invalid" *ngIf="passwordConfirm.errors.notmatch " >Passwords don't match</div>
                         </div>
+                      </div>
+                    
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary ml-auto" [disabled]="registerForm.invalid">Register</button>
                     </div>
-                    <div class="mb-3 form-check">             
-                      <input type="checkbox" class="form-check-input" id="rememberCheck" formControlName="rememberMe">
-                      <label class="form-check-label" for="rememberCheck">Remember me</label>
-                    </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary ml-auto" [disabled]="loginForm.invalid">Log In</button>
+                  </form>
                   </div>
-                </form>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#loginModal" id="loginButton">Log In</button>
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form ngNativeValidate [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+                      <div class="form-group">
+                          <label>Enter username or email </label><span class="required"> *</span>
+                          <input class="form-control" required name="username" formControlName="loginUsername" minlength="3" />
+                      </div>
+                      <div class="form-group">
+                          <label>Enter password</label><span class="required"> *</span>
+                          <input type="password" required class="form-control" formControlName="loginPassword" name="loginPassword"  />
+                          <div class="alert-danger" *ngIf="loginPassword && loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)">
+                            <div class="Invalid" *ngIf="loginPassword.errors.minlength " >Password length must be more than 5</div>
+                            <div class="Invalid" *ngIf="loginPassword.errors.notnumber " >Password must contain number</div>
+                            <div class="Invalid" *ngIf="loginPassword.errors.notupper " >Password must contain upper character</div>
+                            <div class="Invalid" *ngIf="loginPassword.errors.notlower " >Password must contain lower character</div>
+                            
+                          </div>
+                      </div>
+                      <div class="mb-3 form-check">             
+                        <input type="checkbox" class="form-check-input" id="rememberCheck" formControlName="rememberMe">
+                        <label class="form-check-label" for="rememberCheck">Remember me</label>
+                      </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary ml-auto" [disabled]="loginForm.invalid">Log In</button>
+                    </div>
+                  </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-  </div>
-  <!--Update Section Title Modal code -->
-  <div class="modal fade" id="updateSectionTitleModal" tabindex="-1" aria-labelledby="sectionTitleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="sectionModalLabel">Update Section Title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form ngNativeValidate [formGroup]="updateSectionTitleForm" (ngSubmit)="updateSectionTitle(updateSectionTitleForm)">
-              <div class="form-group">                    
-                    <label for="sectionTitleName">Select Section Title to Update</label>                 
-                    <select class="form-select" [(ngModel)]="selectedSectionTitle" formControlName="sectionTitleName" id="sectionTitleName">                        
-                        <option *ngFor="let sectionTitle of sectionsTitles" [value]="sectionTitle.name">{{sectionTitle.name}}</option>                                                                      
-                    </select>              
-              </div>
-              <div *ngIf="selectedSectionTitle" class="form-group">
-                <label>Enter new section title name or stay unchanged </label><span class="required"> *</span>
-                <input class="form-control" [(value)]="selectedSectionTitle.name" required name="name" formControlName="sectionTitleName" minlength="3" />
-            </div>
-              <div *ngIf="selectedSectionTitle" class="form-group">                    
-                <label for="sectionTitle">Select Sections of Title</label>                 
-                <select class="form-select" multiple formControlName="sections" id="sectionTitle">                        
-                    <option *ngFor="let section of sections" [value]="section.name">{{section.name}}</option>                                                                      
-                </select>              
+    </div>
+    <!--Update Section Title Modal code -->
+    <div class="modal fade" id="updateSectionTitleModal" tabindex="-1" aria-labelledby="sectionTitleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sectionModalLabel">Update Section Title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-            
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary ml-auto" [disabled]="updateSectionTitleForm.invalid">Update</button>
+          <div class="modal-body">
+            <form ngNativeValidate [formGroup]="updateSectionTitleForm" (ngSubmit)="updateSectionTitle(updateSectionTitleForm)">
+                <div class="form-group">                    
+                      <label for="sectionTitleName">Select Section Title to Update</label>                 
+                      <select class="form-select" [(ngModel)]="selectedSectionTitle" formControlName="sectionTitleName" id="sectionTitleName">                        
+                          <option *ngFor="let sectionTitle of sectionsTitles" [value]="sectionTitle.name">{{sectionTitle.name}}</option>                                                                      
+                      </select>              
+                </div>
+                <div *ngIf="selectedSectionTitle" class="form-group">
+                  <label>Enter new section title name or stay unchanged </label><span class="required"> *</span>
+                  <input class="form-control" [(value)]="selectedSectionTitle.name" required name="name" formControlName="sectionTitleName" minlength="3" />
+              </div>
+                <div *ngIf="selectedSectionTitle" class="form-group">                    
+                  <label for="sectionTitle">Select Sections of Title</label>                 
+                  <select class="form-select" multiple formControlName="sections" id="sectionTitle">                        
+                      <option *ngFor="let section of sections" [value]="section.name">{{section.name}}</option>                                                                      
+                  </select>              
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Update Section Modal code -->
-  <div class="modal fade" id="updateSectionsModal" tabindex="-1" aria-labelledby="sectionTitleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="sectionModalLabel">Update Section</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form ngNativeValidate [formGroup]="updateSectionForm" (ngSubmit)="updateSection(updateSectionForm)">
-              <div class="form-group">                    
-                    <label for="sectionName">Select Section to Update</label>                 
-                    <select class="form-select" [(ngModel)]="selectedSection" formControlName="sectionName" id="sectionName">                        
-                        <option *ngFor="let section of sections" [value]="section.name">{{section.name}}</option>                                                                      
-                    </select>              
-              </div>
-              <div *ngIf="selectedSection" class="form-group">
-                <label>Enter new section name or stay unchanged </label><span class="required"> *</span>
-                <input class="form-control" [(value)]="selectedSection.name" required name="name" formControlName="sectionName" minlength="3" />
-            </div>
-              <div *ngIf="selectedSection" class="form-group">                    
-                <label for="sectionTitle">Select Section Title</label>                 
-                <select class="form-select" formControlName="sectionTitle" id="sectionTitle">                        
-                    <option *ngFor="let sectionTitle of sectionsTitles" [value]="sectionTitle.name">{{sectionTitle.name}}</option>                                                                      
-                </select>              
-          </div>
-            
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary ml-auto" [disabled]="updateSectionForm.invalid">Update</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Add Sections Title Modal code -->
-  <div class="modal fade" id="addSectionsTitleModal" tabindex="-1" aria-labelledby="sectionTitleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="sectionModalLabel">Add New Section Title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form ngNativeValidate [formGroup]="sectionTitleForm" (ngSubmit)="addSectionTitle(sectionTitleForm)">
-              <div class="form-group">
-                  <label>Enter sections title name </label><span class="required"> *</span>
-                  <input class="form-control" required name="name" formControlName="name" minlength="3" />
-              </div>
-            
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary ml-auto" [disabled]="sectionTitleForm.invalid">Add</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-    <!--Add SubSection Modal code -->
-  <div class="modal fade" id="addSubSectionModal" tabindex="-1" aria-labelledby="sectionTitleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="SubSectionModalLabel">Add New Sub Section</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form ngNativeValidate [formGroup]="addSubSectionForm" (ngSubmit)="addSubSection(addSubSectionForm)">
-              <div class="form-group">
-                  <label>Enter sub section name </label><span class="required"> *</span>
-                  <input class="form-control" required name="name" formControlName="SubSectionName" minlength="3" />
-              </div>
-              <div class="form-group">                    
-                <label for="sectionName">Choose Section of SubSection</label>                 
-                <select class="form-select" [(ngModel)]="selectedSection" formControlName="Section" id="Section">                        
-                    <option *ngFor="let section of sections" [value]="section.name">{{section.name}}</option>                                                                      
-                </select>              
-              </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary ml-auto" [disabled]="addSubSectionForm.invalid">Add</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Section Modal code -->
-  <div class="modal fade" id="addSectionModal" tabindex="-1" aria-labelledby="sectionModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="sectionModalLabel">Add New Section</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form ngNativeValidate [formGroup]="sectionForm" (ngSubmit)="addSection(sectionForm)">
-              <div class="form-group">
-                  <label>Enter section name </label><span class="required"> *</span>
-                  <input class="form-control" required name="name" formControlName="name" minlength="3" />
-              </div>
-              <div class="form-group">                    
-                <label for="sectionTitle">Select Section Title of new Section</label>                 
-                <select class="form-select" [(ngModel)]="selectedSection" formControlName="sectionTitle" id="sectionTitle">                        
-                    <option *ngFor="let sectionTitle of sectionsTitles" [value]="sectionTitle.name">{{sectionTitle.name}}</option>                                                                      
-                </select>              
-              </div>
+              
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary ml-auto" [disabled]="sectionForm.invalid">Add</button>
+                <button type="submit" class="btn btn-primary ml-auto" [disabled]="updateSectionTitleForm.invalid">Update</button>
               </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</nav>
-
+    <!--Update Section Modal code -->
+    <div class="modal fade" id="updateSectionsModal" tabindex="-1" aria-labelledby="sectionTitleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sectionModalLabel">Update Section</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form ngNativeValidate [formGroup]="updateSectionForm" (ngSubmit)="updateSection(updateSectionForm)">
+                <div class="form-group">                    
+                      <label for="sectionName">Select Section to Update</label>                 
+                      <select class="form-select" [(ngModel)]="selectedSection" formControlName="sectionName" id="sectionName">                        
+                          <option *ngFor="let section of sections" [value]="section.name">{{section.name}}</option>                                                                      
+                      </select>              
+                </div>
+                <div *ngIf="selectedSection" class="form-group">
+                  <label>Enter new section name or stay unchanged </label><span class="required"> *</span>
+                  <input class="form-control" [(value)]="selectedSection.name" required name="name" formControlName="sectionName" minlength="3" />
+              </div>
+                <div *ngIf="selectedSection" class="form-group">                    
+                  <label for="sectionTitle">Select Section Title</label>                 
+                  <select class="form-select" formControlName="sectionTitle" id="sectionTitle">                        
+                      <option *ngFor="let sectionTitle of sectionsTitles" [value]="sectionTitle.name">{{sectionTitle.name}}</option>                                                                      
+                  </select>              
+            </div>
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary ml-auto" [disabled]="updateSectionForm.invalid">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Add Sections Title Modal code -->
+    <div class="modal fade" id="addSectionsTitleModal" tabindex="-1" aria-labelledby="sectionTitleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sectionModalLabel">Add New Section Title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form ngNativeValidate [formGroup]="sectionTitleForm" (ngSubmit)="addSectionTitle(sectionTitleForm)">
+                <div class="form-group">
+                    <label>Enter sections title name </label><span class="required"> *</span>
+                    <input class="form-control" required name="name" formControlName="name" minlength="3" />
+                </div>
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary ml-auto" [disabled]="sectionTitleForm.invalid">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--Add SubSection Modal code -->
+    <div class="modal fade" id="addSubSectionModal" tabindex="-1" aria-labelledby="sectionTitleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="SubSectionModalLabel">Add New Sub Section</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form ngNativeValidate [formGroup]="addSubSectionForm" (ngSubmit)="addSubSection(addSubSectionForm)">
+                <div class="form-group">
+                    <label>Enter sub section name </label><span class="required"> *</span>
+                    <input class="form-control" required name="name" formControlName="SubSectionName" minlength="3" />
+                </div>
+                <div class="form-group">                    
+                  <label for="sectionName">Choose Section of SubSection</label>                 
+                  <select class="form-select" [(ngModel)]="selectedSection" formControlName="Section" id="Section">                        
+                      <option *ngFor="let section of sections" [value]="section.name">{{section.name}}</option>                                                                      
+                  </select>              
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary ml-auto" [disabled]="addSubSectionForm.invalid">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Section Modal code -->
+    <div class="modal fade" id="addSectionModal" tabindex="-1" aria-labelledby="sectionModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sectionModalLabel">Add New Section</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form ngNativeValidate [formGroup]="sectionForm" (ngSubmit)="addSection(sectionForm)">
+                <div class="form-group">
+                    <label>Enter section name </label><span class="required"> *</span>
+                    <input class="form-control" required name="name" formControlName="name" minlength="3" />
+                </div>
+                <div class="form-group">                    
+                  <label for="sectionTitle">Select Section Title of new Section</label>                 
+                  <select class="form-select" [(ngModel)]="selectedSection" formControlName="sectionTitle" id="sectionTitle">                        
+                      <option *ngFor="let sectionTitle of sectionsTitles" [value]="sectionTitle.name">{{sectionTitle.name}}</option>                                                                      
+                  </select>              
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary ml-auto" [disabled]="sectionForm.invalid">Add</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 <router-outlet></router-outlet>

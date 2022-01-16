@@ -2854,3 +2854,63 @@
 2022-01-16 17:36:05.6590|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
 2022-01-16 17:36:05.6753|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
 2022-01-16 17:36:05.6753|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 20:56:00.4072|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-16 20:56:00.4072|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-16 20:56:04.1426|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-16 20:56:04.1426|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 20:56:04.2234|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-16 20:56:04.2234|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 20:56:04.2347|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-16 20:56:04.2347|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:26:39.2303|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-16 23:26:39.2303|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-16 23:26:41.2285|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-16 23:26:41.2285|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:26:41.2425|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-16 23:26:41.2425|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:26:41.2425|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-16 23:26:41.2425|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:39:28.2314|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-16 23:39:28.2314|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-16 23:39:30.2207|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-16 23:39:30.2207|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:39:30.2354|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-16 23:39:30.2354|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:39:30.2501|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-16 23:39:30.2501|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:50:45.9166|0|INFO|ForumAPI.Controllers.LoginController|User login aimbodya 
+2022-01-16 23:50:45.9166|0|INFO|ForumAPI.Controllers.LoginController|User login aimbodya |url: https://localhost/api/login|action: Login|ForumAPI.Controllers.LoginController+<Login>d__6.MoveNext| body: 
+2022-01-16 23:52:45.3695|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-16 23:52:45.3695|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-16 23:52:47.1725|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-16 23:52:47.1725|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:52:47.1879|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-16 23:52:47.1879|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:52:47.1975|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-16 23:52:47.1975|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:55:04.5753|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-16 23:55:04.5753|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-16 23:55:06.3448|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-16 23:55:06.3448|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:55:06.3550|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-16 23:55:06.3550|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:55:06.3676|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-16 23:55:06.3676|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:55:38.1177|0|ERROR|ForumAPI.Controllers.ThemeController|Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ThemeModel -> Theme
+Business.Models.ThemeModel -> Data.Entities.Theme 
+2022-01-16 23:55:38.1177|0|ERROR|ForumAPI.Controllers.ThemeController|Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ThemeModel -> Theme
+Business.Models.ThemeModel -> Data.Entities.Theme |url: https://localhost/theme|action: Add|ForumAPI.Controllers.ThemeController.Add| body: 
+2022-01-16 23:58:34.9998|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-16 23:58:34.9998|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-16 23:58:36.8228|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-16 23:58:36.8228|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:58:36.8359|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-16 23:58:36.8359|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-16 23:58:36.8359|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-16 23:58:36.8359|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 

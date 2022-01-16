@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { User } from './user';
+import { User } from '../user';
 @Injectable({'providedIn':'root'})
 export class LoginService{
     httpOptions = null;

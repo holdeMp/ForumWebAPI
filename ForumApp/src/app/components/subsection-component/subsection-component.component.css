@@ -1,19 +1,22 @@
 .section{
-    color: azure;
-    font-weight: 600;
-    font-size: x-large;
-    text-decoration: none;  
-}
-.subSection{
-    margin-left: 20px;
-    background-color: rgb(240, 92, 92);
+    margin-left: 0px !important;
+    background-color: red;
     color: aliceblue;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 30px;
+}
+.section:hover{
+    color: rgb(16, 82, 187);
+    text-decoration: none;
+}
+.subSection{
+    margin-left: 20px ;
+    background-color: rgb(4, 130, 214);
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 18px;
 }
 .subSection:hover{
-    color: green;
-}
-.row {
-    background-color: blue;
+    color: #00FF00;
+    text-decoration: none;
 }

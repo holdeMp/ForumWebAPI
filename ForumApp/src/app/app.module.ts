@@ -36,6 +36,7 @@ const appRoutes: Routes =[
   { path:'sectiontitle/:id/section/:id',component:SubsectionComponentComponent},
   { path:'section/:id',component:SubsectionComponentComponent,children:subSectionRoutes},
   { path:'addtheme/:id',component:AddthemecomponentComponent},
+  { path:'subsection/:id',component:ThemeComponentsComponent},
   { path: '**', component: NotFoundComponent }
 ];
 

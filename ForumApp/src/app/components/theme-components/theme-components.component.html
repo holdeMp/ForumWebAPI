@@ -2,7 +2,7 @@
 <div class="container-xxl"> 
     <div class="row">
         <div *ngIf="subSection" class="subSection">{{subSection.name}}
-            <a class="float-end" [routerLink]="['../../../../addtheme',subSection.id]">Add Theme</a>
+            <button class="float-end" [routerLink]="['../../addtheme',subSection.id]">Add Theme</button>
         </div>
         <div *ngFor="let theme of (themes$ | async)">
             <a class="theme">{{theme.name}}</a>

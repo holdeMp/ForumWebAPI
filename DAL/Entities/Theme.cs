@@ -11,5 +11,6 @@ namespace Data.Entities
         public int SubSectionId { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
         public string Name { get; set; }
+        public string Content { get; set; }
     }
 }
