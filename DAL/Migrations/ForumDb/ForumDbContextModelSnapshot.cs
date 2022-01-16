@@ -35,10 +35,7 @@ namespace Data.Migrations.ForumDb
                     b.Property<int?>("ReferenceAnswerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SectionId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ThemeId")
+                    b.Property<int>("ThemeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -93,12 +90,12 @@ namespace Data.Migrations.ForumDb
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SectionID")
+                    b.Property<int>("SectionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SectionID");
+                    b.HasIndex("SectionId");
 
                     b.ToTable("SubSections");
                 });
@@ -110,11 +107,8 @@ namespace Data.Migrations.ForumDb
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AnswersCount")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MainAnswerId")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SubSectionId")
                         .HasColumnType("int");
@@ -123,8 +117,6 @@ namespace Data.Migrations.ForumDb
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MainAnswerId");
 
                     b.HasIndex("SubSectionId");
 
@@ -135,7 +127,9 @@ namespace Data.Migrations.ForumDb
                 {
                     b.HasOne("Data.Entities.Theme", null)
                         .WithMany("Answers")
-                        .HasForeignKey("ThemeId");
+                        .HasForeignKey("ThemeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Data.Entities.Section", b =>
@@ -153,22 +147,18 @@ namespace Data.Migrations.ForumDb
                 {
                     b.HasOne("Data.Entities.Section", null)
                         .WithMany("SubSections")
-                        .HasForeignKey("SectionID");
+                        .HasForeignKey("SectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Data.Entities.Theme", b =>
                 {
-                    b.HasOne("Data.Entities.Answer", "MainAnswer")
-                        .WithMany()
-                        .HasForeignKey("MainAnswerId");
-
                     b.HasOne("Data.Entities.SubSection", null)
                         .WithMany("Themes")
                         .HasForeignKey("SubSectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("MainAnswer");
                 });
 
             modelBuilder.Entity("Data.Entities.Section", b =>

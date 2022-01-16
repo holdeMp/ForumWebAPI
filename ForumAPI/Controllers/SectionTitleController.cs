@@ -39,7 +39,7 @@ namespace ForumAPI.Controllers
             _logger = logger;
             _forumDbContext = forumDbContext;
         }
-        //POST: /section/
+        //POST: /sectiontitle/
         [HttpPost]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult> Add([FromBody] SectionTitleModel SectionTitleModel)
@@ -52,20 +52,20 @@ namespace ForumAPI.Controllers
                 return BadRequest(ex.Message);
             }
 
-            var SectionTitle = _sectionTitleService.GetAll().Last();
+            
 
-            return Ok(SectionTitle);
+            return Ok(SectionTitleModel);
         }
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult<IEnumerable<SectionModel>> GetSection()
+        public ActionResult<IEnumerable<SectionModel>> GetSectionTitle()
         {
             var sectionsTitles = _sectionTitleService.GetAll();
             return Ok(sectionsTitles);
         }
         [HttpPut]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> UpdateSection([FromBody] SectionTitleModel SectionTitleModel)
+        public async Task<ActionResult> UpdateSectioTitle([FromBody] SectionTitleModel SectionTitleModel)
         {
 
             if (SectionTitleModel.Name.Length < 3)
@@ -94,7 +94,6 @@ namespace ForumAPI.Controllers
             }
 
             var updatedSectionTitle = await _sectionTitleService.GetByIdAsync(SectionTitleModel.Id);
-            updatedSectionTitle.Sections = null;
             return Ok(updatedSectionTitle);
         }
     }

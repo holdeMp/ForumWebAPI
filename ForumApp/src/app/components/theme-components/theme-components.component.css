@@ -1,0 +1,19 @@
+.subSection{
+    color: azure;
+    font-weight: 600;
+    font-size: x-large;
+    text-decoration: none;  
+}
+.theme{
+    margin-left: 20px;
+    background-color: rgb(240, 92, 92);
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 20px;
+}
+.theme:hover{
+    color: green;
+}
+.row {
+    background-color: blue;
+}

@@ -25,9 +25,13 @@ namespace ForumAPI.Controllers
         private readonly ForumDbContext _forumDbContext;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-         private readonly ILogger<RolesController> _logger;
+         private readonly ILogger<SectionController> _logger;
         private readonly ISectionTitleService _SectionTitleService;
-        public SectionController(ISectionService sectionService, ForumDbContext forumDbContext, IUnitOfWork unitOfWork,ISectionTitleService SectionTitleService, UserManager<User> userManager, ILogger<RolesController> logger, IMapper mapper)
+        public SectionController(ISectionService sectionService, 
+            ForumDbContext forumDbContext, 
+            IUnitOfWork unitOfWork,
+            ISectionTitleService SectionTitleService, UserManager<User> userManager, 
+            ILogger<SectionController> logger, IMapper mapper)
         {
             _sectionService = sectionService;
             _forumDbContext = forumDbContext;
@@ -73,7 +77,7 @@ namespace ForumAPI.Controllers
         }
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult<IEnumerable<SectionModel>> GetSection()
+        public ActionResult<IEnumerable<SectionModel>> GetSections()
         {
             var sections = _sectionService.GetAll();
             return Ok(sections);
@@ -82,8 +86,8 @@ namespace ForumAPI.Controllers
         [AllowAnonymous]
         public ActionResult<IEnumerable<SectionModel>> GetSectionBySectionTitleId(int id)
         {
-            var sections = _sectionService.GetAll().Where(i => i.SectionTitleId == id);
-            return Ok(sections);
+            var section = _sectionService.GetAll().Where(i => i.SectionTitleId == id);
+            return Ok(section);
         }
         [HttpPut]
         [Authorize(Roles = "admin")]

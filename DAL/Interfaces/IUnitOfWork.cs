@@ -11,6 +11,7 @@ namespace DAL.Interfaces
         ISectionRepository SectionRepository { get;}
         ISectionTitleRepository SectionTitleRepository { get; }
         ISubSectionRepository SubSectionRepository { get; }
+        IThemeRepository ThemeRepository { get; }
         Task<int> SaveAsync();
     }
 

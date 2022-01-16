@@ -41,5 +41,10 @@ namespace Data.Repositories
         {
             return Task.Run(() => { return db.SectionTitles.FirstOrDefault(i=>i.Name== SectionTitleName); }); ;
         }
+
+        public void Delete(SectionTitle entity)
+        {
+            db.SectionTitles.Remove(entity);
+        }
     }
 }

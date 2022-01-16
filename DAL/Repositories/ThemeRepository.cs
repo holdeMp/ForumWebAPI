@@ -21,6 +21,11 @@ namespace Data.Repositories
             await _db.Themes.AddAsync(entity);
         }
 
+        public void Delete(Theme entity)
+        {
+            _db.Themes.Remove(entity);
+        }
+
         public IQueryable<Theme> FindAll()
         {
             return _db.Themes.Select(i => i); 

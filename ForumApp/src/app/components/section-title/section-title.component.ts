@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
-import { SectionService } from '../Services/section.service';
-import { SectionTitleService } from '../Services/sectionTitles.service';
+import { SectionService } from '../../Services/section.service';
+import { SectionTitleService } from '../../Services/sectionTitles.service';
 
 @Component({
   selector: 'app-section-title',
@@ -48,12 +48,6 @@ export class SectionTitleComponent implements OnInit {
       console.error('Something broke!', err);
       
     }));
-  }
-  ngOnDestroy() {
-    for(let sb of this.sub){
-      sb.unsubscribe();
-    }
-    
   }
   //get sections by title id
   getSectionByTitleId(titleId:any,sections:any){

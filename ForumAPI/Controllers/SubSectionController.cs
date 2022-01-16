@@ -18,7 +18,7 @@ namespace ForumAPI.Controllers
     {
         private readonly ISubSectionService _subSectionService;
         private readonly IMapper _mapper;
-        private readonly ILogger<RolesController> _logger;
+        private readonly ILogger _logger;
         public SubSectionController(ISubSectionService subSectionService, 
             ILogger<RolesController> logger, IMapper mapper)
         {
@@ -47,7 +47,7 @@ namespace ForumAPI.Controllers
         }
         [HttpGet("{id:int}")]
         [AllowAnonymous]
-        public ActionResult<IEnumerable<SectionModel>> GetSectionBySectionTitleId(int id)
+        public ActionResult<IEnumerable<SectionModel>> GetSubSectionBySectionId(int id)
         {
             var sections = _subSectionService.GetAll().Where(i => i.SectionId == id);
             return Ok(sections);

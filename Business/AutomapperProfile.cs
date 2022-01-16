@@ -14,6 +14,7 @@ namespace Business
             CreateMap<Section, SectionModel>().ReverseMap();
             CreateMap<SectionTitle, SectionTitleModel>().ReverseMap();
             CreateMap<SubSection, SubSectionModel>().ReverseMap();
+            CreateMap<ThemeModel, AddThemeModel>().ReverseMap();
         }
     }
 }

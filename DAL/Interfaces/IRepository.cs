@@ -12,5 +12,6 @@ namespace DAL.Interfaces
         IQueryable<TEntity> FindAll();
         void Update(TEntity entity);
         Task<TEntity> GetByIdAsync(int id);
+        void Delete(TEntity entity);
     }
 }

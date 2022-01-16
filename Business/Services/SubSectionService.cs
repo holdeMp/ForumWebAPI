@@ -55,7 +55,8 @@ namespace Business.Services
         async Task<SubSectionModel> ICrud<SubSectionModel>.GetByIdAsync(int id)
         {
             var subSection = await _subSectionRep.GetByIdAsync(id);
-            return mapper.Map<SubSection, SubSectionModel>(subSection);
+            var subSectionModel = mapper.Map<SubSection, SubSectionModel>(subSection);
+            return subSectionModel;
         }
 
         public async Task UpdateAsync(SubSectionModel model)

@@ -15,6 +15,7 @@ namespace Data
         {
             if (!optionsBuilder.IsConfigured)
             {
+                optionsBuilder.UseLazyLoadingProxies();
                 var connectionString = (@"Data Source=DESKTOP-6SI6P58\\MSSQLSERVER01;Initial Catalog=ForumDB;Integrated Security=SSPI");
                 optionsBuilder.UseSqlServer(connectionString);
             }
@@ -24,5 +25,6 @@ namespace Data
         public DbSet<Section> Sections { get; set; }
         public DbSet<SubSection> SubSections { get; set; }
         public DbSet<Theme> Themes { get; set; }
+
     }
 }

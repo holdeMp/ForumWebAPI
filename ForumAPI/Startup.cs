@@ -54,7 +54,12 @@ namespace ForumAPI
             services.AddTransient<ISectionService, SectionService>();
             services.AddTransient<ISectionTitleService, SectionTitleService>();
             services.AddTransient<ISubSectionService, SubSectionService>();
-            services.AddControllers().AddNewtonsoftJson();
+
+            services.AddTransient<IThemeService, ThemeService>();
+
+            services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
             services.AddIdentity<User, IdentityRole>(options=>options.User.RequireUniqueEmail=true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.ConfigureApplicationCookie(options =>

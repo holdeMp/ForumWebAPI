@@ -1,0 +1,9 @@
+<div *ngIf="outlet.isActivated == false" class="container-xxl"> 
+    <div class="row">
+        <div *ngIf="section" class="section">{{section.name}}</div>
+        <div *ngFor="let subSection of (subSections$ | async)">
+            <a class="subSection" [routerLink]="['./subsection' ,subSection.id]">{{subSection.name}}</a>
+        </div>
+    </div>  
+</div>
+<router-outlet #outlet="outlet"></router-outlet>

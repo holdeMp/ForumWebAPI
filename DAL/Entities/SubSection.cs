@@ -9,6 +9,6 @@ namespace Data.Entities
         public int Id { get; set; }
         public int SectionId { get; set; }
         public string Name { get; set; }
-        public ICollection<Theme> Themes { get; set; }
+        public virtual ICollection<Theme> Themes { get; set; }
     }
 }

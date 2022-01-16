@@ -180,3 +180,5 @@ C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\obj\Debug\net5.0\ForumAPI.dll
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\obj\Debug\net5.0\ref\ForumAPI.dll
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\obj\Debug\net5.0\ForumAPI.pdb
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\obj\Debug\net5.0\ForumAPI.genruntimeconfig.cache
+C:\Users\molot\source\repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\molot\source\repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll

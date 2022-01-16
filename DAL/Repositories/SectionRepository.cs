@@ -35,11 +35,16 @@ namespace DAL.Repositories
 
         public void Update(Section entity)
         {
-            db.Entry(entity).State = EntityState.Modified; 
+           db.Entry(entity).State = EntityState.Modified; 
         }
         public Task<Section> FindByNameAsync(string sectionName)
         {
             return Task.Run(() => { return db.Sections.FirstOrDefault(i => i.Name == sectionName); }); ;
+        }
+
+        public void Delete(Section entity)
+        {
+            db.Sections.Remove(entity);
         }
     }
 }

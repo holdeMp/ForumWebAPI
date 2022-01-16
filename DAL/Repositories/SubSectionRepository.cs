@@ -39,5 +39,10 @@ namespace Data.Repositories
         {
             return Task.Run(() => { return _db.SubSections.FirstOrDefault(i => i.Name == sectionName); }); ;
         }
+
+        public void Delete(SubSection entity)
+        {
+            _db.SubSections.Remove(entity);
+        }
     }
 }

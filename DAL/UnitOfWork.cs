@@ -18,6 +18,7 @@ namespace DAL
         private SectionRepository sectionsRepository;
         private SectionTitleRepository sectionsTitleRepository;
         private SubSectionRepository _subSectionRepository;
+        private ThemeRepository _themeRepository;
         public UnitOfWork(ForumDbContext forumDbContext)
         {
             db = forumDbContext;
@@ -29,6 +30,15 @@ namespace DAL
                 if (sectionsTitleRepository == null)
                     sectionsTitleRepository = new SectionTitleRepository(db);
                 return sectionsTitleRepository;
+            }
+        }
+        public ThemeRepository Themes
+        {
+            get
+            {
+                if (_themeRepository == null)
+                    _themeRepository = new ThemeRepository(db);
+                return _themeRepository;
             }
         }
         public SectionRepository Sections
@@ -53,6 +63,7 @@ namespace DAL
         public ISubSectionRepository SubSectionRepository => SubSections;
 
         public ISectionTitleRepository SectionTitleRepository => SectionTitle;
+        public IThemeRepository ThemeRepository => Themes;
 
         public void Dispose()
         {

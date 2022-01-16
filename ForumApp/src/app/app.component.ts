@@ -41,9 +41,8 @@ export class AppComponent implements OnInit {
   registred :boolean = false;
   sectionsTitles:any;
   sections : any;
-  sub = [];
   ngOnInit() { 
-    this.sub.push(this.sectionService.getSections$()
+    this.sectionService.getSections$()
         .subscribe((data: any) => {
           //when successful, data is returned here and you can do whatever with it
           this.sections = data;
@@ -53,8 +52,8 @@ export class AppComponent implements OnInit {
             //When unsuccessful, this will run
             console.error('Something broke!', err);
             
-        }));
-    this.sub.push(this.sectionTitleService.getSectionsTitles$()
+        });
+        this.sectionTitleService.getSectionsTitles$()
     .subscribe((data: any) => {
       //when successful, data is returned here and you can do whatever with it
       this.sectionsTitles = data;
@@ -64,7 +63,7 @@ export class AppComponent implements OnInit {
         //When unsuccessful, this will run
         console.error('Something broke!', err);
         
-    }));
+    });
   }
   //get sections with specific section title
   public getSectionsBySectionTitleId(sections:any,sectionTitleId:number){
@@ -78,8 +77,9 @@ export class AppComponent implements OnInit {
   }
   //add Sub Section 
   public addSubSection(subSectionModel:any){
-    const sectionId = this.sectionService.findSectionIdByName(subSectionModel.value.Section,this.sections);
-    this.sub.push(this.subSectionService.postAddSubSection(new SubSectionModel(0,subSectionModel.value.SubSectionName,
+    const sectionId = this.sectionService.
+    findSectionIdByName(subSectionModel.value.Section,this.sections);
+    (this.subSectionService.postAddSubSection(new SubSectionModel(0,subSectionModel.value.SubSectionName,
       sectionId)).subscribe(
         async () => {
           this.toastr.success("","Succesful adding new sub section",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
@@ -291,9 +291,4 @@ export class AppComponent implements OnInit {
         }
     );
     }
-  ngOnDestroy() {
-    for(let sb of this.sub){
-      sb.unsubscribe();
-    }
-  }
 }
