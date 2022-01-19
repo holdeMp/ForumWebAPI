@@ -21,6 +21,7 @@ import { MainComponentComponent } from './components/main-component/main-compone
 import { SubsectionComponentComponent } from './components/subsection-component/subsection-component.component';
 import { ThemeComponentsComponent } from './components/theme-components/theme-components.component';
 import { AddthemecomponentComponent } from './components/addthemecomponent/addthemecomponent.component';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 const subSectionRoutes: Routes = [{ path: 'subsection/:id', 
 component: ThemeComponentsComponent}];
 const sectionRoutes: Routes = [
@@ -37,6 +38,7 @@ const appRoutes: Routes =[
   { path:'section/:id',component:SubsectionComponentComponent,children:subSectionRoutes},
   { path:'addtheme/:id',component:AddthemecomponentComponent},
   { path:'subsection/:id',component:ThemeComponentsComponent},
+  { path:'update-profile', component:UpdateProfileComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -49,6 +51,7 @@ const appRoutes: Routes =[
     SubsectionComponentComponent,
     ThemeComponentsComponent,
     AddthemecomponentComponent,
+    UpdateProfileComponent,
     
   ],
   imports: [

@@ -86,6 +86,7 @@ namespace ForumAPI
                 options.User.RequireUniqueEmail = true;
 
             });
+            services.AddCors();
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ForumApp/dist";

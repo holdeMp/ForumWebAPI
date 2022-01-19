@@ -73,7 +73,8 @@ namespace ForumAPI.Controllers
                         {
                             UserName = userByName.UserName,
                             Email = userByName.Email,
-                            AvatarPath = userByName.AvatarPath,
+                            AvatarName = userByName.AvatarName,
+                            ImageFile = userByName.ImageFile,
                             BirthDate = userByName.BirthDate,
                             RegistrationDate = userByName.RegistrationDate,
                             FirstName = userByName.FirstName,
@@ -100,7 +101,8 @@ namespace ForumAPI.Controllers
                         {
                             UserName = userByEmail.UserName,
                             Email = userByEmail.Email,
-                            AvatarPath = userByEmail.AvatarPath,
+                            AvatarName = userByName.AvatarName,
+                            ImageFile = userByName.ImageFile,
                             BirthDate = userByEmail.BirthDate,
                             RegistrationDate = userByEmail.RegistrationDate,
                             FirstName = userByEmail.FirstName,

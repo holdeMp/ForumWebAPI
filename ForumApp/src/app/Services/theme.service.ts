@@ -17,15 +17,15 @@ export class ThemeService{
     postAddTheme(theme: AddThemeModel)
     {                                                                                                                                                                                      
       const body = {name:theme.name,subSectionId:theme.subSectionId,
-    content:theme.content};
+      content:theme.content};
       return this.http.post('https://localhost:44381/theme', body,{headers:this.headerDict,withCredentials:true} ); 
     }
     getThemesBySubSectionsId$(subSectionId:any): Observable<any>{
-          this.themes = this.http.get(
-              'https://localhost:44381/theme/'
-              +subSectionId,
-              {headers:this.headerDict,withCredentials:true})
+      this.themes = this.http.get(
+          'https://localhost:44381/theme/'
+          +subSectionId,
+          {headers:this.headerDict,withCredentials:true})
           .pipe(share());
-          return this.themes;
+      return this.themes;
     }
 }

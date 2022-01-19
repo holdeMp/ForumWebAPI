@@ -1,0 +1,146 @@
+2022-01-19 10:42:49.5033|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-19 10:42:49.5033|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-19 10:42:52.9486|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-19 10:42:52.9486|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 10:42:52.9718|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-19 10:42:52.9718|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 10:42:52.9829|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-19 10:42:52.9829|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 10:55:10.8098|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: Nullable object must have a value.
+   at System.Nullable`1.get_Value()
+   at ForumAPI.Controllers.RegisterController.Update(UpdateUserModel updateUserModel) in C:\Users\molot\source\repos\ForumWebAPI\ForumAPI\Controllers\RegisterController.cs:line 76
+   at lambda_method127(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-01-19 10:55:10.8098|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: Nullable object must have a value.
+   at System.Nullable`1.get_Value()
+   at ForumAPI.Controllers.RegisterController.Update(UpdateUserModel updateUserModel) in C:\Users\molot\source\repos\ForumWebAPI\ForumAPI\Controllers\RegisterController.cs:line 76
+   at lambda_method127(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/api/Register|action: Update|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware+<Invoke>d__9.MoveNext| body: 
+2022-01-19 10:55:48.7167|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: Nullable object must have a value.
+   at System.Nullable`1.get_Value()
+   at ForumAPI.Controllers.RegisterController.Update(UpdateUserModel updateUserModel) in C:\Users\molot\source\repos\ForumWebAPI\ForumAPI\Controllers\RegisterController.cs:line 76
+   at lambda_method127(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-01-19 10:55:48.7167|1|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.InvalidOperationException: Nullable object must have a value.
+   at System.Nullable`1.get_Value()
+   at ForumAPI.Controllers.RegisterController.Update(UpdateUserModel updateUserModel) in C:\Users\molot\source\repos\ForumWebAPI\ForumAPI\Controllers\RegisterController.cs:line 76
+   at lambda_method127(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)|url: https://localhost/api/Register|action: Update|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware+<Invoke>d__9.MoveNext| body: 
+2022-01-19 11:00:20.1030|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-19 11:00:20.1030|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-19 11:00:21.8605|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-19 11:00:21.8605|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:00:21.8747|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-19 11:00:21.8747|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:00:21.8858|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-19 11:00:21.8858|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:01:07.6155|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: InvalidEmail. 
+2022-01-19 11:01:07.6155|13|WARN|Microsoft.AspNetCore.Identity.UserManager|User validation failed: InvalidEmail. |url: https://localhost/api/Register|action: Update|Microsoft.AspNetCore.Identity.UserManager`1+<ValidateUserAsync>d__172.MoveNext| body: 
+2022-01-19 11:01:29.7375|0|ERROR|ForumAPI.Controllers.RegisterController|Email '' is invalid. 
+2022-01-19 11:01:29.7375|0|ERROR|ForumAPI.Controllers.RegisterController|Email '' is invalid. |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:03:03.4850|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:03:03.4850|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:03:15.3468|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:03:15.3468|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:03:53.5709|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:03:53.5709|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:04:27.7231|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:04:27.7231|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:04:36.6214|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:04:36.6214|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:07:51.0586|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:07:51.0586|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:26:48.6594|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-19 11:26:48.6594|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-19 11:26:50.9485|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-19 11:26:50.9485|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:26:50.9620|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-19 11:26:50.9620|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:26:50.9620|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-19 11:26:50.9620|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:27:32.2560|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:27:32.2560|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:29:13.9395|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:29:13.9395|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:50:45.4754|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-19 11:50:45.4754|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-19 11:50:47.8114|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-19 11:50:47.8114|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:50:47.8238|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-19 11:50:47.8238|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:50:47.8352|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-19 11:50:47.8352|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:50:53.8175|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:50:53.8175|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:50:58.0223|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:50:58.0223|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:51:17.8261|0|DEBUG|ForumAPI.Program|Application start 
+2022-01-19 11:51:17.8261|0|DEBUG|ForumAPI.Program|Application start |url: |action: |ForumAPI.Program.Main| body: 
+2022-01-19 11:51:19.6919|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2022-01-19 11:51:19.6919|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:51:19.7074|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2022-01-19 11:51:19.7074|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:51:19.7164|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI 
+2022-01-19 11:51:19.7164|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted| body: 
+2022-01-19 11:51:57.5097|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:51:57.5097|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:52:00.7749|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:52:00.7749|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
+2022-01-19 11:52:06.0663|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile 
+2022-01-19 11:52:06.0663|0|INFO|ForumAPI.Controllers.RegisterController|User aimbodya updated profile |url: https://localhost/api/Register|action: Update|ForumAPI.Controllers.RegisterController+<Update>d__7.MoveNext| body: 
