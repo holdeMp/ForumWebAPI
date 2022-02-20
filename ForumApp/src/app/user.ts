@@ -11,9 +11,10 @@ export class User{
         public birthDate? : Date,
         public phoneNumberConfirmed? :boolean,
         public confirmedEmail?:boolean,
+        public image?:any,
         public roles?:string[],
         public token?:string
-    ){        
+    ){
     }
 
 }

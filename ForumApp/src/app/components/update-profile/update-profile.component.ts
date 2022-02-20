@@ -19,12 +19,12 @@ export class UpdateProfileComponent implements OnInit {
   }
   updateUserForm = new FormGroup({
     id:new FormControl(this.loginService.user.id),
-    email:new FormControl(''),
-    firstName:new FormControl(''),
-    lastName:new FormControl(''),
-    birthDate:new FormControl(''),
+    email:new FormControl(this.loginService.user.email),
+    firstName:new FormControl(this.loginService.user.firstName),
+    lastName:new FormControl(this.loginService.user.lastName),
+    birthDate:new FormControl(this.loginService.user.birthDate),
     imageFile:new FormControl(),
-    phoneNumber:new FormControl('')
+    phoneNumber:new FormControl(this.loginService.user.phoneNumber)
   });
   constructor(private loginService:LoginService,private toastr: ToastrService,
     private httpClient: HttpClient) { }
