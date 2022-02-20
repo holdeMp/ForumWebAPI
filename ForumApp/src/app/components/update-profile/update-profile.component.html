@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="form-group mt-5">
-            <button class="btn btn-danger btn-block btn-lg">Update</button>
+            <button [disabled]="updateUserForm.invalid" class="btn btn-danger btn-block btn-lg">Update</button>
         </div>
     </form>
 </div>

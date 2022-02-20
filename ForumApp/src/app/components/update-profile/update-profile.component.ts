@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Toast, ToastrService } from 'ngx-toastr';
+import { ImageService } from 'src/app/Services/image.service';
 import { LoginService } from 'src/app/Services/login.service';
 
 @Component({
@@ -12,6 +13,7 @@ import { LoginService } from 'src/app/Services/login.service';
 export class UpdateProfileComponent implements OnInit {
   user:any;
   image:any;
+
   headerDict = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -27,11 +29,23 @@ export class UpdateProfileComponent implements OnInit {
     phoneNumber:new FormControl(this.loginService.user.phoneNumber)
   });
   constructor(private loginService:LoginService,private toastr: ToastrService,
-    private httpClient: HttpClient) { }
+    private httpClient: HttpClient , private imageService:ImageService) { }
 
   ngOnInit(): void {
     this.user=this.loginService.user;
+    this.getImageFromService();
   }
+  createImageFromBlob(imageBlob: Blob) {
+       document.getElementById('output').setAttribute('src',URL.createObjectURL(imageBlob));
+  }
+  getImageFromService() {
+    this.imageService.getImage('https://localhost:44381/api/Images/' + this.user.id).subscribe(data => {
+      this.createImageFromBlob(data);      
+    }, error => {
+      
+      console.log(error);
+    });
+}
   UpdateProfile(userToUpdate:any){
     var formData: any = new FormData();
     formData.append('Id',userToUpdate.get('id').value);
@@ -57,7 +71,8 @@ export class UpdateProfileComponent implements OnInit {
     this.updateUserForm.patchValue({
       imageFile: file
     });
-    this.updateUserForm.get('imageFile').updateValueAndValidity()
+    this.updateUserForm.get('imageFile').updateValueAndValidity();
+    
     document.getElementById('output').setAttribute('src',URL.createObjectURL(this.image));
     
   }
