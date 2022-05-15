@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-
+﻿
 namespace Data.Entities
 {
     public class Answer
@@ -12,5 +8,7 @@ namespace Data.Entities
         public int AuthorId { get; set; }
         public int? ReferenceAnswerId { get; set; }
         public string Content { get; set; }
+        public int Likes { get; set; }
+        public int Dislikes { get; set; }
     }
 }

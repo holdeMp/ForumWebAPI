@@ -1,0 +1,14 @@
+<div *ngIf="outlet.isActivated == false" class="container-xxl"> 
+    <div class="row">
+        <div *ngIf="theme" class="theme-header">{{theme.name}}</div>
+        <div *ngIf="theme" class="theme-content"><p [innerHtml]=theme.content></p></div>
+        <div *ngIf="theme">
+            <div *ngIf="theme.answers !== undefined && theme.answers.length > 0">
+                <div *ngFor="let answer of theme.answers">
+                    <a class="answer" [routerLink]="['./answer',answer.id]">{{answer.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+<router-outlet #outlet="outlet"></router-outlet>

@@ -1,31 +1,22 @@
 using AutoMapper;
 using Business;
 using Business.Interfaces;
-using Business.Models;
 using Business.Services;
 using DAL;
 using DAL.Interfaces;
-using DAL.Repositories;
 using Data;
 using Data.Entities;
 using ForumAPI.Data;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ForumAPI
 {
@@ -49,13 +40,13 @@ namespace ForumAPI
             options.UseSqlServer(
                 Configuration.GetConnectionString("ForumDB")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IMapper>(s => new Mapper(configuration));
-            services.AddTransient<ISectionService, SectionService>();
-            services.AddTransient<ISectionTitleService, SectionTitleService>();
-            services.AddTransient<ISubSectionService, SubSectionService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IMapper>(s => new Mapper(configuration));
+            services.AddScoped<ISectionService, SectionService>();
+            services.AddScoped<ISectionTitleService, SectionTitleService>();
+            services.AddScoped<ISubSectionService, SubSectionService>();
 
-            services.AddTransient<IThemeService, ThemeService>();
+            services.AddScoped<IThemeService, ThemeService>();
 
             services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

@@ -32,6 +32,12 @@ namespace Data.Migrations.ForumDb
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Dislikes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Likes")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ReferenceAnswerId")
                         .HasColumnType("int");
 

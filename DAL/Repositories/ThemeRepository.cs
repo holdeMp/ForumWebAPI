@@ -36,9 +36,11 @@ namespace Data.Repositories
             return Task.Run(() => { return _db.Themes.Find(id); });
         }
 
-        public void Update(Theme entity)
+        public void Update(Theme theme)
         {
-            _db.Entry(entity).State = EntityState.Modified;
+            var entry = _db.Themes.First(e => e.Id == theme.Id);
+            _db.Entry(entry).CurrentValues.SetValues(theme);
+            _db.SaveChanges();
         }
     }
 }

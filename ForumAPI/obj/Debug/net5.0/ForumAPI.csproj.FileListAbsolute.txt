@@ -98,7 +98,6 @@ C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\ForumAPI.deps.
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\ForumAPI.runtimeconfig.json
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\ForumAPI.runtimeconfig.dev.json
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\ForumAPI.dll
-C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\ref\ForumAPI.dll
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\ForumAPI.pdb
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\Humanizer.dll
@@ -182,3 +181,4 @@ C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\obj\Debug\net5.0\ForumAPI.pdb
 C:\Users\molot\Source\Repos\ForumWebAPI\ForumAPI\obj\Debug\net5.0\ForumAPI.genruntimeconfig.cache
 C:\Users\molot\source\repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\molot\source\repos\ForumWebAPI\ForumAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\molot\source\repos\ForumWebAPI\ForumAPI\obj\Debug\net5.0\refint\ForumAPI.dll

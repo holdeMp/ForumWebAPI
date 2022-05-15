@@ -61,7 +61,6 @@ namespace Business.Services
         {
             var theme = await _themeRep.GetByIdAsync(id);
             return mapper.Map<Theme, ThemeModel>(theme);
-
         }
 
         public async Task UpdateAsync(ThemeModel model)

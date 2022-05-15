@@ -22,13 +22,16 @@ import { SubsectionComponentComponent } from './components/subsection-component/
 import { ThemeComponentsComponent } from './components/theme-components/theme-components.component';
 import { AddthemecomponentComponent } from './components/addthemecomponent/addthemecomponent.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { QuillModule } from 'ngx-quill';
+import { ThemeContentComponentComponent } from './components/theme-content-component/theme-content-component.component';
+
 const subSectionRoutes: Routes = [{ path: 'subsection/:id', 
 component: ThemeComponentsComponent}];
 const sectionRoutes: Routes = [
   { path: 'section/:id', component: SubsectionComponentComponent,children:subSectionRoutes}
 ];
 
-//определение маршрутов
+//paths definition
 const appRoutes: Routes =[
   { path:'',component:MainComponentComponent},
   { path: 'ConfirmEmail', component: EmailconfirmationComponent},
@@ -39,6 +42,7 @@ const appRoutes: Routes =[
   { path:'addtheme/:id',component:AddthemecomponentComponent},
   { path:'subsection/:id',component:ThemeComponentsComponent},
   { path:'update-profile', component:UpdateProfileComponent},
+  { path:'theme/:id', component:ThemeContentComponentComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -52,6 +56,7 @@ const appRoutes: Routes =[
     ThemeComponentsComponent,
     AddthemecomponentComponent,
     UpdateProfileComponent,
+    ThemeContentComponentComponent
     
   ],
   imports: [
@@ -68,6 +73,7 @@ const appRoutes: Routes =[
     MatInputModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    QuillModule.forRoot()
   ],
   providers: [            
     // Http Interceptor(s) -  adds with Client Credentials

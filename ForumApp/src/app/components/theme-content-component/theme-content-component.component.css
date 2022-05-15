@@ -1,0 +1,18 @@
+.theme-header{
+    background-color: rgb(7, 82, 180);
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 35px;
+    text-align: center;
+}
+.theme-header:hover{
+    color: green;
+}
+.row {
+    background-color: rgb(7, 82, 180);
+}
+.theme-content{
+    border-style: groove;
+    color: aliceblue;
+    font-size: 20px;
+}

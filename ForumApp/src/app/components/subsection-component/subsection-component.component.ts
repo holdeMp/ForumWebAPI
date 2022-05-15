@@ -16,7 +16,7 @@ export class SubsectionComponentComponent implements OnInit {
   sectionId : any;
   subSectionsBySectionId = [];
   constructor(
-    private _subSectionService:SubSectionService,
+    private _subSectionService: SubSectionService,
     private _activatedRoute: ActivatedRoute,
     private _sectionService : SectionService) { }
 

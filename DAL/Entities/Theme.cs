@@ -9,8 +9,8 @@ namespace Data.Entities
         public int Id { get; set; }
         public int ViewCount { get; set; }
         public int SubSectionId { get; set; }
+        public string Content { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
         public string Name { get; set; }
-        public string Content { get; set; }
     }
 }

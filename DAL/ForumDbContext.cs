@@ -1,16 +1,15 @@
 ﻿using Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Data
 {
-    public class ForumDbContext:DbContext
+    public class ForumDbContext : DbContext
     {
         public ForumDbContext(DbContextOptions<ForumDbContext> options) : base(options)
         {
+
         }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -20,6 +19,7 @@ namespace Data
                 optionsBuilder.UseSqlServer(connectionString);
             }
         }
+
         public DbSet<SectionTitle> SectionTitles { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Section> Sections { get; set; }

@@ -3,24 +3,29 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AddThemeModel } from 'src/app/models/AddThemeModel';
-import { ThemeModel } from 'src/app/models/themeModel';
 import { SubSectionService } from 'src/app/Services/subSection.service';
 import { ThemeService } from 'src/app/Services/theme.service';
+import { QuillConfiguration } from "./quillConfigurations.module";
 
 @Component({
   selector: 'app-addthemecomponent',
   templateUrl: './addthemecomponent.component.html',
   styleUrls: ['./addthemecomponent.component.css']
 })
+
+
 export class AddthemecomponentComponent implements OnInit {
   private subSectionId:any;
   subSection:any;
+  quillConfiguration = QuillConfiguration;
   constructor(private _activatedRoute: ActivatedRoute,
-    private themeService:ThemeService,
+    private themeService: ThemeService,
     private toastr: ToastrService,
     private route: Router,
-    private subSectionService:SubSectionService) { }
-  ngOnInit(): void {
+    private subSectionService: SubSectionService){}
+
+  ngOnInit(): void 
+  {
     this._activatedRoute.paramMap.subscribe(params => { 
       
       this.subSectionId = Number(params.get('id')); 
@@ -38,10 +43,12 @@ export class AddthemecomponentComponent implements OnInit {
         
     }
   }
+
   themeForm = new FormGroup({
     name:new FormControl('',[Validators.required,Validators.minLength(3)]),
     content:new FormControl('',[Validators.required,Validators.minLength(3)])
   });
+
   AddTheme(theme:any){  
     let newTheme = new AddThemeModel(theme.value.name,theme.value.content,this.subSectionId);
     this.themeService.postAddTheme(newTheme).subscribe(
@@ -50,7 +57,7 @@ export class AddthemecomponentComponent implements OnInit {
         await new Promise(f => setTimeout(f, 1200));      
         this.route.navigate(['']);
         },
-      error => {     
+      error => {
         this.toastr.error("Error while adding theme");       
       }
     );
