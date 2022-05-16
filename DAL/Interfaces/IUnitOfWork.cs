@@ -1,7 +1,4 @@
 ﻿using Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Interfaces
@@ -12,6 +9,7 @@ namespace DAL.Interfaces
         ISectionTitleRepository SectionTitleRepository { get; }
         ISubSectionRepository SubSectionRepository { get; }
         IThemeRepository ThemeRepository { get; }
+        IUserRepository UserRepository { get; }
         Task<int> SaveAsync();
     }
 
