@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using FluentValidation.AspNetCore;
 using System;
 
 namespace ForumAPI
@@ -39,6 +40,10 @@ namespace ForumAPI
             services.AddDbContext<ForumDbContext>(options =>
             options.UseSqlServer(
                 Configuration.GetConnectionString("ForumDB")));
+            services.AddMvc(setup =>
+            {
+                //...mvc setup...
+            }).AddFluentValidation();
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IMapper>(s => new Mapper(configuration));

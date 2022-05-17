@@ -12,10 +12,12 @@ namespace Data.Repositories
     public class ThemeRepository : IThemeRepository
     {
         private readonly ForumDbContext _db;
+
         public ThemeRepository(ForumDbContext forumDbContext)
         {
             _db = forumDbContext;
         }
+
         public async Task AddAsync(Theme entity)
         {
             await _db.Themes.AddAsync(entity);

@@ -9,5 +9,6 @@ namespace Business.Models
         public int SubSectionId { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
+        public AnswerModel Answer { get; set; }
     }
 }

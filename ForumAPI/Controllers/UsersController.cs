@@ -22,7 +22,7 @@ namespace ForumAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<User>> GetUser(string id)
+        public async Task<ActionResult<User>> GetUserInfo(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
             if(user == null)

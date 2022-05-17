@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Entities
 {
-    public class User:IdentityUser
+    public class User : IdentityUser
     {
         [Column(TypeName = "nvarchar(50)")]
         public string FirstName { get; set; }

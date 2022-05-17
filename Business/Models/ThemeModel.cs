@@ -11,6 +11,5 @@ namespace Business.Models
         public int SubSectionId { get; set; }
         public virtual ICollection<AnswerModel> Answers { get; set; }
         public string Name { get; set; }
-        public string Content { get; set; }
     }
 }
