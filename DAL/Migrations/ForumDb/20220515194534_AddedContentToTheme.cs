@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Data.Migrations.ForumDb
+namespace DAL.Migrations.ForumDb
 {
     public partial class AddedContentToTheme : Migration
     {

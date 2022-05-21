@@ -1,9 +1,9 @@
-﻿
-using Data.Entities;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using DAL.Entities;
+using Data;
 
-namespace Data.Repositories
+namespace DAL.Repositories
 {
     public class AnswerRepository : Interfaces.IAnswerRepository
     {
@@ -15,7 +15,7 @@ namespace Data.Repositories
             _db = forumDbContext;
         }
         public async Task AddAsync(Answer entity)
-        {
+        { 
             await _db.Answers.AddAsync(entity);
             await _db.SaveChangesAsync();
         }

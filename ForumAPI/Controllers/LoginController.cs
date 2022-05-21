@@ -1,6 +1,4 @@
 ﻿using Business.Models;
-using Data.Entities;
-using ForumAPI.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +13,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
+using DAL.Entities;
 
 namespace ForumAPI.Controllers
 {

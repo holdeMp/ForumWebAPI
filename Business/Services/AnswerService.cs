@@ -5,10 +5,9 @@ using Business.Interfaces;
 using Business.Models;
 using Business.Validation;
 using DAL.Interfaces;
-using Data.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Data.Entities;
+using DAL.Entities;
 
 namespace Business.Services
 {

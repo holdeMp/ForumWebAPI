@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Business.Interfaces;
 using Business.Models;
-using Data.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL.Entities;
 
 namespace ForumAPI.Controllers
 {
@@ -20,11 +20,13 @@ namespace ForumAPI.Controllers
         private readonly IThemeService _themeService;
         private readonly ILogger<ThemeController> _logger;
         private readonly IMapper _mapper;
+        private readonly IAnswerService _answerService;
 
         public ThemeController(ILogger<ThemeController> logger,IThemeService themeService
-             , IMapper mapper)
+             , IMapper mapper, IAnswerService answerService)
         {
             _themeService = themeService;
+            _answerService = answerService;
             _logger = logger;
             _mapper = mapper;
         }
@@ -32,12 +34,22 @@ namespace ForumAPI.Controllers
         //POST: /theme/
         [HttpPost]
         [Authorize(Roles = "user,admin")]
-        public async Task<ActionResult> Add([FromBody] AddThemeModel ThemeModel)
+        public async Task<ActionResult> Add([FromBody] AddThemeModel themeModel)
         {
-            var addThemeModel = _mapper.Map<AddThemeModel, ThemeModel>(ThemeModel);
+            var addThemeModel = _mapper.Map<AddThemeModel, ThemeModel>(themeModel);
             try
             {
                 await _themeService.AddAsync(addThemeModel);
+                var theme = await _themeService.FindByName(themeModel.Name);
+                if (theme == null)
+                {
+                    _logger.LogError($"Theme wasn't added, Theme name:{themeModel.Name}");
+                    return BadRequest($"Theme wasn't added, Theme name:{themeModel.Name}");
+                }
+
+                var answer = themeModel.Answer;
+                answer.ThemeId = theme.Id;
+                await _answerService.AddAsync(answer);
             }
             catch (Exception ex)
             {
@@ -45,7 +57,7 @@ namespace ForumAPI.Controllers
                 return BadRequest(ex.Message);
             }
 
-            return Ok(ThemeModel);
+            return Ok(themeModel);
         }
 
         [HttpGet]

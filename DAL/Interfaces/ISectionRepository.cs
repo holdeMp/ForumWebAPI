@@ -1,5 +1,5 @@
-﻿using Data.Entities;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using DAL.Entities;
 
 namespace DAL.Interfaces
 {

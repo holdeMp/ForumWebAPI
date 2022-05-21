@@ -1,9 +1,9 @@
 ﻿using DAL.Interfaces;
 using Data;
-using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL.Entities;
 
 namespace DAL.Repositories
 {

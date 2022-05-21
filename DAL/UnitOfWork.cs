@@ -1,8 +1,6 @@
 ﻿using DAL.Interfaces;
 using DAL.Repositories;
 using Data;
-using Data.Interfaces;
-using Data.Repositories;
 using System;
 using System.Threading.Tasks;
 

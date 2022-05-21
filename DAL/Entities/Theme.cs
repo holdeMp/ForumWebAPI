@@ -1,8 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-
-namespace Data.Entities
+namespace DAL.Entities
 {
     public class Theme
     {

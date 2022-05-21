@@ -1,7 +1,7 @@
-﻿using Data.Entities;
+﻿using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data
+namespace DAL
 {
     public class ForumDbContext : DbContext
     {

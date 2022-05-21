@@ -1,10 +1,10 @@
-﻿using Data.Entities;
-using Data.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using DAL.Entities;
+using DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
-namespace Data.Repositories
+namespace DAL.Repositories
 {
     public class SubSectionRepository:ISubSectionRepository
     {

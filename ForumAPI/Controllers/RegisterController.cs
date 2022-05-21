@@ -2,8 +2,6 @@
 using Business.Interfaces;
 using Business.Models;
 using Business.Models.UsersModels;
-using Data.Entities;
-using ForumAPI.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -19,6 +17,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using DAL;
+using DAL.Entities;
 
 namespace ForumAPI.Controllers
 {

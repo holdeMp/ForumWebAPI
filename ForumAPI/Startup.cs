@@ -5,8 +5,6 @@ using Business.Services;
 using DAL;
 using DAL.Interfaces;
 using Data;
-using Data.Entities;
-using ForumAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +19,7 @@ using System;
 using FluentValidation;
 using Business.Models;
 using Business.Validation;
+using DAL.Entities;
 
 namespace ForumAPI
 {

@@ -1,8 +1,7 @@
-﻿using DAL.Interfaces;
-using Data.Entities;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using DAL.Entities;
 
-namespace Data.Interfaces
+namespace DAL.Interfaces
 {
     public interface ISectionTitleRepository : IRepository<SectionTitle>
     {

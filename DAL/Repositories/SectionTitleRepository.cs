@@ -1,9 +1,10 @@
-﻿using Data.Entities;
-using Data.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-namespace Data.Repositories
+using DAL.Entities;
+using DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
+namespace DAL.Repositories
 {
     public class SectionTitleRepository : ISectionTitleRepository
     {

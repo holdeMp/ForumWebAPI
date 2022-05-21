@@ -3,17 +3,16 @@ using Business.Interfaces;
 using Business.Models;
 using DAL.Interfaces;
 using Data;
-using Data.Entities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL;
+using DAL.Entities;
 
 namespace ForumAPI.Controllers
 {

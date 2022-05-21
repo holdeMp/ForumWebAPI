@@ -1,8 +1,8 @@
-﻿using Data.Entities;
+﻿using DAL.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace ForumAPI.Data
+namespace DAL
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {

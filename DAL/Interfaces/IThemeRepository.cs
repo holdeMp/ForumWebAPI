@@ -1,9 +1,10 @@
-﻿using DAL.Interfaces;
-using Data.Entities;
+﻿using System.Threading.Tasks;
+using DAL.Entities;
 
-namespace Data.Interfaces
+namespace DAL.Interfaces
 {
     public interface IThemeRepository : IRepository<Theme>
     {
+        Task<Theme> FindByNameAsync(string themeName);
     }
 }

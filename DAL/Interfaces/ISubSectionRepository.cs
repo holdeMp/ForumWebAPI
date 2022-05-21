@@ -1,7 +1,6 @@
-﻿using DAL.Interfaces;
-using Data.Entities;
+﻿using DAL.Entities;
 
-namespace Data.Interfaces
+namespace DAL.Interfaces
 {
     public interface ISubSectionRepository : IRepository<SubSection>
     {

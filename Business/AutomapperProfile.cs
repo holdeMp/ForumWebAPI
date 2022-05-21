@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Business.Models;
-using Data.Entities;
+using DAL.Entities;
 
 namespace Business
 {
