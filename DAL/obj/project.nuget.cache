@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bdNEPNQRJa+bQ5q4jP2h+qnEKgxiDrZLflIa/WDKNYo/pJ1lC29ALnrMtu56Gc6b9iOMu0QacqdW11RtVdq6+Q==",
+  "dgSpecHash": "dzSL5x1h6o4JSetl2L5ocRop8jHosihAT7AQFqCmhlKHuAmnLYVQ2Lpm7UaCEUY+Uas3+lXnEk234OY6i0kX+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\Data.csproj",
+  "projectFilePath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\molot\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\molot\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

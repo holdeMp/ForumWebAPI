@@ -9,6 +9,7 @@ namespace DAL.Interfaces
         ISectionTitleRepository SectionTitleRepository { get; }
         ISubSectionRepository SubSectionRepository { get; }
         IThemeRepository ThemeRepository { get; }
+        IAnswerRepository AnswerRepository { get; }
         Task<int> SaveAsync();
     }
 

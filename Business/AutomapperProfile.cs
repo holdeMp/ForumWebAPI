@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
 using Business.Models;
-using DAL;
 using Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Business
 {
@@ -16,6 +12,7 @@ namespace Business
             CreateMap<SubSection, SubSectionModel>().ReverseMap();
             CreateMap<ThemeModel, AddThemeModel>().ReverseMap();
             CreateMap<ThemeModel, Theme>().ReverseMap();
+            CreateMap<AnswerModel, Answer>().ReverseMap();
         }
     }
 }

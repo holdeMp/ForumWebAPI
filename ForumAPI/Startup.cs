@@ -18,6 +18,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using FluentValidation.AspNetCore;
 using System;
+using FluentValidation;
+using Business.Models;
+using Business.Validation;
 
 namespace ForumAPI
 {
@@ -42,8 +45,9 @@ namespace ForumAPI
                 Configuration.GetConnectionString("ForumDB")));
             services.AddMvc(setup =>
             {
-                //...mvc setup...
+                
             }).AddFluentValidation();
+            services.AddTransient<IValidator<AnswerModel>, AnswerModelValidator>();
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IMapper>(s => new Mapper(configuration));

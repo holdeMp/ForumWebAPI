@@ -1,0 +1,13 @@
+C:\Users\molot\source\repos\ForumWebAPI\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
+C:\Users\molot\source\repos\ForumWebAPI\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.json
+C:\Users\molot\source\repos\ForumWebAPI\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.dev.json
+C:\Users\molot\source\repos\ForumWebAPI\DAL\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\molot\source\repos\ForumWebAPI\DAL\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\molot\source\repos\ForumWebAPI\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.AssemblyReference.cache
+C:\Users\molot\source\repos\ForumWebAPI\DAL\obj\Debug\netcoreapp3.1\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\molot\source\repos\ForumWebAPI\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+C:\Users\molot\source\repos\ForumWebAPI\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+C:\Users\molot\source\repos\ForumWebAPI\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
+C:\Users\molot\source\repos\ForumWebAPI\DAL\obj\Debug\netcoreapp3.1\DAL.dll
+C:\Users\molot\source\repos\ForumWebAPI\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\molot\source\repos\ForumWebAPI\DAL\obj\Debug\netcoreapp3.1\DAL.genruntimeconfig.cache

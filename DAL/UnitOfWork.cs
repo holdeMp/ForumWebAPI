@@ -3,67 +3,46 @@ using DAL.Repositories;
 using Data;
 using Data.Interfaces;
 using Data.Repositories;
-using ForumAPI.Data;
-using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
 {
     public class UnitOfWork : IDisposable, IUnitOfWork
     {
-        private readonly ForumDbContext db;
-        private SectionRepository sectionsRepository;
-        private SectionTitleRepository sectionsTitleRepository;
+        private readonly ForumDbContext _db;
+        private SectionRepository _sectionsRepository;
+        private SectionTitleRepository _sectionsTitleRepository;
         private SubSectionRepository _subSectionRepository;
         private ThemeRepository _themeRepository;
+        private AnswerRepository _answerRepository;
+
         public UnitOfWork(ForumDbContext forumDbContext)
         {
-            db = forumDbContext;
+            _db = forumDbContext;
         }
-        public SectionTitleRepository SectionTitle
+        public SectionTitleRepository SectionTitle => _sectionsTitleRepository ??= new SectionTitleRepository(_db);
+        public ThemeRepository Themes => _themeRepository ??= new ThemeRepository(_db);
+
+        public AnswerRepository Answers
         {
-            get
-            {
-                if (sectionsTitleRepository == null)
-                    sectionsTitleRepository = new SectionTitleRepository(db);
-                return sectionsTitleRepository;
-            }
-        }
-        public ThemeRepository Themes
-        {
-            get
-            {
-                if (_themeRepository == null)
-                    _themeRepository = new ThemeRepository(db);
-                return _themeRepository;
-            }
+            get { return _answerRepository ??= new AnswerRepository(_db); }
         }
         public SectionRepository Sections
         {
-            get
-            {
-                if (sectionsRepository == null)
-                    sectionsRepository = new SectionRepository(db);
-                return sectionsRepository;
-            }
+            get { return _sectionsRepository ??= new SectionRepository(_db); }
         }
         public SubSectionRepository SubSections
         {
-            get
-            {
-                if (_subSectionRepository == null)
-                    _subSectionRepository = new SubSectionRepository(db);
-                return _subSectionRepository;
-            }
+            get { return _subSectionRepository ??= new SubSectionRepository(_db); }
         }
         public ISectionRepository SectionRepository => Sections;
         public ISubSectionRepository SubSectionRepository => SubSections;
 
         public ISectionTitleRepository SectionTitleRepository => SectionTitle;
         public IThemeRepository ThemeRepository => Themes;
+
+        public IAnswerRepository AnswerRepository => Answers;
 
         public void Dispose()
         {
@@ -73,7 +52,7 @@ namespace DAL
 
         public Task<int> SaveAsync()
         {
-            return db.SaveChangesAsync();
+            return _db.SaveChangesAsync();
         }
 
         protected virtual void Dispose(bool disposing)

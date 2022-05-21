@@ -16,6 +16,7 @@ namespace Business.Services
         private readonly ISectionRepository sectionRep;
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
+
         public SectionService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.sectionRep = unitOfWork.SectionRepository;

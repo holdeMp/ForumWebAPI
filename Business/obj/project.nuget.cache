@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "homYUngRtqmpeXT3UdNchS21sswOfNxbuqn/xb6IhLopwu5yw2FWDpXNm1kLW8M6zWkW9saP+z7kfsJZN43Ifw==",
+  "dgSpecHash": "DaZH6+nkkHkswmoEmZvlpow6apJDNvTm+Ez6uKP0XGSMMzaSoGfNrA2gTBRQhFCr0udbBC6TIYXK3fgNScnZSA==",
   "success": true,
   "projectFilePath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\Business\\Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\molot\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\molot\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
+    "C:\\Users\\molot\\.nuget\\packages\\fluentvalidation\\11.0.1\\fluentvalidation.11.0.1.nupkg.sha512",
     "C:\\Users\\molot\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\molot\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\molot\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",

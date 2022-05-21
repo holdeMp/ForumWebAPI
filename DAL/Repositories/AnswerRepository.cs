@@ -17,6 +17,7 @@ namespace Data.Repositories
         public async Task AddAsync(Answer entity)
         {
             await _db.Answers.AddAsync(entity);
+            await _db.SaveChangesAsync();
         }
 
         public void Delete(Answer entity)

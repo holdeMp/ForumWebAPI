@@ -8198,9 +8198,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\Data.csproj",
-      "projectName": "Data",
-      "projectPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\DAL.csproj",
+      "projectName": "DAL",
+      "projectPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\molot\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\molot\\source\\repos\\ForumWebAPI\\DAL\\obj\\",
       "projectStyle": "PackageReference",
@@ -8279,7 +8279,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

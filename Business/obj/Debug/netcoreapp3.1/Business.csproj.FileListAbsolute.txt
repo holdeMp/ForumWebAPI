@@ -13,8 +13,6 @@ C:\Users\molot\source\repos\ForumAPI\Business\obj\Debug\netcoreapp3.1\Business.p
 C:\Users\molot\Source\Repos\ForumWebAPI\Business\bin\Debug\netcoreapp3.1\Business.deps.json
 C:\Users\molot\Source\Repos\ForumWebAPI\Business\bin\Debug\netcoreapp3.1\Business.dll
 C:\Users\molot\Source\Repos\ForumWebAPI\Business\bin\Debug\netcoreapp3.1\Business.pdb
-C:\Users\molot\Source\Repos\ForumWebAPI\Business\bin\Debug\netcoreapp3.1\Data.dll
-C:\Users\molot\Source\Repos\ForumWebAPI\Business\bin\Debug\netcoreapp3.1\Data.pdb
 C:\Users\molot\Source\Repos\ForumWebAPI\Business\obj\Debug\netcoreapp3.1\Business.csproj.AssemblyReference.cache
 C:\Users\molot\Source\Repos\ForumWebAPI\Business\obj\Debug\netcoreapp3.1\Business.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\molot\Source\Repos\ForumWebAPI\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfoInputs.cache
@@ -23,3 +21,5 @@ C:\Users\molot\Source\Repos\ForumWebAPI\Business\obj\Debug\netcoreapp3.1\Busines
 C:\Users\molot\Source\Repos\ForumWebAPI\Business\obj\Debug\netcoreapp3.1\Business.csproj.CopyComplete
 C:\Users\molot\Source\Repos\ForumWebAPI\Business\obj\Debug\netcoreapp3.1\Business.dll
 C:\Users\molot\Source\Repos\ForumWebAPI\Business\obj\Debug\netcoreapp3.1\Business.pdb
+C:\Users\molot\source\repos\ForumWebAPI\Business\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\molot\source\repos\ForumWebAPI\Business\bin\Debug\netcoreapp3.1\DAL.pdb
