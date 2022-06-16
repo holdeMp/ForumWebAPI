@@ -4,7 +4,6 @@ using Business.Interfaces;
 using Business.Services;
 using DAL;
 using DAL.Interfaces;
-using Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -48,13 +47,14 @@ namespace ForumAPI
             }).AddFluentValidation();
             services.AddTransient<IValidator<AnswerModel>, AnswerModelValidator>();
             services.AddDatabaseDeveloperPageExceptionFilter();
+            // Services
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IMapper>(s => new Mapper(configuration));
             services.AddScoped<ISectionService, SectionService>();
             services.AddScoped<ISectionTitleService, SectionTitleService>();
             services.AddScoped<ISubSectionService, SubSectionService>();
-
             services.AddScoped<IThemeService, ThemeService>();
+            services.AddScoped<IAnswerService, AnswerService>();
 
             services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

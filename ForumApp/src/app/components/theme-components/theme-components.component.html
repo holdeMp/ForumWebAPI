@@ -5,7 +5,7 @@
             <button class="float-end" [routerLink]="['/addtheme',subSection.id]">Add Theme</button>
         </div>
         <div *ngFor="let theme of (themes$ | async)">
-            <a class="theme" [routerLink]="['../../theme',theme.id]" >{{theme.name}}</a>
+            <a class="theme" [routerLink]="['/theme',theme.id]" >{{theme.name}}</a>
         </div>
     </div>  
 </div>

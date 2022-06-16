@@ -28,7 +28,7 @@ export class UpdateProfileComponent implements OnInit {
     imageFile:new FormControl(),
     phoneNumber:new FormControl(this.loginService.user.phoneNumber)
   });
-  constructor(private loginService:LoginService,private toastr: ToastrService,
+  constructor(public loginService:LoginService,private toastr: ToastrService,
     private httpClient: HttpClient , private imageService:ImageService) { }
 
   ngOnInit(): void {
@@ -46,13 +46,14 @@ export class UpdateProfileComponent implements OnInit {
       console.log(error);
     });
 }
+public dateToString = (date) => `${date.year}-${date.month}-${date.day}`;
   UpdateProfile(userToUpdate:any){
     var formData: any = new FormData();
     formData.append('Id',userToUpdate.get('id').value);
     formData.append('Email',userToUpdate.get('email').value);
     formData.append('FirstName',userToUpdate.get('firstName').value);
     formData.append('LastName',userToUpdate.get('lastName').value);
-    formData.append('BirthDate',userToUpdate.get('birthDate').value);
+    formData.append('BirthDate', this.dateToString(userToUpdate.get('birthDate').value));
     formData.append('ImageFile',userToUpdate.get('imageFile').value);
     formData.append('PhoneNumber',userToUpdate.get('phoneNumber').value);
     formData.append('AvatarName',userToUpdate.get('imageFile').value.name);
