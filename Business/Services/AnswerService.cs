@@ -8,17 +8,20 @@ using DAL.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DAL.Entities;
+using System.Linq;
 
 namespace Business.Services
 {
     public class AnswerService : IAnswerService
     {
         private readonly IAnswerRepository _answerRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public AnswerService(IAnswerRepository answerRepository, IMapper mapper)
+        public AnswerService(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _answerRepository = answerRepository;
+            _unitOfWork = unitOfWork;
+            _answerRepository = unitOfWork.AnswerRepository;
             _mapper = mapper;
         }
 
@@ -42,7 +45,9 @@ namespace Business.Services
 
         public IEnumerable<AnswerModel> GetAll()
         {
-            throw new System.NotImplementedException();
+            var result = _answerRepository.FindAll();
+            var answerModels = result.Select(x => new AnswerModel(x.Id,x.ThemeId,x.AuthorId,x.ReferenceAnswerId,x.Content));
+            return answerModels.ToList();
         }
 
         public Task<AnswerModel> GetByIdAsync(int id)

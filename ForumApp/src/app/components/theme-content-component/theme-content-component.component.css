@@ -16,3 +16,28 @@
     color: aliceblue;
     font-size: 20px;
 }
+.answer-list {
+    list-style-type: none;
+}
+.user{
+    color: aliceblue;
+    font-size: 25px;
+}
+.text{
+    font-size: 30px;
+    color: aliceblue;
+}
+.headertext{
+    background-color: blueviolet;
+    font-size: 30px;
+    color: aliceblue;
+}
+.quill{
+    background-color: aliceblue !important;
+    color: aliceblue !important;
+    font-size: 40px;
+}
+.form{
+    background-color: aliceblue !important;
+    font-size: larger;
+}

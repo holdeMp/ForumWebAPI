@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using DAL.Entities;
-using Data;
 
 namespace DAL.Repositories
 {
@@ -27,7 +26,7 @@ namespace DAL.Repositories
 
         public IQueryable<Answer> FindAll()
         {
-            throw new System.NotImplementedException();
+            return _db.Answers;
         }
 
         public Task<Answer> GetByIdAsync(int id)

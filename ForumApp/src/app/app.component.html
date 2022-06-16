@@ -21,7 +21,6 @@
                 <li><a class="btn" data-bs-toggle="modal" data-bs-target="#updateSectionsModal" id="updateSectionButton">Update Section</a></li>
                 <li><a class="btn" data-bs-toggle="modal" data-bs-target="#updateSectionTitleModal" id="updateSectionTitleButton">Update Section Title</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>
           </ul>
@@ -33,6 +32,9 @@
           </form>
           <div *ngIf="getLoginService().user && getLoginService().user.userName.length>0 && getLoginService().user.id.length>0"> 
             <div class="text-end mt-2">Welcome , {{getLoginService().user.userName}}</div>
+          </div>
+          <div class="text-end mb-1" *ngIf="getLoginService().user">
+            <button class="btn btn-outline-dark" (click)="updateProfile()">Update Profile</button>
           </div>
           <div class="text-end" *ngIf="getLoginService().user">
             <button class="btn btn-outline-dark" (click)="logout()">Log out</button>

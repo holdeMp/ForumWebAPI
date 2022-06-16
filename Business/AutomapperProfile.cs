@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Models;
 using DAL.Entities;
+using System.Linq;
 
 namespace Business
 {
@@ -13,6 +14,7 @@ namespace Business
             CreateMap<ThemeModel, AddThemeModel>().ReverseMap();
             CreateMap<ThemeModel, Theme>().ReverseMap();
             CreateMap<AnswerModel, Answer>().ReverseMap();
+            CreateMap<IQueryable<AnswerModel>, IQueryable<AnswerModel>>().ReverseMap();
         }
     }
 }

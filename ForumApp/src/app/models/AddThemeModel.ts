@@ -1,8 +1,10 @@
+import { AddAnswerModel } from "./AddAnswerModel";
+
 export class AddThemeModel{
     constructor( 
                 public name?: string,
-                public content?:string,
-                public subSectionId?:string)
+                public subSectionId?:string,
+                public addAnswerModel?:AddAnswerModel)
     {
       
     }

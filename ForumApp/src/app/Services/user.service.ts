@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 
 export class UserService
 {
+
+    private user : Observable<any>;
     constructor(private httpClient: HttpClient) 
     {
 
@@ -14,4 +16,12 @@ export class UserService
     {
         return this.httpClient.get(imageUrl, { responseType: 'blob' });
     }
+
+    getUserByUserId(authorId: string):Observable<any>{
+        this.user = this.httpClient.get(
+            'https://localhost:44381/api/Users?id='
+            +authorId,
+            {withCredentials:true});
+        return this.user;
+      }
 }

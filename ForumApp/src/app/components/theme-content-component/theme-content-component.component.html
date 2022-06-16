@@ -1,14 +1,30 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <div *ngIf="outlet.isActivated == false" class="container-xxl"> 
     <div class="row">
         <div *ngIf="theme" class="theme-header">{{theme.name}}</div>
         <div *ngIf="theme" class="theme-content"><p [innerHtml]=theme.content></p></div>
         <div *ngIf="theme">
-            <div *ngIf="theme.answers !== undefined && theme.answers.length > 0">
-                <div *ngFor="let answer of theme.answers">
-                    <a class="answer" [routerLink]="['./answer',answer.id]">{{answer.name}}</a>
+            <div *ngIf="answers !== undefined && answers.length > 0">
+                <div *ngFor="let answer of answers">
+                    <li class="answer-list">
+                        <div *ngIf="getUserById(answer.authorId)" class="user">{{getUserById(answer.authorId).userName}}</div>
+                        <div class="theme-content"><p [innerHtml]=answer.content></p></div>
+                    </li>
+                    
                 </div>
             </div>
         </div>
+        <div class="headertext container-xxl mt-5">Add Answer to theme</div>
+            <form ngNativeValidate [formGroup]="answerForm" (ngSubmit)="AddAnswer(answerForm)" class="container-xxl" class="form">
+            
+            <div class="form-group quill">
+
+            </div>
+
+                <quill-editor formControlName="content" [modules]="quillConfiguration" [styles]="{height: '200px', background:'white', theme:'snow'}"></quill-editor>
+
+                <button type="submit" class="btn btn-primary ml-auto" [disabled]="answerForm.invalid">Add answer</button>
+            </form>
     </div>  
 </div>
 <router-outlet #outlet="outlet"></router-outlet>

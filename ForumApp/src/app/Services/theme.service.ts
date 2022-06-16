@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { share } from "rxjs/operators";
+import { AddAnswerModel } from "../models/AddAnswerModel";
 import { AddThemeModel } from "../models/AddThemeModel";
 @Injectable({'providedIn':'root'})
 export class ThemeService{
@@ -17,8 +18,8 @@ export class ThemeService{
 
     postAddTheme(theme: AddThemeModel)
     {                                                                                                                                                                                      
-      const body = {name:theme.name,subSectionId:theme.subSectionId,
-      content:theme.content};
+      const body = {name:theme.name,subsectionid:theme.subSectionId,
+      content:theme.addAnswerModel.content,answer:theme.addAnswerModel};
       return this.http.post('https://localhost:44381/theme', body,{headers:this.headerDict,withCredentials:true} ); 
     }
 

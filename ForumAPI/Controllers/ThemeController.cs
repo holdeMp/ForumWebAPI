@@ -2,7 +2,6 @@
 using Business.Interfaces;
 using Business.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -43,7 +42,7 @@ namespace ForumAPI.Controllers
                 var theme = await _themeService.FindByName(themeModel.Name);
                 if (theme == null)
                 {
-                    _logger.LogError($"Theme wasn't added, Theme name:{themeModel.Name}");
+                    _logger.LogError("Theme wasn't added, Theme name:{themeModel.Name}", themeModel.Name);
                     return BadRequest($"Theme wasn't added, Theme name:{themeModel.Name}");
                 }
 
@@ -53,11 +52,29 @@ namespace ForumAPI.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
+                _logger.LogError("An error occured:{Error}",ex.Message);
                 return BadRequest(ex.Message);
             }
 
             return Ok(themeModel);
+        }
+
+        //POST: /theme/
+        [HttpPost("answer")]
+        [Authorize(Roles = "user,admin")]
+        public async Task<ActionResult> AddAnswer([FromBody] AnswerModel answerModel)
+        {
+            try
+            {
+                await _answerService.AddAsync(answerModel);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occured:{Error}", ex.Message);
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(answerModel);
         }
 
         [HttpGet]
@@ -75,6 +92,14 @@ namespace ForumAPI.Controllers
             var themesModels = _themeService.GetAll().Where(i => i.SubSectionId == id).ToList();
             var themes = _mapper.Map<ICollection<ThemeModel>, ICollection<Theme>>(themesModels);
             return Ok(themes);
+        }
+
+        [HttpGet("answers/theme/{id:int}")]
+        [AllowAnonymous]
+        public ActionResult<IEnumerable<Theme>> GetAnswersByThemeId(int id)
+        {
+            var answersModels = _answerService.GetAll().Where(i => i.ThemeId == id).ToList();
+            return Ok(answersModels);
         }
 
         [HttpGet("{id:int}")]

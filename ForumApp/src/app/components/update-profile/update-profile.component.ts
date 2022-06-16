@@ -32,7 +32,7 @@ export class UpdateProfileComponent implements OnInit {
     private httpClient: HttpClient , private imageService:ImageService) { }
 
   ngOnInit(): void {
-    this.user=this.loginService.user;
+    this.user = this.loginService.user;
     this.getImageFromService();
   }
   createImageFromBlob(imageBlob: Blob) {

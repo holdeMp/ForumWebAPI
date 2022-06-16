@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.Entities.Answer">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgIBAAAAAAAAAAAAAAAAAAACABQAAAAAAAA=</HashCode>
+      <FileName>Entities\Answer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Entities.Section">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAQgAAAAAAAAAABAAAAQAAA=</HashCode>
+      <FileName>Entities\Section.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SubSections" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DAL.Entities.SectionTitle">
+    <Position X="10" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Entities\SectionTitle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Sections" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DAL.Entities.SubSection">
+    <Position X="4.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Entities\SubSection.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Themes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DAL.Entities.Theme">
+    <Position X="10" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAABAAAABAAAAAAAAAQAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Theme.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Answers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DAL.Entities.User">
+    <Position X="12.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAEAAAAAAAAAEAAAAAAQAAQAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.IdentityUser">
+    <Position X="12.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

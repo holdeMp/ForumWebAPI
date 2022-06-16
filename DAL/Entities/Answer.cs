@@ -5,7 +5,7 @@ namespace DAL.Entities
     {
         public int Id { get; set; }
         public int ThemeId { get; set; }
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
         public int? ReferenceAnswerId { get; set; }
         public string Content { get; set; }
         public int Likes { get; set; }

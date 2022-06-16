@@ -23,6 +23,7 @@ namespace Business.Services
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
+
         public async Task AddAsync(SectionModel sectionModel)
         {
             if (sectionModel.Name=="   " || sectionModel.Name.Length < 3 || GetAll().Any(i=>i.Name==sectionModel.Name))

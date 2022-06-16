@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AddAnswerModel } from 'src/app/models/AddAnswerModel';
 import { AddThemeModel } from 'src/app/models/AddThemeModel';
+import { LoginService } from 'src/app/Services/login.service';
 import { SubSectionService } from 'src/app/Services/subSection.service';
 import { ThemeService } from 'src/app/Services/theme.service';
+import { User } from 'src/app/user';
 import { QuillConfiguration } from "./quillConfigurations.module";
 
 @Component({
@@ -22,7 +25,8 @@ export class AddthemecomponentComponent implements OnInit {
     private themeService: ThemeService,
     private toastr: ToastrService,
     private route: Router,
-    private subSectionService: SubSectionService){}
+    private subSectionService: SubSectionService,
+    private loginService:LoginService){}
 
   ngOnInit(): void 
   {
@@ -49,8 +53,11 @@ export class AddthemecomponentComponent implements OnInit {
     content:new FormControl('',[Validators.required,Validators.minLength(3)])
   });
 
-  AddTheme(theme:any){  
-    let newTheme = new AddThemeModel(theme.value.name,theme.value.content,this.subSectionId);
+  AddTheme(theme:any){
+    let authorId = this.loginService.user.id;
+    let newAnswer = new AddAnswerModel(authorId,theme.value.content);
+    let newTheme = new AddThemeModel(theme.value.name,this.subSectionId);
+    newTheme.addAnswerModel = newAnswer;
     this.themeService.postAddTheme(newTheme).subscribe(
       async () => {
         this.toastr.success("","Succesful adding new theme",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})

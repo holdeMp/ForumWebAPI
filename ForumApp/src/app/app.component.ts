@@ -218,6 +218,9 @@ export class AppComponent implements OnInit {
       }
     );
   }
+  updateProfile(){
+    this.route.navigate(["update-profile"]);
+  }
   getLoginService():LoginService{
     return this.loginService;
   }
