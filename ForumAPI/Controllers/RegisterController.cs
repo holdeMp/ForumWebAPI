@@ -64,8 +64,8 @@ namespace ForumAPI.Controllers
             var userToUpdate = await _userManager.FindByIdAsync(updateUserModel.Id);
             if (userToUpdate != null)
             {
-
-                userToUpdate.AvatarName = await SaveImage(updateUserModel.ImageFile,userToUpdate.UserName);
+                if(updateUserModel.ImageFile !=null)
+                    userToUpdate.AvatarName = await SaveImage(updateUserModel.ImageFile,userToUpdate.UserName);
 
     
                 if (updateUserModel.BirthDate != null)

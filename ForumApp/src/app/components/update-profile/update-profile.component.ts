@@ -56,7 +56,9 @@ public dateToString = (date) => `${date.year}-${date.month}-${date.day}`;
     formData.append('BirthDate', this.dateToString(userToUpdate.get('birthDate').value));
     formData.append('ImageFile',userToUpdate.get('imageFile').value);
     formData.append('PhoneNumber',userToUpdate.get('phoneNumber').value);
-    formData.append('AvatarName',userToUpdate.get('imageFile').value.name);
+     if(userToUpdate.get('imageFile').value){ 
+      formData.append('AvatarName',userToUpdate.get('imageFile').value.name);
+     }
     this.httpClient.put('https://localhost:44381/api/Register', formData).subscribe(
       (res) => this.toastr.success('Succesfully updated profile','Successful update'),
       (err) => this.toastr.error(err)

@@ -24,6 +24,7 @@ namespace ForumAPI.Controllers
             dbContext = applicationDbContext;
             _userManager = userManager;
         }
+
         [HttpPost]
         public async Task<ActionResult> CreateRole([FromBody] string parameterRole)
         {

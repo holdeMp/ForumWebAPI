@@ -28,7 +28,8 @@ export class ThemeComponentsComponent implements OnInit {
     this.subcribes.push(this._subSectionService.getSubSections()
     .subscribe((data:any)=>{
       data.forEach(element => {
-        if(element.sectionId==this.subSectionId){
+        console.log(element);
+        if(element.id == this.subSectionId){
           this.subSection = element
         }
       });

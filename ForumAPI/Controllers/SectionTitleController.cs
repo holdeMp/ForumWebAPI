@@ -53,6 +53,7 @@ namespace ForumAPI.Controllers
 
             return Ok(SectionTitleModel);
         }
+
         [HttpGet]
         [AllowAnonymous]
         public ActionResult<IEnumerable<SectionModel>> GetSectionTitle()
@@ -60,6 +61,7 @@ namespace ForumAPI.Controllers
             var sectionsTitles = _sectionTitleService.GetAll();
             return Ok(sectionsTitles);
         }
+
         [HttpPut]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult> UpdateSectioTitle([FromBody] SectionTitleModel SectionTitleModel)

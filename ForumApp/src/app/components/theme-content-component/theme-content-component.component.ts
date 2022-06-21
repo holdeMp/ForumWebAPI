@@ -68,29 +68,30 @@ export class ThemeContentComponentComponent implements OnInit {
     newAnswer.themeId = this.themeId;
     this._answerService.postAddAnswer(newAnswer).subscribe(
       async () => {
+            
         this.toast.success("","Succesful adding new answer",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
-        await new Promise(f => setTimeout(f, 1200));      
+          await new Promise(f => setTimeout(f, 1000));
+          window.location.reload(); 
         },
       error => {
         this.toast.error("Error while adding answer");       
       }
     );
   }
+
   getUsersById(authorId){
     let user;
-  this._userService.getUserByUserId(authorId)
+    this._userService.getUserByUserId(authorId)
       .subscribe((data:any)=>{
   
             user = data;
             this.users.push(user);
   
         }), (err: Error) => {
-          //When unsuccessful, this will run
-          console.error('Something broke!', err);
-          
-        }
-        
+          //When unsuccessful, this will run         
+        }    
   }
+
   getUserById(authorId){
     if(this.users && this.users.length > 0)
     {
