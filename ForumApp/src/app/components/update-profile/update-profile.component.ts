@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Toast, ToastrService } from 'ngx-toastr';
-import { ImageService } from 'src/app/Services/image.service';
-import { LoginService } from 'src/app/Services/login.service';
+import { ImageService } from 'src/app/services/image.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-update-profile',

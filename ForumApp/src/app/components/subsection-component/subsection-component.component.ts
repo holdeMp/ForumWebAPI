@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SectionService } from '../../Services/section.service';
-import { SectionTitleService } from '../../Services/sectionTitles.service';
-import { SubSectionService } from '../../Services/subSection.service';
+import { SectionService } from '../../services/section.service';
+import { SectionTitleService } from '../../services/sectionTitles.service';
+import { SubSectionService } from '../../services/subSection.service';
 
 @Component({
   selector: 'app-subsection-component',

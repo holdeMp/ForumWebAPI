@@ -63,7 +63,7 @@ const appRoutes: Routes =[
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: true }),
     FormsModule,
     MatFormFieldModule,
     MatOptionModule,
@@ -73,7 +73,8 @@ const appRoutes: Routes =[
     MatInputModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    HttpClientModule
   ],
   providers: [            
     // Http Interceptor(s) -  adds with Client Credentials

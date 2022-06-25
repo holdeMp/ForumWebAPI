@@ -3,8 +3,7 @@
 namespace DAL.Entities
 {
     public class Section
-    {
-        
+    {     
         public int SectionID { get; set; }
         public string Name { get; set; }
         public int SectionTitleId { get; set; }       

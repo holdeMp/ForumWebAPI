@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../../app.component';
-import { HttpService } from '../../http.service';
-import { SectionService } from '../../Services/section.service';
-import { SectionTitleService } from '../../Services/sectionTitles.service';
-import { SubSectionService } from '../../Services/subSection.service';
+import { Observable } from 'rxjs';
+import { SectionTitle } from 'src/app/models/RequestModels/sectionTitle';
+
+import { SectionService } from '../../services/section.service';
+import { SectionTitleService } from '../../services/sectionTitles.service';
+import { SubSectionService } from '../../services/subSection.service';
 
 @Component({
   selector: 'app-main-component',
@@ -11,18 +12,21 @@ import { SubSectionService } from '../../Services/subSection.service';
   styleUrls: ['./main-component.component.css']
 })
 export class MainComponentComponent implements OnInit {
-  sectionsTitles:any;
+  sectionsTitles : Observable<SectionTitle[]>;
   sections : any;
   subSections$ : any;
   constructor(
     
     private _sectionService: SectionService,
     private _sectionTitleService:SectionTitleService,
-    private _subSectionService:SubSectionService) { }
+    private _subSectionService:SubSectionService) {
+      this.sectionsTitles = this._sectionTitleService.sectionTitles;
+    }
 
   ngOnInit() {
         //call the service
     this.subSections$ = this._subSectionService.getSubSections();
+    
     this._sectionService.getSections$()
     .subscribe((data: any) => {
       //when successful, data is returned here and you can do whatever with it
@@ -34,18 +38,7 @@ export class MainComponentComponent implements OnInit {
         console.error('Something broke!', err);
         
     });
-    this._sectionTitleService.getSectionsTitles$()
-    .subscribe((data: any) => {
-      //when successful, data is returned here and you can do whatever with it
-      this.sectionsTitles = data;
-      
-      
-    }, (err: Error) => {
-        //When unsuccessful, this will run
-        console.error('Something broke!', err);
-        
-    });
-    
+    this._sectionTitleService.fetchSectionTitleData();
   }
   //get sections with specific section title
   public getSectionsWithSpecificTitleId(sections:any,sectionTitleId:number){

@@ -4,10 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AddAnswerModel } from 'src/app/models/AddAnswerModel';
 import { AddThemeModel } from 'src/app/models/AddThemeModel';
-import { LoginService } from 'src/app/Services/login.service';
-import { SubSectionService } from 'src/app/Services/subSection.service';
-import { ThemeService } from 'src/app/Services/theme.service';
-import { User } from 'src/app/user';
+import { LoginService } from 'src/app/services/login.service';
+import { SubSectionService } from 'src/app/services/subSection.service';
+import { ThemeService } from 'src/app/services/theme.service';
+import { User } from 'src/app/models/user';
 import { QuillConfiguration } from "./quillConfigurations.module";
 
 @Component({

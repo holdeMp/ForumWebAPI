@@ -3,10 +3,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Toast, ToastrService } from 'ngx-toastr';
 import { AddAnswerModel } from 'src/app/models/AddAnswerModel';
-import { AnswerService } from 'src/app/Services/answer.service';
-import { LoginService } from 'src/app/Services/login.service';
-import { ThemeService } from 'src/app/Services/theme.service';
-import { UserService } from 'src/app/Services/user.service';
+import { AnswerService } from 'src/app/services/answer.service';
+import { LoginService } from 'src/app/services/login.service';
+import { ThemeService } from 'src/app/services/theme.service';
+import { UserService } from 'src/app/services/user.service';
 import { QuillConfiguration } from './quillConfigurations.module';
 
 @Component({
@@ -70,7 +70,7 @@ export class ThemeContentComponentComponent implements OnInit {
       async () => {
             
         this.toast.success("","Succesful adding new answer",{timeOut:2000,progressBar:true,progressAnimation:'increasing'})
-          await new Promise(f => setTimeout(f, 1000));
+          await new Promise(f => setTimeout(f, 1500));
           window.location.reload(); 
         },
       error => {

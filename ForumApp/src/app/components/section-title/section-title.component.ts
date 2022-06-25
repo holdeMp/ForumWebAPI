@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
-import { SectionService } from '../../Services/section.service';
-import { SectionTitleService } from '../../Services/sectionTitles.service';
+import { SectionService } from '../../services/section.service';
+import { SectionTitleService } from '../../services/sectionTitles.service';
 
 @Component({
   selector: 'app-section-title',
@@ -36,7 +36,7 @@ export class SectionTitleComponent implements OnInit {
             console.error('Something broke!', err);
             
         }));
-    this.sub.push(this._sectionTitleService.getSectionsTitles$()
+    this.sub.push(this._sectionTitleService.getSectionsTitles$(false)
     .subscribe((data:any)=>{
       data.forEach(element => {
         if(element.id==this.sectionTitleId){

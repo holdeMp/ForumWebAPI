@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SectionService } from 'src/app/Services/section.service';
-import { SubSectionService } from 'src/app/Services/subSection.service';
-import { ThemeService } from 'src/app/Services/theme.service';
+import { SectionService } from 'src/app/services/section.service';
+import { SubSectionService } from 'src/app/services/subSection.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-theme-components',
